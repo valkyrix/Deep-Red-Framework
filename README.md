@@ -8,9 +8,9 @@ Items in __bold__ are currently being worked on.
 Items ~~ruled~~ are completed.
 
 * ~~Do background research on Machine Learning models and finalise design~~
-* Find or create a legal dataset (Shodan api?)
+* Find or create a legal dataset (Shodan api?). Rapid7 had a project called Sonar which spawned scans.io (very interesting).
 * ~~Automate the sanitization and collation of data (CVE's etc)~~
-* __Standardize data from network reports in order to input into RNN__
+* __Standardize data from network reports in order to input into RNN.__
 * __Create overall outlining framework.__
 * __Random Forest and RNN integration. Possibly using Keras ontop of Theano.__
 * Train the models.
@@ -22,3 +22,4 @@ Items ~~ruled~~ are completed.
 * Project documentation (Thesis/Journal).
 
 #### Please check back soon for more details.
+
