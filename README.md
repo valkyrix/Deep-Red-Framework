@@ -21,5 +21,6 @@ Items ~~ruled~~ are completed.
 * The possibility of using virtual environments such as docker to run all tools required.
 * Project documentation (Thesis/Journal).
 
+__current problem: figuring out what to make the RNN calculate, what features and labels it should have.__
 #### Please check back soon for more details.
 
