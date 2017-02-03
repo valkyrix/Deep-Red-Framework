@@ -1,18 +1,24 @@
 # Deep-Red-Framework
+
 ## Implementing Deep Learning techniques to construct a Red Teaming solution
+
 ### Tasks
+
 Items in __bold__ are currently being worked on.
+Items ~~ruled~~ are completed.
 
 * ~~Do background research on Machine Learning models and finalise design~~
-* Find or create a legal dataset
-* __ Automate the sanitization and collation of data (CVE's etc)__
-* Standardize data from network reports in order to input into RNN
-* __ Create overall outlining framework with ML aspects.__
+* Find or create a legal dataset (Shodan api?)
+* ~~Automate the sanitization and collation of data (CVE's etc)~~
+* __Standardize data from network reports in order to input into RNN__
+* __Create overall outlining framework.__
+* __Random Forest and RNN integration. Possibly using Keras ontop of Theano.__
 * Train the models.
 * Test the models.
-* ~~Metasploit cli integration. Find a way to script meterpreter into python scripts.~~
-* Program report creation section
-* Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, theano, python and linux environments to be taken into account.
-* Project documentation
+* ~~Metasploit cli integration. Find a way to script meterpreter into python scripts.~~ note: msgrpc module needs to be running in order to script metasploit (needs to be executed manually on windows systems)
+* Technical report creation section
+* Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, postgresql, theano/anaconda and linux environments to be taken into account.
+* The possibility of using virtual environments such as docker to run all tools required.
+* Project documentation (Thesis/Journal).
 
 #### Please check back soon for more details.
