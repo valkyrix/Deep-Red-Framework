@@ -16,6 +16,7 @@ Items ~~ruled~~ are completed.
 * Train the models.
 * Test the models.
 * ~~Metasploit cli integration. Find a way to script meterpreter into python scripts.~~ note: msgrpc module needs to be running in order to script metasploit (needs to be executed manually on windows systems)
+* Automate metasploit exploit checker based off of random forest results.
 * Technical report creation section
 * Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, postgresql, theano/anaconda and linux environments to be taken into account.
 * The possibility of using virtual environments such as docker to run all tools required.
