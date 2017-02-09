@@ -27,5 +27,7 @@ __current problem: figuring out what to make the RNN calculate, what features an
 
 The CPU version (Dockerfile.cpu) will run on all the above operating systems. However, the GPU version (Dockerfile.gpu) will only run on Linux OS. This is because Docker runs inside a virtual machine on Windows and OS X. Virtual machines don't have direct access to the GPU on the host. Unless PCI passthrough is implemented for these hosts, GPU support isn't available on non-Linux OSes at the moment.
 
+https://github.com/valkyrix/res-     - Docker resource folder
+
 #### Please check back soon for more details.
 
