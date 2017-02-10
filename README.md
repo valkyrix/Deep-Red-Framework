@@ -20,7 +20,7 @@ Items ~~ruled~~ are completed.
 * Technical report creation section
 * Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, postgresql, theano/anaconda and linux environments to be taken into account.
 * ~~The possibility of using virtual environments such as docker to run all tools required. Using a windows host creates a small issue as mentioned below.~~
-* ~~Building dockerfile with ML tools and metasploit ~~,nessus~~. this should dramatically reduce prototype time even if its restricted to cpu for now.~~ Dockerfile can be found on docker resource git res-.
+* ~~Building dockerfile with ML tools and metasploit ,nessus. this should dramatically reduce prototype time even if its restricted to cpu for now.~~ Dockerfile can be found on docker resource git res-.
 * Project documentation (Thesis/Journal).
 
 __current problem: figuring out what to make the RNN calculate, what features and labels it should have. Deciding on what vulnerability to focus on for a POC__
