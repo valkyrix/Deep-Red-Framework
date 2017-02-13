@@ -33,6 +33,8 @@ modified metasploit 3 build ps1 script in order to install properly.
 
 Downsides to using metasploit are that it has no support for common Web application tests such as SQL injection and input tampering.
 
+The possibility of using multiple plugins for metasploit to aid time constraints, such as this one: https://github.com/darkoperator/Metasploit-Plugins
+
 docker theano performance test:
 ![perf_test](https://s18.postimg.org/b4ajbnh55/docker_perf_test.jpg)
 
