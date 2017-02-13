@@ -29,6 +29,13 @@ Testing out the possibility of using metasploitable 2/3 as a test machine for th
 
 Cant use Metasploitable 2 due to it only working on Vmware which does not run when Hyper-v is enabled (required for docker on windows) therefore docker and metasploitable 2 cannot be run concurrently on w10.
 
+modified metasploit 3 build ps1 script in order to install properly. 
+
+Downsides to using metasploit are that it has no support for common Web application tests such as SQL injection and input tampering.
+
+docker theano performance test:
+![perf_test](https://s18.postimg.org/b4ajbnh55/docker_perf_test.jpg)
+
 The CPU version (Dockerfile.cpu) will run on all the above operating systems. However, the GPU version (Dockerfile.gpu) will only run on Linux OS. This is because Docker runs inside a virtual machine on Windows and OS X. Virtual machines don't have direct access to the GPU on the host. Unless PCI passthrough is implemented for these hosts, GPU support isn't available on non-Linux OSes at the moment.
 
 #### Please check back soon for more details.
