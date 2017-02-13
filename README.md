@@ -18,13 +18,14 @@ Items ~~ruled~~ are completed.
 * ~~Metasploit cli integration. Find a way to script meterpreter into python scripts.~~ note: msgrpc module needs to be running in order to script metasploit (needs to be executed manually on windows systems). Possibility of using rc files on linux instead of python.
 * Automate metasploit exploit checker based off of random forest results.
 * Technical report creation section
-* Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, postgresql, theano/anaconda and linux environments to be taken into account.
+* ~~Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, postgresql, theano/anaconda and linux environments to be taken into account.~~ Nessus reports get taken from docker share folder, which is the only program not being internally run by the docker container.
 * ~~The possibility of using virtual environments such as docker to run all tools required. Using a windows host creates a small issue as mentioned below.~~
 * ~~Building dockerfile with ML tools and metasploit ,nessus. this should dramatically reduce prototype time even if its restricted to cpu for now.~~ Dockerfile can be found on docker resource git res- https://github.com/valkyrix/res-   
 * Project documentation (Thesis/Journal).
 
 __current problem: figuring out what to make the RNN calculate, what features and labels it should have. Deciding on what vulnerability to focus on for a POC__
 Whether or not the label should be severity/chance of exploitation or just exploitable (yes/no). How to decide these labels based on limited datasets.
+Testing out the possibility of using metasploitable 2/3 as a test machine for the framework. Considering its build to test security tools.
 
 The CPU version (Dockerfile.cpu) will run on all the above operating systems. However, the GPU version (Dockerfile.gpu) will only run on Linux OS. This is because Docker runs inside a virtual machine on Windows and OS X. Virtual machines don't have direct access to the GPU on the host. Unless PCI passthrough is implemented for these hosts, GPU support isn't available on non-Linux OSes at the moment.
 
