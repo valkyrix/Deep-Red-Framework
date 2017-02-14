@@ -27,7 +27,7 @@ __current problem: figuring out what to make the RNN calculate, what features an
 Whether or not the label should be severity/chance of exploitation or just exploitable (yes/no). How to decide these labels based on limited datasets.
 Testing out the possibility of using metasploitable 2/3 as a test machine for the framework. Considering its build to test security tools.
 
-Cant use Metasploitable 2/3 due to it only working on Vmware/vbox which does not run with Hyper-v is enabled (required for docker on windows) therefore docker and metasploitable 2 cannot be run concurrently on w10. Using secondary system to run metasploitable 3 on the network from Arch linux.
+Cant use Metasploitable 2/3 due to it only working on Vmware/vbox which does not run with Hyper-v is enabled (required for docker on windows) therefore docker and metasploitable 2 cannot be run concurrently on w10. Using secondary system to run Vagrant metasploitable 3 on the network from Arch linux. 
 
 Downsides to using metasploit are that it has no support for common Web application tests such as SQL injection and input tampering.
 
