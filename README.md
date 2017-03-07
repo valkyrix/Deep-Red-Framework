@@ -9,11 +9,15 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model (Priority)
 
-* __Network capturer__
-* __Feature extration and clustering__
-* __Consider labels__
-* __Compare traffic captured features to network scan features (?)__
-* __Integration with exploitation model__
+__will probably use nmap clustering project from blackhat found at https://github.com/CylanceSPEAR/NMAP-Cluster __ - got working with kmeans and agglomerative but dbscan is broken, can export to 2d plot graph as shown below:
+
+![plot_test](https://s12.postimg.org/f6687hn0d/home_test.png)
+
+* Network capturer
+* Feature extration and clustering
+* Consider labels
+* Compare traffic captured features to network scan features (?)
+* Integration with exploitation model
 
 #### Exploitation Model (Backlogged)
 
