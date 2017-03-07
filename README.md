@@ -23,9 +23,12 @@ Items ~~ruled~~ are completed.
 * ~~Building dockerfile with ML tools and metasploit ,nessus. this should dramatically reduce prototype time even if its restricted to cpu for now.~~ Dockerfile can be found on docker resource git res- https://github.com/valkyrix/res-   
 * Project documentation (Thesis/Journal).
 
-__current problem: figuring out what to make the RNN calculate, what features and labels it should have. Deciding on what vulnerability to focus on for a POC__
+__current problem:__ ~~figuring out what to make the RNN calculate, what features and labels it should have. Deciding on what vulnerability to focus on for a POC
 Whether or not the label should be severity/chance of exploitation or just exploitable (yes/no). How to decide these labels based on limited datasets.
-Testing out the possibility of using metasploitable 2/3 as a test machine for the framework. Considering its build to test security tools.
+Testing out the possibility of using metasploitable 2/3 as a test machine for the framework. Considering its build to test security tools.~~
+
+Capture the network traffic during a specific attack and cluster features into graph, compare these features to those of a normal network scan to detect whether some computers have similar enough features to be considered vulnerable.
+
 
 Cant use Metasploitable 2/3 due to it only working on Vmware/vbox which does not run with Hyper-v is enabled (required for docker on windows) therefore docker and metasploitable 2 cannot be run concurrently on w10. Using secondary system to run Vagrant metasploitable 3 on the network from Arch linux. 
 
