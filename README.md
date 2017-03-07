@@ -9,7 +9,11 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model (Priority)
 
-
+* Network capturer
+* Feature extration and clustering
+* consider labels
+* compare traffic captured features to network scan features (?)
+* Integration with exploitation model
 
 #### Exploitation Model (Backlogged)
 
