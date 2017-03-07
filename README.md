@@ -7,6 +7,12 @@
 Items in __bold__ are currently being worked on.
 Items ~~ruled~~ are completed.
 
+#### Clustering Model (Priority)
+
+
+
+#### Exploitation Model (Backlogged)
+
 * ~~Do background research on Machine Learning models and finalise design~~
 * Find or create a legal dataset (Shodan api?). Rapid7 had a project called Sonar which spawned scans.io (very interesting).
 * ~~Automate the sanitization and collation of data (CVE's etc)~~
@@ -20,14 +26,14 @@ Items ~~ruled~~ are completed.
 * Technical report creation section
 * ~~Make the software portable (currently everything is being setup in a non-portable environment). This involves nessus, metasploit, postgresql, theano/anaconda and linux environments to be taken into account.~~ Nessus reports get taken from docker share folder, which is the only program not being internally run by the docker container.
 * ~~The possibility of using virtual environments such as docker to run all tools required. Using a windows host creates a small issue as mentioned below.~~
-* ~~Building dockerfile with ML tools and metasploit ,nessus. this should dramatically reduce prototype time even if its restricted to cpu for now.~~ Dockerfile can be found on docker resource git res- https://github.com/valkyrix/res-   
+* ~~Building dockerfile with ML tools and metasploit ,nessus. this should dramatically reduce prototype time even if its restricted to cpu for now.~~ The incomplete Dockerfile can be found on docker resource git res- https://github.com/valkyrix/res-   
 * Project documentation (Thesis/Journal).
 
 __current task:__ ~~figuring out what to make the RNN calculate, what features and labels it should have. Deciding on what vulnerability to focus on for a POC
 Whether or not the label should be severity/chance of exploitation or just exploitable (yes/no). How to decide these labels based on limited datasets.
-Testing out the possibility of using metasploitable 2/3 as a test machine for the framework. Considering its build to test security tools.~~
+Testing out the possibility of using metasploitable 2/3 as a test machine for the framework. Considering its build to test security tools.~~  (Exploitation)
 
-Programming a model which will capture the network traffic during a specific attack and cluster features into graph, compare these features to those of a normal network scan to detect whether some computers have similar enough features to be considered vulnerable.
+Programming a model which will capture the network traffic during a specific attack and cluster features into graph, compare these features to those of a normal network scan to detect whether some computers have similar enough features to be considered vulnerable. (Clustering)
 
 __Issues and considerations:__
 
