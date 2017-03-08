@@ -9,7 +9,7 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model (Priority)
 
-__will probably use nmap clustering project from blackhat found at https://github.com/CylanceSPEAR/NMAP-Cluster __ - got working with kmeans and agglomerative but dbscan is broken, can export to 2d plot graph as shown below:
+__will probably use nmap clustering project from blackhat__ found at https://github.com/CylanceSPEAR/NMAP-Cluster  - got working with kmeans and agglomerative but dbscan is broken, can export to 2d plot graph as shown below:
 
 ![plot_test](https://s12.postimg.org/f6687hn0d/home_test.png)
 
