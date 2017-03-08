@@ -9,9 +9,40 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model (Priority)
 
-__will probably use nmap clustering project from blackhat (incomplete)__ found at https://github.com/CylanceSPEAR/NMAP-Cluster  - Got working with kmeans and agglomerative but automated is broken, can export to 2d plot graph as shown below:
+__will probably use nmap clustering project from blackhat (incomplete)__ found at https://github.com/CylanceSPEAR/NMAP-Cluster  - Got working with kmeans and agglomerative but automated is broken.
 
-![plot_test](https://s12.postimg.org/f6687hn0d/home_test.png)
+Using the university's hacklab as a dataset with nmap-clustering the following results were acheived.
+Using PCA followed by Agglomerative with 3 clusters:
+![plot_test](https://s10.postimg.org/57f0nvoe1/hacklab_agglomerative_3clusters.png)
+
+which relates to the following:
+
+```
+Cluster ID: 0
+Silhouette Score: 0.380005107148
+IPs: 10.0.0.209, 10.0.0.24, 10.0.0.25, 10.0.0.3, 10.0.0.30, 10.0.0.32, 10.0.0.33, 10.0.0.36, 10.0.0.38, 10.0.0.40, 10.0.0.44, 10.0.0.45, 10.0.0.49, 10.0.0.5, 10.0.0.50, 10.0.0.52, 10.0.0.53, 10.0.0.55, 10.0.0.59, 10.0.0.61, 10.0.0.62, 10.0.0.66, 10.0.0.67, 10.0.0.68, 10.0.0.69, 10.0.0.72, 10.0.0.73, 10.0.0.74, 10.0.0.75, 10.0.0.76, 10.0.0.77, 10.0.0.79, 10.0.0.80, 10.0.0.82, 10.0.0.83, 10.0.0.85
+
+Shared Features:
+
+
+Cluster ID: 1
+Silhouette Score: -0.142359054524
+IPs: 10.0.0.1, 10.0.0.190, 10.0.0.7
+
+Shared Features:
+tcp - 80 - open - http
+
+
+Cluster ID: 2
+Silhouette Score: 1.0
+IPs: 10.0.0.171
+
+Shared Features:
+tcp - 2000 - open - cisco-sccp
+tcp - 3000 - open - http - Thin
+tcp - 3000 - open - http - http-server-header -  - thin
+tcp - 3000 - open - http - http-title - title -  Solicitors and Estate Agents in Dundee | Edinburgh | Perth | Angus | Fife
+```
 
 ####the possibility of using the university hacklab as an nmap dataset for clustering?
 
