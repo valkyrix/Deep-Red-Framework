@@ -44,12 +44,18 @@ tcp - 3000 - open - http - http-server-header -  - thin
 tcp - 3000 - open - http - http-title - title -  Solicitors and Estate Agents in Dundee | Edinburgh | Perth | Angus | Fife
 ```
 
-####the possibility of using the university hacklab as an nmap dataset for clustering?
 
-* Network capturer
-* Feature extration and clustering
-* Consider labels
-* Compare traffic captured features to network scan features (?)
+* ~~Network capturer~~
+* ~~Feature extration and clustering~~
+* ~~Consider labels~~
+* ~~Create a nessus xml file parser~~ code is messy but it works and is easily editable to incorporate any aspect of nessus file as features
+* ~~Nessus cluster~~ only usable nessus file i have at the moment is my home network which is small and not very clusterable however it seems to work relatively well.
+
+Same setup as above however using a nessus file from my home network scan.
+![perf_test](https://s13.postimg.org/xtrm6cehz/nessus_home_agglo_3c.png
+192.168.0.4 and 192.168.0.7 are both recent windows machines whilst 192.168.0.1 is the home router and 192.168.0.8 is an android device.
+
+* __Compare clusters from nmap to a nessus equivelant__
 * Integration with exploitation model
 
 #### Exploitation Model (Backlogged)
