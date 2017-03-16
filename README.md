@@ -9,8 +9,6 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model (Priority)
 
-__will probably use nmap clustering project from blackhat (incomplete)__ found at https://github.com/CylanceSPEAR/NMAP-Cluster  - Got working with kmeans and agglomerative but automated is broken.
-
 Using the university's hacklab as a dataset with nmap-clustering the following results were acheived.
 Using PCA followed by Agglomerative with 3 clusters:
 ![plot_test](https://s10.postimg.org/57f0nvoe1/hacklab_agglomerative_3clusters.png)
