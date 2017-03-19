@@ -7,7 +7,7 @@
 Items in __bold__ are currently being worked on.
 Items ~~ruled~~ are completed.
 
-#### Clustering Model (Priority)
+#### Clustering Model (Priority) 
 
 Using the university's hacklab as a dataset with nmap-clustering the following results were acheived.
 Using PCA followed by Agglomerative with 3 clusters:
