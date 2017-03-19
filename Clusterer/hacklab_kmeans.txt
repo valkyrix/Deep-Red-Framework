@@ -1,0 +1,34 @@
+Cluster ID: 0
+Silhouette Score: 0.573600575561
+IPs: 10.0.0.24, 10.0.0.25, 10.0.0.30, 10.0.0.32, 10.0.0.33, 10.0.0.36, 10.0.0.38, 10.0.0.40, 10.0.0.44, 10.0.0.45, 10.0.0.49, 10.0.0.50, 10.0.0.52, 10.0.0.53, 10.0.0.55, 10.0.0.59, 10.0.0.61, 10.0.0.62, 10.0.0.66, 10.0.0.67, 10.0.0.68, 10.0.0.69, 10.0.0.72, 10.0.0.73, 10.0.0.74, 10.0.0.75, 10.0.0.76, 10.0.0.77, 10.0.0.79, 10.0.0.80, 10.0.0.82
+
+Shared Features:
+tcp - 22 - open - ssh - protocol 2.0
+tcp - 135 - open - msrpc - Microsoft Windows RPC
+tcp - 139 - open - netbios-ssn - Microsoft Windows 98 netbios-ssn
+tcp - 443 - open - http - VMware VirtualCenter Web service
+tcp - 443 - open - http - ssl-cert - countryName - US
+tcp - 443 - open - http - ssl-cert - organizationalUnitName - VMware
+tcp - 443 - open - http - ssl-cert - localityName - Palo Alto
+tcp - 443 - open - http - ssl-cert - emailAddress - none@vmware.com
+tcp - 443 - open - http - ssl-cert - commonName - VMware
+tcp - 443 - open - http - ssl-cert - type - rsa
+tcp - 443 - open - http - ssl-cert - bits - 2048
+tcp - 443 - open - http - ssl-cert - sig_algo - sha256WithRSAEncryption
+tcp - 443 - open - http - ssl-cert - notAfter - 2017-08-03T12:59:23
+tcp - 443 - open - http - ssl-cert - notBefore - 2016-08-03T12:59:23
+tcp - 443 - open - http - ssl-cert - md5 - ad6e5f01314d1518b4051099cd81a1f0
+tcp - 443 - open - http - ssl-cert - sha1 - 83a0d223f33891ba5192d94c26c44e05cfe72a51
+tcp - 443 - open - http - ssl-cert - pem - -----BEGIN CERTIFICATE-----\\nMIIEEjCCAvqgAwIBAgIJAP9VV+H4OSLcMA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNV\\nBAYTAlVTMRIwEAYDVQQHDAlQYWxvIEFsdG8xDzANBgNVBAsMBlZNd2FyZTEPMA0G\\nA1UEAwwGVk13YXJlMR4wHAYJKoZIhvcNAQkBFg9ub25lQHZtd2FyZS5jb20wHhcN\\nMTYwODAzMTI1OTIzWhcNMTcwODAzMTI1OTIzWjBjMQswCQYDVQQGEwJVUzESMBAG\\nA1UEBwwJUGFsbyBBbHRvMQ8wDQYDVQQLDAZWTXdhcmUxDzANBgNVBAMMBlZNd2Fy\\nZTEeMBwGCSqGSIb3DQEJARYPbm9uZUB2bXdhcmUuY29tMIIBIjANBgkqhkiG9w0B\\nAQEFAAOCAQ8AMIIBCgKCAQEA3vrMZLOJa1om9Y9alWzb0OYCkFldhC5FyhiomMI/\\nu5aRkcO96mztm8p9aar91WCKKinMqP4HvtDkNmKislkJa51syQhO0PxMM+GKgquW\\n8k2XQUPu+XIfUTwvi5SPrSmcobfHGL6/FijsZ0ArmGoBwCHUh7uL0Kjvgws9iX3u\\nNy2pfUziX4SG2f/LN7mWwrU+OinxPEzjindjdxlCkH2RthHXGc5Kd56WVBz/eGux\\nhmgod9ufeytvuBFZgTiIyfYcDj7OtqQvRFIRmZ/Tsz3ZXvxw3ti6gKp/+d2bPYxM\\nlILcfhoWuW9zmaYwPncILgB/Crn6r2SOXN5ETWTb240UVwIDAQABo4HIMIHFMB0G\\nA1UdDgQWBBSSITCFXwNSUY2/7i81nYCSfRyfYTCBlQYDVR0jBIGNMIGKgBSSITCF\\nXwNSUY2/7i81nYCSfRyfYaFnpGUwYzELMAkGA1UEBhMCVVMxEjAQBgNVBAcMCVBh\\nbG8gQWx0bzEPMA0GA1UECwwGVk13YXJlMQ8wDQYDVQQDDAZWTXdhcmUxHjAcBgkq\\nhkiG9w0BCQEWD25vbmVAdm13YXJlLmNvbYIJAP9VV+H4OSLcMAwGA1UdEwQFMAMB\\nAf8wDQYJKoZIhvcNAQELBQADggEBAAGKflHmWZ2zUhU6NB2vISaY5Yp8fbsEAfYq\\nG02SMWbO+bm3nA6Cw1+5JE+lQlA0oUOmLmgLMcJyFqBbhkU6FdrN1KpyDMHVEOZg\\neprBgeU5hCq6w3/F6xOjOibGgv/tlqzvIw6ueU+0OaJKyUMb+vhABLKppsGG73qN\\nz0dXq6mR2DOMmG89xycZma0YSu5mT6nzmcodn9bR7R1Mr1QSg8jsvldSsh3mg8+8\\nBPi4C4m4q7582rxAbLZ59d9Qe4nP+NjSX1mVW7g86DuMgkqdDqiYMXAS6HS7B/NY\\nrinUJ5Bi6kjSPsXjrtqKMNHehYGCtpFZGjIApv6MadWcE2G63jA=\\n-----END CERTIFICATE-----\\n
+tcp - 445 - open - microsoft-ds - Microsoft Windows 10 microsoft-ds
+tcp - 902 - open - vmware-auth - VMware Authentication Daemon - 1.10 - Uses VNC, SOAP
+tcp - 912 - open - vmware-auth - VMware Authentication Daemon - 1.0 - Uses VNC, SOAP
+
+
+Cluster ID: 1
+Silhouette Score: 0.248886449162
+IPs: 10.0.0.1, 10.0.0.171, 10.0.0.190, 10.0.0.209, 10.0.0.3, 10.0.0.5, 10.0.0.7, 10.0.0.83, 10.0.0.85
+
+Shared Features:
+
+
