@@ -12,12 +12,19 @@ Items ~~ruled~~ are completed.
 Using the university's hacklab as a dataset with nmap-clustering the following results were acheived. 
 More information can be found within the hacklab analyses folder.
 
-clustering model on automatic using hacklab nessus scan resulting in kmeans with 7 clusters:
+clustering model on automatic mode, using hacklab nessus scan resulting in kmeans with 7 clusters:
 
-![hacklab nessus kmeans 7c](/hacklab%20analyses/hacklab_nessus_kmeans_7c.png?raw=true)
+![hacklab nessus kmeans 7c](/hacklab%20analyses/hacklab_nessus_kmeans_7c.png | width=100)
 
-[click here](/hacklab%20analyses/hacklab_nessus_kmeans_7c.txt) for the full information regarding this clustering.
+also on automatic but clustering the nmap -A output this time:
 
+![hacklab nessus kmeans 7c](/hacklab%20analyses/hacklab_nmap_auto_dbscan_ep4.png | width=100)
+
+Click the following for clustering information:
+[Nessus, auto mode](/hacklab%20analyses/hacklab_nessus_kmeans_7c.txt) 
+[NMAP, auto mode](/hacklab%20analyses/hacklab_nmap_dbscan_ep4.txt) 
+
+#### todo
 
 * ~~Network capturer~~
 * ~~Feature extration and clustering~~
