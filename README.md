@@ -9,38 +9,13 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model (Priority) 
 
-Using the university's hacklab as a dataset with nmap-clustering the following results were acheived.
-Using PCA followed by Agglomerative with 3 clusters:
-![plot_test](https://s10.postimg.org/57f0nvoe1/hacklab_agglomerative_3clusters.png)
+Using the university's hacklab as a dataset with nmap-clustering the following results were acheived. 
+More information can be found within the hacklab analyses folder.
 
-which relates to the following:
+clustering model on automatic using hacklab nessus scan resulting in kmeans with 7 clusters:
+![hacklab nessus kmeans 7c](/hacklab_analyses/hacklab_nessus_kmeans_7c.png?raw=true "hacklab nessus kmeans 7c")
 
-```
-Cluster ID: 0
-Silhouette Score: 0.380005107148
-IPs: 10.0.0.209, 10.0.0.24, 10.0.0.25, 10.0.0.3, 10.0.0.30, 10.0.0.32, 10.0.0.33, 10.0.0.36, 10.0.0.38, 10.0.0.40, 10.0.0.44, 10.0.0.45, 10.0.0.49, 10.0.0.5, 10.0.0.50, 10.0.0.52, 10.0.0.53, 10.0.0.55, 10.0.0.59, 10.0.0.61, 10.0.0.62, 10.0.0.66, 10.0.0.67, 10.0.0.68, 10.0.0.69, 10.0.0.72, 10.0.0.73, 10.0.0.74, 10.0.0.75, 10.0.0.76, 10.0.0.77, 10.0.0.79, 10.0.0.80, 10.0.0.82, 10.0.0.83, 10.0.0.85
-
-Shared Features:
-
-
-Cluster ID: 1
-Silhouette Score: -0.142359054524
-IPs: 10.0.0.1, 10.0.0.190, 10.0.0.7
-
-Shared Features:
-tcp - 80 - open - http
-
-
-Cluster ID: 2
-Silhouette Score: 1.0
-IPs: 10.0.0.171
-
-Shared Features:
-tcp - 2000 - open - cisco-sccp
-tcp - 3000 - open - http - Thin
-tcp - 3000 - open - http - http-server-header -  - thin
-tcp - 3000 - open - http - http-title - title -  Solicitors and Estate Agents in Dundee | Edinburgh | Perth | Angus | Fife
-```
+[click here](/hacklab_analyses/hacklab_nessus_kmeans_7c.txt) for the full information regarding this clustering.
 
 
 * ~~Network capturer~~
@@ -49,7 +24,7 @@ tcp - 3000 - open - http - http-title - title -  Solicitors and Estate Agents in
 * ~~Create a nessus xml file parser~~ code is messy but it works and is easily editable to incorporate any aspect of nessus file as features
 * ~~Nessus cluster~~ only usable nessus file i have at the moment is my home network which is small and not very clusterable however it seems to work relatively well.
 
-Same setup as above however using a nessus file from my home network scan.
+Using a nessus file from my home network scan.
 ![perf_test](https://s13.postimg.org/xtrm6cehz/nessus_home_agglo_3c.png)
 
 192.168.0.4 and 192.168.0.7 are both recent windows machines whilst 192.168.0.1 is the home router and 192.168.0.8 is an android device.
