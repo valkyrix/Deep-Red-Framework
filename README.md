@@ -14,11 +14,11 @@ More information can be found within the hacklab analyses folder.
 
 clustering model on automatic mode, using hacklab nessus scan resulting in kmeans with 7 clusters:
 
-<img src="/hacklab analyses/hacklab_nessus_kmeans_7c.png" width="1000">
+<img src="/hacklab analyses/hacklab_nessus_kmeans_7c.png" width="500">
 
 also on automatic but clustering the nmap -A output this time:
 
-<img src="/hacklab analyses/hacklab_nmap_auto_dbscan_ep4.png" width="1000">
+<img src="/hacklab analyses/hacklab_nmap_auto_dbscan_ep4.png" width="500">
 
 Click the following for clustering information:
 
