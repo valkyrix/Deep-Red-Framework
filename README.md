@@ -13,9 +13,10 @@ Using the university's hacklab as a dataset with nmap-clustering the following r
 More information can be found within the hacklab analyses folder.
 
 clustering model on automatic using hacklab nessus scan resulting in kmeans with 7 clusters:
-![hacklab nessus kmeans 7c](/hacklab analyses/hacklab_nessus_kmeans_7c.png?raw=true)
 
-[click here](/hacklab analyses/hacklab_nessus_kmeans_7c.txt) for the full information regarding this clustering.
+![hacklab nessus kmeans 7c](/hacklab%20analyses/hacklab_nessus_kmeans_7c.png?raw=true)
+
+[click here](/hacklab%20analyses/hacklab_nessus_kmeans_7c.txt) for the full information regarding this clustering.
 
 
 * ~~Network capturer~~
