@@ -16,7 +16,7 @@ clustering model on automatic mode, using hacklab nessus scan resulting in kmean
 
 <img src="/hacklab analyses/hacklab_nessus_kmeans_7c.png" width="500">
 
-also on automatic but clustering the nmap -A output this time:
+also on automatic but clustering the nmap -A output this time resulting in using dbscan with an epsilon of 4.14:
 
 <img src="/hacklab analyses/hacklab_nmap_auto_dbscan_ep4.png" width="500">
 
