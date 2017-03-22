@@ -1,0 +1,99 @@
+Cluster ID: 0
+Silhouette Score: 0.220046730181
+IPs: 10.0.0.24, 10.0.0.26, 10.0.0.27, 10.0.0.30, 10.0.0.33, 10.0.0.36, 10.0.0.39, 10.0.0.40, 10.0.0.41, 10.0.0.42, 10.0.0.43, 10.0.0.46, 10.0.0.47, 10.0.0.48, 10.0.0.50, 10.0.0.51, 10.0.0.53, 10.0.0.54, 10.0.0.55, 10.0.0.56, 10.0.0.58, 10.0.0.64, 10.0.0.65, 10.0.0.66, 10.0.0.70, 10.0.0.76, 10.0.0.79, 10.0.0.83, 10.0.0.84
+Shared Features:
+	cpe:/o:microsoft:windows_7:::professional
+	cpe:/a:openbsd:openssh:7.1 -> OpenBSD OpenSSH 7.1
+	SSH-2.0-OpenSSH_7.1p1 Microsoft_Win32_port_with_VS
+	general-purpose
+	Microsoft Windows 7 Professional
+	windows
+	445
+	
+Cluster ID: 1
+Silhouette Score: 0.234851036884
+IPs: 10.0.0.28, 10.0.0.34, 10.0.0.35, 10.0.0.69, 10.0.0.74, 10.0.0.78, 10.0.0.80, 10.0.0.85
+Shared Features:
+	general-purpose
+	cpe:/o:linux:linux_kernel:3.10
+	cpe:/o:linux:linux_kernel:3.13
+	cpe:/o:linux:linux_kernel:4.2
+	cpe:/o:linux:linux_kernel:4.8
+	cpe:/a:openbsd:openssh:7.2
+	SSH-2.0-OpenSSH_7.2
+	Linux Kernel 3.10\\nLinux Kernel 3.13\\nLinux Kernel 4.2\\nLinux Kernel 4.8
+	1
+	linux
+	
+Cluster ID: 2
+Silhouette Score: 0.18063333287
+IPs: 10.0.0.32, 10.0.0.37, 10.0.0.77, 10.0.0.81
+Shared Features:
+	1
+	
+Cluster ID: 3
+Silhouette Score: 0.228689064888
+IPs: 10.0.0.185, 10.0.0.82
+Shared Features:
+	general-purpose
+	cpe:/a:openbsd:openssh:7.2
+	cpe:/o:linux:linux_kernel
+	1
+	linux
+	cpe:/o:canonical:ubuntu_linux:16.04
+	SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.1
+	Linux Kernel 4.4 on Ubuntu 16.04 (xenial)
+	
+Cluster ID: 4
+Silhouette Score: 1.0
+IPs: 10.0.0.5
+Shared Features:
+	cpe:/o:microsoft:windows_7:::professional
+	general-purpose
+	Microsoft Windows 7 Professional
+	windows
+	445
+	1490105876
+	Hacklab2
+	Tue Mar 21 14:17:56 2017
+	Tue Mar 21 14:15:50 2017
+	HACKLAB2
+	10.0.0.5
+	9
+	00:25:b3:28:d9:14
+	49158
+	5355
+	
+Cluster ID: 5
+Silhouette Score: 1.0
+IPs: 10.0.0.3
+Shared Features:
+	general-purpose
+	7
+	443
+	445
+	cpe:/a:openbsd:openssh:7.2
+	cpe:/o:linux:linux_kernel
+	linux
+	Tue Mar 21 14:15:50 2017
+	67
+	cpe:/o:canonical:ubuntu_linux:16.04
+	cpe:/a:samba:samba:4.3.11
+	cpe:/a:apache:http_server:2.4.18
+	10.0.0.3
+	HACKLAB1
+	Apache Multiviews Arbitrary Directory Listing: Upgrade to Apache version 1.3.22 or later. Alternatively, as a workaround, disable Multiviews.
+	1490105952
+	SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.1
+	Linux Kernel 4.4 on Ubuntu 16.04 (xenial)
+	hacklab1
+	Tue Mar 21 14:19:12 2017
+	00:25:b3:1f:07:ae
+	80
+
+Cluster ID: 6
+Silhouette Score: -0.00647458529864
+IPs: 10.0.0.1, 10.0.0.7
+Shared Features:
+	443
+	3

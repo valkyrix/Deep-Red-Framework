@@ -78,10 +78,18 @@ class NessusXMLParser:
                                     # ip_addresses[ip].append(s)
 
                             for param in host_properties_dict:
+                                # TODO FIX!!! decide host properties to use for the features list of each IP.
+                                # param = tag name
                                 vulnerabilities[vulner_id][param] = host_properties_dict[param]
 
-                                # s = dumps(host_properties_dict[param])
-                                # ip_addresses[ip].append(s)
+                                if (host_properties_dict[param] == "Advanced Scan") or (
+                                    host_properties_dict[param] == "false"):
+                                    continue
+                                else:
+                                    # prints out all used host parameters
+                                    #print param
+                                    s = dumps(host_properties_dict[param])
+                                    ip_addresses[vulnerabilities[vulner_id]["host"]].append(s)
 
         for vulner_id in vulnerabilities:
 
@@ -93,8 +101,9 @@ class NessusXMLParser:
             # convert vulns to json. only those with a risk value and cvss vector
             if "riskFactor" in vulnerabilities[vulner_id].keys() and "cvss_vector" in vulnerabilities[
                 vulner_id].keys():
-                print(vulner_id + " - " + vulnerabilities[vulner_id]["plugin_name"] + " - Risk_Factor: " +
-                      vulnerabilities[vulner_id]['riskFactor'])
+                # prints used vulnerability data
+                # print(vulner_id + " - " + vulnerabilities[vulner_id]["plugin_name"] + " - Risk_Factor: " +
+                #       vulnerabilities[vulner_id]['riskFactor'])
 
                 # uses dumps, a json obj converter.
                 # this is what will be used to calculate labels, features, and run through PCA before being clustered

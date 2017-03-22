@@ -44,7 +44,7 @@ def print_cluster_details(cluster_details, shared_features):
         print ""
         print "Shared Features:"
         for feature in reduce_shared_features(shared_features[cluster_id]['positive']):
-            print " - ".join([i.encode("unicode-escape") for i in feature])
+            print "".join([i.encode("unicode-escape") for i in feature])
 
         print ""
         print ""
