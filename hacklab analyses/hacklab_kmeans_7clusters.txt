@@ -1,0 +1,122 @@
+Cluster ID: 0
+Silhouette Score: 1.0
+IPs: 10.0.0.28, 10.0.0.34, 10.0.0.35, 10.0.0.40, 10.0.0.69, 10.0.0.74, 10.0.0.78, 10.0.0.80, 10.0.0.85
+Shared Features:
+	tcp22opensshOpenSSH7.2protocol 2.0
+
+Cluster ID: 1
+Silhouette Score: 0.528486221388
+IPs: 10.0.0.24, 10.0.0.26, 10.0.0.27, 10.0.0.30, 10.0.0.33, 10.0.0.36, 10.0.0.39, 10.0.0.41, 10.0.0.42, 10.0.0.43, 10.0.0.46, 10.0.0.47, 10.0.0.48, 10.0.0.50, 10.0.0.51, 10.0.0.53, 10.0.0.54, 10.0.0.55, 10.0.0.56, 10.0.0.58, 10.0.0.64, 10.0.0.65, 10.0.0.66, 10.0.0.70, 10.0.0.76, 10.0.0.79, 10.0.0.83, 10.0.0.84
+Shared Features:
+	tcp22opensshprotocol 2.0
+	tcp135openmsrpcMicrosoft Windows RPC
+	tcp139opennetbios-ssn
+	tcp443openhttpVMware VirtualCenter Web service
+	tcp443openhttpssl-certlocalityNamePalo Alto
+	tcp443openhttpssl-certorganizationalUnitNameVMware
+	tcp443openhttpssl-certcommonNameVMware
+	tcp443openhttpssl-certemailAddressnone@vmware.com
+	tcp443openhttpssl-certcountryNameUS
+	tcp443openhttpssl-certtypersa
+	tcp443openhttpssl-certbits2048
+	tcp443openhttpssl-certnotAfter2017-08-03T11:59:23+00:00
+	tcp443openhttpssl-certnotBefore2016-08-03T11:59:23+00:00
+	tcp443openhttpssl-certmd5ad6e5f01314d1518b4051099cd81a1f0
+	tcp443openhttpssl-certsha183a0d223f33891ba5192d94c26c44e05cfe72a51
+	tcp443openhttpssl-certpem-----BEGIN CERTIFICATE-----\\nMIIEEjCCAvqgAwIBAgIJAP9VV+H4OSLcMA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNV\\nBAYTAlVTMRIwEAYDVQQHDAlQYWxvIEFsdG8xDzANBgNVBAsMBlZNd2FyZTEPMA0G\\nA1UEAwwGVk13YXJlMR4wHAYJKoZIhvcNAQkBFg9ub25lQHZtd2FyZS5jb20wHhcN\\nMTYwODAzMTI1OTIzWhcNMTcwODAzMTI1OTIzWjBjMQswCQYDVQQGEwJVUzESMBAG\\nA1UEBwwJUGFsbyBBbHRvMQ8wDQYDVQQLDAZWTXdhcmUxDzANBgNVBAMMBlZNd2Fy\\nZTEeMBwGCSqGSIb3DQEJARYPbm9uZUB2bXdhcmUuY29tMIIBIjANBgkqhkiG9w0B\\nAQEFAAOCAQ8AMIIBCgKCAQEA3vrMZLOJa1om9Y9alWzb0OYCkFldhC5FyhiomMI/\\nu5aRkcO96mztm8p9aar91WCKKinMqP4HvtDkNmKislkJa51syQhO0PxMM+GKgquW\\n8k2XQUPu+XIfUTwvi5SPrSmcobfHGL6/FijsZ0ArmGoBwCHUh7uL0Kjvgws9iX3u\\nNy2pfUziX4SG2f/LN7mWwrU+OinxPEzjindjdxlCkH2RthHXGc5Kd56WVBz/eGux\\nhmgod9ufeytvuBFZgTiIyfYcDj7OtqQvRFIRmZ/Tsz3ZXvxw3ti6gKp/+d2bPYxM\\nlILcfhoWuW9zmaYwPncILgB/Crn6r2SOXN5ETWTb240UVwIDAQABo4HIMIHFMB0G\\nA1UdDgQWBBSSITCFXwNSUY2/7i81nYCSfRyfYTCBlQYDVR0jBIGNMIGKgBSSITCF\\nXwNSUY2/7i81nYCSfRyfYaFnpGUwYzELMAkGA1UEBhMCVVMxEjAQBgNVBAcMCVBh\\nbG8gQWx0bzEPMA0GA1UECwwGVk13YXJlMQ8wDQYDVQQDDAZWTXdhcmUxHjAcBgkq\\nhkiG9w0BCQEWD25vbmVAdm13YXJlLmNvbYIJAP9VV+H4OSLcMAwGA1UdEwQFMAMB\\nAf8wDQYJKoZIhvcNAQELBQADggEBAAGKflHmWZ2zUhU6NB2vISaY5Yp8fbsEAfYq\\nG02SMWbO+bm3nA6Cw1+5JE+lQlA0oUOmLmgLMcJyFqBbhkU6FdrN1KpyDMHVEOZg\\neprBgeU5hCq6w3/F6xOjOibGgv/tlqzvIw6ueU+0OaJKyUMb+vhABLKppsGG73qN\\nz0dXq6mR2DOMmG89xycZma0YSu5mT6nzmcodn9bR7R1Mr1QSg8jsvldSsh3mg8+8\\nBPi4C4m4q7582rxAbLZ59d9Qe4nP+NjSX1mVW7g86DuMgkqdDqiYMXAS6HS7B/NY\\nrinUJ5Bi6kjSPsXjrtqKMNHehYGCtpFZGjIApv6MadWcE2G63jA=\\n-----END CERTIFICATE-----\\n
+	tcp445opennetbios-ssn
+	
+Cluster ID: 2
+Silhouette Score: 1.0
+IPs: 10.0.0.3
+Shared Features:
+	tcp443openhttpVMware VirtualCenter Web service
+	tcp443openhttpssl-certlocalityNamePalo Alto
+	tcp443openhttpssl-certorganizationalUnitNameVMware
+	tcp443openhttpssl-certcommonNameVMware
+	tcp443openhttpssl-certemailAddressnone@vmware.com
+	tcp443openhttpssl-certcountryNameUS
+	tcp443openhttpssl-certtypersa
+	tcp443openhttpssl-certbits2048
+	tcp902openvmware-authVMware Authentication Daemon1.10Uses VNC, SOAP
+	tcp22opensshprotocol 2.0SF-Port22-TCP:V=6.47%I=7%D=3/21%Time=58D13570%P=i686-pc-windows-windows%r(NULL,29,"SSH-2\\\\.0-OpenSSH_7\\\\.2p2\\\\x20Ubuntu-4ubuntu2\\\\.1\\\\r\\\\n");
+	tcp80openhttpApache httpd2.4.18(Ubuntu)
+	tcp80openhttphttp-titletitleIndex of /
+	tcp111openrpcbind2-4RPC #100000
+	tcp111openrpcbindrpcinfoudp\\n
+	tcp111openrpcbindrpcinfotcp\\n
+	tcp139opennetbios-ssnSamba smbd3.Xworkgroup: HACKLAB1
+	tcp443openhttpssl-certnotAfter2017-08-08T06:47:44+00:00
+	tcp443openhttpssl-certnotBefore2016-08-08T06:47:44+00:00
+	tcp443openhttpssl-certmd542b17c7952bf7244ccce8650ea26aef8
+	tcp443openhttpssl-certsha13cb12d1cf4336082ecbb12afe66e517bf7d6d746
+	tcp443openhttpssl-certpem-----BEGIN CERTIFICATE-----\\nMIIEEjCCAvqgAwIBAgIJAMr2oh0DWUB+MA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNV\\nBAYTAlVTMRIwEAYDVQQHDAlQYWxvIEFsdG8xDzANBgNVBAsMBlZNd2FyZTEPMA0G\\nA1UEAwwGVk13YXJlMR4wHAYJKoZIhvcNAQkBFg9ub25lQHZtd2FyZS5jb20wHhcN\\nMTYwODA4MDc0NzQ0WhcNMTcwODA4MDc0NzQ0WjBjMQswCQYDVQQGEwJVUzESMBAG\\nA1UEBwwJUGFsbyBBbHRvMQ8wDQYDVQQLDAZWTXdhcmUxDzANBgNVBAMMBlZNd2Fy\\nZTEeMBwGCSqGSIb3DQEJARYPbm9uZUB2bXdhcmUuY29tMIIBIjANBgkqhkiG9w0B\\nAQEFAAOCAQ8AMIIBCgKCAQEAxkkbbq3IGkXY9oD3+V1r7AynhKtRqrTlwoRgbkoF\\n6kB6ckTF8Qg3njn1pUvhwOTFKKi6rGyGy3IVl0D25mSXukz1EbWv3MsriqOJVVL4\\nhY3pi2l9XN+BrGq8oCopuIgWOHmamzG7gBvx2zHUDLheTHDjayHnGRf5M/7Ml2aR\\nb+2/fiGuTjRnet93C0PVF219BvITNM+wczIDaVFTnTpUEwo/LQ4VMYfXEscWTucj\\nlbLJ25J2+KXmna8YyErT8+/N3kVFwdh77r4A76uXKk/lAKvIAQL8YpW9aHB7mCoz\\nPpd6sbC6UUQNr/DR8BAOhWkH/AVBEeYZoTpey6ZSvMj+0QIDAQABo4HIMIHFMB0G\\nA1UdDgQWBBRqJGWelIW7HDq7UkkD4gVH4LneSTCBlQYDVR0jBIGNMIGKgBRqJGWe\\nlIW7HDq7UkkD4gVH4LneSaFnpGUwYzELMAkGA1UEBhMCVVMxEjAQBgNVBAcMCVBh\\nbG8gQWx0bzEPMA0GA1UECwwGVk13YXJlMQ8wDQYDVQQDDAZWTXdhcmUxHjAcBgkq\\nhkiG9w0BCQEWD25vbmVAdm13YXJlLmNvbYIJAMr2oh0DWUB+MAwGA1UdEwQFMAMB\\nAf8wDQYJKoZIhvcNAQELBQADggEBABpJFEyJ53r2I5AGVPsDFb06Gv44IVfK7usn\\nUymd+T8YaQ+BQcGFH2mdaiciKwIxME0Fyr0yHwCZ6Okjt2e0dIbDWajM2u/h8YVe\\nnJ5QSxz3M4jkNMt5txFpmpWpWcm0dxTTBxLTB4BIi6salHJ1ROIceNxhgCmcSaGx\\nuZeIG3p0lKMJIvM2cjDN1D9qyl3L+gZDv0M15wvfuTc+coWfqk+f4TDI02hlT6pT\\nIukw2a8sH2kWeDZcVE3GfaW8SYpRtVHnVtStaBCvP3tjy2pFPdvBOukqslQf9HbP\\nxLfZRzfZXJKPOiugf4IHz8VdEL242fVZsmJzmAc7PkRUIax0Cl0=\\n-----END CERTIFICATE-----\\n
+	tcp445opennetbios-ssnSamba smbd3.Xworkgroup: HACKLAB1
+	tcp2049opennfs2-4RPC #100003
+	
+Cluster ID: 3
+Silhouette Score: 1.0
+IPs: 10.0.0.185
+Shared Features:
+	tcp22opensshprotocol 2.0SF-Port22-TCP:V=6.47%I=7%D=3/21%Time=58D136BB%P=i686-pc-windows-windows%r(NULL,29,"SSH-2\\\\.0-OpenSSH_7\\\\.2p2\\\\x20Ubuntu-4ubuntu2\\\\.1\\\\r\\\\n");
+	Cluster ID: 4
+	Silhouette Score: 1.0
+	IPs: 10.0.0.5
+	Shared Features:
+	tcp135openmsrpcMicrosoft Windows RPC
+	tcp139opennetbios-ssn
+	tcp445opennetbios-ssn
+	tcp5357openhttpMicrosoft HTTPAPI httpd2.0SSDP/UPnP
+	tcp5357openhttphttp-titletitleService Unavailable
+	tcp49152openmsrpcMicrosoft Windows RPC
+	tcp49153openmsrpcMicrosoft Windows RPC
+	tcp49154openmsrpcMicrosoft Windows RPC
+	tcp49155openmsrpcMicrosoft Windows RPC
+	tcp49156openmsrpcMicrosoft Windows RPC
+	tcp49158openmsrpcMicrosoft Windows RPC
+	Cluster ID: 5
+	Silhouette Score: 1.0
+	IPs: 10.0.0.7
+	Shared Features:
+	tcp443openhttpssl-certcountryNameUS
+	tcp443openhttpssl-certtypersa
+	tcp22opensshHP Integrated Lights-Out mpSSH0.1.1protocol 2.0
+	tcp22opensshssh-hostkeytypessh-rsa
+	tcp22opensshssh-hostkeyfingerprinta9e2e5e8ba6418ceb3dedfcb1c8c6cb0
+	tcp22opensshssh-hostkeykeyQUFBQUIzTnphQzF5YzJFQUFBQURBUUFCQUFBQWdRREJVU3hERzI4MEFEK0ZDbEFwdWZ6S1pTTk9XZGlDTXNmVzBjZGtXMDFZb1ZEUVM0N01aeDhpcURpSDFsWkRXYXJXUmpxMDJaWWowY1BNSURhWStVcDNNQ0hRS0RVRk5YWUdFQTJXcjBkeEhSZzVIZzFIVC9NZ1pUMDVMYkdubE5id0FTR1JGbFlOM21hcjNPbHBtcDZvNGtCaFZrRTIyMmVsZG1CRWF2REEvUT09
+	tcp22opensshssh-hostkeybits1024
+	tcp80openhttpHP Integrated Lights-Out http config
+	tcp80openhttphttp-titletitle\\r\\nHP Integrated Lights-Out 2\\r\\n
+	tcp443openhttpHP Integrated Lights-Out http config
+	tcp443openhttphttp-titletitleHP Integrated Lights-Out 2 Login
+	tcp443openhttpssl-certlocalityNameHouston
+	tcp443openhttpssl-certorganizationNameHewlett-Packard Company
+	tcp443openhttpssl-certstateOrProvinceNameTexas
+	tcp443openhttpssl-certorganizationalUnitNameISS
+	tcp443openhttpssl-certcommonNameILOhacklab1
+	tcp443openhttpssl-certbits1024
+	tcp443openhttpssl-certnotAfter2022-12-05T20:25:26+00:00
+	tcp443openhttpssl-certnotBefore2002-12-05T20:25:26+00:00
+	tcp443openhttpssl-certmd595c555d9a75027178cbd295612df8545
+	tcp443openhttpssl-certsha10dd34444bdbc856475578e09ca323f720d9e91a5
+	tcp443openhttpssl-certpem-----BEGIN CERTIFICATE-----\\nMIICaDCCAdECED3zbjaF8rRHWMbHvaK9h38wDQYJKoZIhvcNAQEEBQAwdTELMAkG\\nA1UEBhMCVVMxDjAMBgNVBAgTBVRleGFzMRAwDgYDVQQHEwdIb3VzdG9uMSAwHgYD\\nVQQKExdIZXdsZXR0LVBhY2thcmQgQ29tcGFueTEMMAoGA1UECxMDSVNTMRQwEgYD\\nVQQDEwtJTE9oYWNrbGFiMTAeFw0wMjEyMDUyMDI1MjZaFw0yMjEyMDUyMDI1MjZa\\nMHUxCzAJBgNVBAYTAlVTMQ4wDAYDVQQIEwVUZXhhczEQMA4GA1UEBxMHSG91c3Rv\\nbjEgMB4GA1UEChMXSGV3bGV0dC1QYWNrYXJkIENvbXBhbnkxDDAKBgNVBAsTA0lT\\nUzEUMBIGA1UEAxMLSUxPaGFja2xhYjEwgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJ\\nAoGBAMmalWfhoryHiY5ei8CtwqiSZ8sFj+lgylXwuh1OiIuWq/+zJmJ3YtYy0Q0r\\nlnhmbTK3SWXceYmLhv3e5uT83j5Hgg9et2Qeial019iQJJsZ4WgZr2XJVbuCSLt+\\nlLrNes5FX3gHIUCFcDFUmH0bN7U1tRV3kzfWKMiVQIakzlxnAgMBAAEwDQYJKoZI\\nhvcNAQEEBQADgYEAKw+sGoUe2j+iz0CZ3sdYpZhRwcn8sJ/tbhrAU/pj4DnOPBkN\\nkvS+lNZaLJ8bgj8rI2okjtFXfY3UxUvIMoWmlhlR/v3SUGrrL6ev/1hur5qz2gPB\\n/ZUPB1aca4FGvMp/2ONnr+GhWO0CS5SO0ChJIwOiKtN749KXUAHvN4O9ZdA=\\n-----END CERTIFICATE-----\\n
+	tcp17988openiloHP ProLiant ML350 Interactive Lights Out
+	
+Cluster ID: 6
+Silhouette Score: 1.0
+IPs: 10.0.0.1
+Shared Features:
+	tcp80openhttplighttpd
+	tcp80openhttphttp-titleredirect_urlhttps://Secamfw1.abertay.ac.uk:4100/fw_user_login.html?redirect=http://10.0.0.1/
+	tcp443openhttpslighttpd
+	tcp443openhttpshttp-titleredirect_urlhttps://Secamfw1.abertay.ac.uk:4100/fw_user_login.html?redirect=https://10.0.0.1/
+	tcp443openhttpsssl-certorganizationalUnitNameFireware
+	tcp443openhttpsssl-certcommonNameFireware web CA
+	tcp443openhttpsssl-certorganizationNameWatchGuard
+	tcp443openhttpsssl-certtypersa
+	tcp443openhttpsssl-certbits2048
+	tcp443openhttpsssl-certnotAfter2025-07-19T07:15:12+00:00
+	tcp443openhttpsssl-certnotBefore2015-06-22T07:15:12+00:00
+	tcp443openhttpsssl-certmd5905d58312159c96fc47a0c03dbedb546
+	tcp443openhttpsssl-certsha1863f5a899bb984089a2f3dd1fb2ccdf6e93c94d6
+	tcp443openhttpsssl-certpem-----BEGIN CERTIFICATE-----\\nMIIDXzCCAkegAwIBAgIEVa9RDjANBgkqhkiG9w0BAQUFADBCMRMwEQYDVQQKEwpX\\nYXRjaEd1YXJkMREwDwYDVQQLEwhGaXJld2FyZTEYMBYGA1UEAxMPRmlyZXdhcmUg\\nd2ViIENBMB4XDTE1MDYyMjA4MTUxMloXDTI1MDcxOTA4MTUxMlowQjETMBEGA1UE\\nChMKV2F0Y2hHdWFyZDERMA8GA1UECxMIRmlyZXdhcmUxGDAWBgNVBAMTD0ZpcmV3\\nYXJlIHdlYiBDQTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJ7Ms1CX\\n9G2Lnshl/qREQBzRuYZlVNwwLrcMp19b+sjbGCIzI7I+gz8IZyJtCrWm/17YLRpA\\nZ/yA0GOJ6DkbCOPbnyU7Trr+4ayAyjGOjWgv6ZXyo0of+cLNaZBj1gJHXxTs6W/K\\nBJyfI/fNb9yRXSxHHQoO5juw6EUuRkkxGXl3z4lw6f6hQYxF0Hn9VdmQvYcD6ZmC\\nkRhUf+K8zjI0MYrkE+xarizw5BVfj4x1c6xWqB3LdUo3iH+KMhIoSdRwLCEylybh\\nwrJVSfPoUIO7Z+9F6bWetJJK3aTdOzru3TEf26A2sxLQZ4ZI9Yla5F2lQckenl6s\\nCLx/ouAqbjLHXRMCAwEAAaNdMFswCwYDVR0PBAQDAgGmMAwGA1UdEwQFMAMBAf8w\\nHQYDVR0OBBYEFODafkL3PUyXnYU4PVaEcvvfV7HGMB8GA1UdIwQYMBaAFODafkL3\\nPUyXnYU4PVaEcvvfV7HGMA0GCSqGSIb3DQEBBQUAA4IBAQASxRCfK0TnbXc2k+DE\\nFeE3hSXj3Qh7a9dH+cWQkp0iXhVS9vAbxsFGxbGrGMt8K0GEKB+KSDKRsv17d1M0\\nXX+f51bU7ZPLBZaRfyCsxfoiVxGdb8xIGtOei9o+xdJvnfiGVgia1Wa1koDQ5LDq\\n9GgZzDWYrlglGtWgO11CVM7/NzsSN1S2vOWUSQpFi1QgpRlrPN9X9gNbJHS6sXlS\\nzSS1ZlyTGFiNfam6t8JMyY7N1KpHP2/+Fg1OvYJtJwJfpF9I7jhv+Hi2zpRG6uDc\\nPxGhtfINqF860koC0NpkeQejuYr3hMQnTlaS5dmMcsS06fhNj+GXH5FPVl7Rhzas\\nZG++\\n-----END CERTIFICATE-----\\n
