@@ -41,3 +41,6 @@ Using a nessus file from my home network scan.
 * automate the entire process not just clustering (scanning and retreival)
 * possible integration with exploitation model
 
+individual readme.md's for each model
+* [clusterer](/Clusterer/readme.md) 
+* [exploitation model](/exploit%20system/readme.md) 
