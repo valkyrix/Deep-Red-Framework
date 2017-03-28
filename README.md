@@ -1,6 +1,7 @@
-# Deep-Red-Framework
+# Deep-Red-Framework 
+(need a new name since no 'deep learning')
 
-## Implementing Deep Learning techniques to construct a Red Teaming solution
+## Implementing Machine Learning techniques to construct a Red Teaming solution
 
 
 
