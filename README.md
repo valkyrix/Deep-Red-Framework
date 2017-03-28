@@ -9,21 +9,25 @@ Items ~~ruled~~ are completed.
 
 #### Clustering Model
 
-Using the university's hacklab as a dataset with nmap-clustering the following results were acheived. 
+Using the university's hacklab nmap and nessus scans as a dataset the following results were acheived. 
 More information can be found within the hacklab analyses folder.
 
-clustering model on automatic mode, using hacklab nessus scan resulting in kmeans with 7 clusters:
+clustering model on automatic mode with centroids using nmap xml output (left) and nessus scan output (right)
+the vectors have been normalised before PCA(2d).
 
-<img src="/hacklab analyses/hacklab_nessus_kmeans_7c.png" width="500">
+<img src="/hacklab analyses/nmap_nessus_respect.png">
 
-also on automatic but clustering the nmap -A output this time resulting in using dbscan with an epsilon of 4.14:
+the covariance matrices for each are as follows:
 
-<img src="/hacklab analyses/hacklab_nmap_auto_dbscan_ep4.png" width="500">
-
-Click the following for clustering information:
-
-* [Nessus, auto mode](/hacklab%20analyses/hacklab_nessus_kmeans_7c.txt) 
-* [NMAP, auto mode](/hacklab%20analyses/hacklab_nmap_dbscan_ep4.txt) 
+```
+centroids covariance matrix for nmap output:
+ [[ 0.23001336  0.02479788]
+ [ 0.02479788  0.14788991]]
+ 
+centroids covariance matrix for nessus output:
+ [[ 0.13216597  0.00459265]
+ [ 0.00459265  0.08221746]]
+```
 
 #### todo
 
@@ -41,6 +45,11 @@ Using a nessus file from my home network scan.
 * __Compare the two clusters and generate a new cluster based off of them__
 * automate the entire process not just clustering (scanning and retreival)
 * possible integration with exploitation model
+
+Click the following for clustering information without normalisation before PCA (old):
+
+* [Nessus, auto mode](/hacklab%20analyses/hacklab_nessus_kmeans_7c.txt) 
+* [NMAP, auto mode](/hacklab%20analyses/hacklab_nmap_dbscan_ep4.txt) 
 
 individual readme.md's for each model:
 * [clusterer](/Clusterer/README.md) 
