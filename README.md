@@ -15,7 +15,7 @@ More information can be found within the hacklab analyses folder.
 clustering model on automatic mode with centroids using nmap xml output (left) and nessus scan output (right)
 the vectors have been normalised before PCA(2d).
 
-<img src="/hacklab analyses/nmap_nessus_respect.png">
+<img src="/hacklab analyses/nmap_nessus_respect.jpg">
 
 the covariance matrices for each are as follows:
 
