@@ -1,6 +1,7 @@
+import logging
 from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
 from sklearn.metrics.pairwise import pairwise_distances
-from optimal_k_k_means import gap_statistic, elbow_method
+from optimal_k_k_means import gap_statistic, elbow_method, find_centers, find_centers_only, optimalK
 from Interactive_Clustering import *
 
 
@@ -12,13 +13,35 @@ def cluster_interactive(vectors, vectorizer, raw_vectors, vector_names):
     Icluster = interactive_Clustering()
     return Icluster.fit_predict(vectors, vectorizer, raw_vectors, vector_names)
 
-
-def cluster_with_kmeans(vectors, n_clusters=0):
-    if n_clusters == 0:
+def get_centroids(vectors, n_clusters):
+    if n_clusters == 2:
         # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
         # We can choose any of the following 2 methods:
         # n_clusters = elbow_method(vectors, 20);
-        n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
+        k, gapdf = optimalK(vectors, nrefs=3, maxClusters=n_clusters)
+        logging.debug("gap statistics recommends number of clusters: {0}\n {1}".format(k, gapdf))
+        if (k > n_clusters):
+            n_clusters = k
+        else:
+            n_clusters = 2
+
+    return find_centers_only(vectors, n_clusters)
+
+
+
+def cluster_with_kmeans(vectors, n_clusters):
+    if n_clusters == 2:
+        # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
+        # We can choose any of the following 2 methods:
+        #n_clusters = elbow_method(vectors, 20);
+        #todo fix
+        #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
+        k, gapdf = optimalK(vectors, nrefs=3, maxClusters=n_clusters)
+        logging.debug("gap statistics recommends number of clusters: {0}\n {1}".format(k, gapdf))
+        if (k > n_clusters):
+            n_clusters = k
+        else:
+            n_clusters = 2
 
     kmeans = KMeans(n_clusters=n_clusters, n_jobs=-1)
     return kmeans.fit_predict(vectors)

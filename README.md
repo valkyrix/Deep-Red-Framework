@@ -37,10 +37,11 @@ Using a nessus file from my home network scan.
 <img src="https://s13.postimg.org/xtrm6cehz/nessus_home_agglo_3c.png" width="500">
 192.168.0.4 and 192.168.0.7 are both recent windows machines whilst 192.168.0.1 is the home router and 192.168.0.8 is an android device.
 
+* ~~calculate covariance matrix of centroids~~ only works for kmeans due to agglo and dbscan python implementations not returning centroids
 * __Compare the two clusters and generate a new cluster based off of them__
 * automate the entire process not just clustering (scanning and retreival)
 * possible integration with exploitation model
 
-individual readme.md's for each model
+individual readme.md's for each model:
 * [clusterer](/Clusterer/README.md) 
 * [exploitation model](/exploit%20system/README.md) 

@@ -3,12 +3,15 @@ import logging
 from sklearn.preprocessing import normalize
 
 from clusterer_parts.analysis import get_common_features_from_cluster, get_common_feature_stats
-from clusterer_parts.clustering import cluster_with_dbscan, cluster_with_kmeans, precompute_distances, cluster_with_agglomerative, cluster_interactive
-from clusterer_parts.display import print_cluster_details, generate_dot_graph_for_gephi, create_plot
+from clusterer_parts.clustering import cluster_with_dbscan, cluster_with_kmeans, precompute_distances, \
+    cluster_with_agglomerative, cluster_interactive, get_centroids
+from clusterer_parts.display import print_cluster_details, generate_dot_graph_for_gephi, create_plot, \
+    create_plot_centroids
 from clusterer_parts.optimizing import sort_items_by_multiple_keys
 from clusterer_parts.reduction import pca
 from clusterer_parts.validation import validate_clusters, get_average_distance_per_cluster
 from clusterer_parts.vectorize import vectorize
+import numpy as np
 
 
 def cluster(
@@ -37,8 +40,15 @@ def cluster(
     Automatic:
      The multiple clustering strategies and parameters are used in an attempt to get the best clusters
     """
+
+    global centroidskmeans, centroidagglo, centroiddbs, no_clusters
+    no_clusters = ""
+
     if strategy == "manual":
         if cluster_method == "kmeans":
+
+            centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
+            logging.debug("centroids for kmeans: {0}".format(centroidskmeans))
             return cluster_with_kmeans(normalized_vectors, n_clusters=n_clusters)
 
         elif cluster_method == "dbscan":
@@ -64,12 +74,13 @@ def cluster(
         smallest_cluster_count = vectors.shape[0]
         for cluster_method in [
             "kmeans",
-            "dbscan",
             "agglomerative",
+            "dbscan",
         ]:
             if cluster_method == "kmeans":
                 logging.debug("Starting prospective KMeans clusterings")
                 move_to_next_method = False
+                #start at 2 clusters and end at smallest_cluster_count
                 for n_clusters in xrange(2, smallest_cluster_count):
                     logging.debug("Trying {0}".format("kmeans(n_clusters={0})".format(n_clusters)))
                     labels = cluster_with_kmeans(reduced_vectors, n_clusters=n_clusters)
@@ -84,6 +95,7 @@ def cluster(
                         continue
                     if len(set(labels)) > smallest_cluster_count:
                         move_to_next_method = True
+                        logging.debug("len(set(labels)): {0} > smallest_cluster_count: {1}".format(len(set(labels)), smallest_cluster_count))
                         break
                     if len(set(labels)) < smallest_cluster_count:
                         smallest_cluster_count = len(set(labels))
@@ -243,6 +255,8 @@ def cluster(
         best_silhouette = best_result[0]
         best_labels = best_result[3]
 
+        no_clusters = best_result[-1]
+
         logging.info("Best clustering method: {0} (adjusted silhouette == {1})".format(best_method, best_silhouette))
         return best_labels
 
@@ -253,6 +267,7 @@ def cluster(
 
 if __name__ == "__main__":
     import argparse
+
     parser = argparse.ArgumentParser(description=u'Cluster NMap/Nessus Output')
 
     parser.add_argument('path', metavar='path', type=str, nargs='+', default=None,
@@ -281,6 +296,7 @@ if __name__ == "__main__":
     elif args.verbosity > 1:
         logging.getLogger().setLevel(logging.DEBUG)
 
+
     # Vectorize our input
     logging.info("Vectorizing")
     vector_names, vectors, vectorizer = vectorize(args.path, args.nessus)
@@ -288,8 +304,9 @@ if __name__ == "__main__":
     logging.info("Vectorizing complete")
 
     logging.info("Reducing vector dimensions with PCA")
+    #normalise vectors first before passing them through PCA. PCA uses 2 dimensions
     normalized_vectors = normalize(vectors)
-    reduced_vectors = pca(vectors)
+    reduced_vectors = pca(normalized_vectors)
 
     # Cluster the vectors
     logging.info("Clustering")
@@ -314,8 +331,49 @@ if __name__ == "__main__":
         }
 
     print_cluster_details(cluster_details, shared_features)
+
     if args.plot:
-        create_plot(reduced_vectors, labels, vector_names)
+        #only kmeans centroids for now
+        if no_clusters.startswith("kmeans"):
+            logging.debug("Getting centroids using reduced vectors:")
+            global centroidskmeans
+            #take just cluster number from result string
+            n_clusters = no_clusters.split("=", 1)[1]
+            n_clusters = int(n_clusters.rsplit(')', 1)[0])
+            logging.debug("nclusters: "+str(n_clusters))
+
+            centroidskmeans = get_centroids(reduced_vectors, n_clusters)
+            logging.debug("attempting to plot the following centroids:\n "+str(centroidskmeans))
+
+            #covariance
+            x = centroidskmeans[:,0]
+            y = centroidskmeans[:,1]
+            X = np.vstack((x, y))
+            cov = np.cov(X)
+            logging.debug("centroids covariance matrix:\n {0}".format(cov))
+
+
+            create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details)
+
+        #manually selected kmeans though arguments
+        elif args.method == "kmeans" and args.strategy!="automatic":
+            centroidskmeans = get_centroids(reduced_vectors, args.n_clusters)
+            logging.debug("attempting to plot the following centroids: \n"+str(centroidskmeans))
+
+            #covariance
+            x = centroidskmeans[:,0]
+            y = centroidskmeans[:,1]
+            X = np.vstack((x, y))
+            cov = np.cov(X)
+            print ("Centroids Covariance Matrix:\n {0}".format(cov))
+
+            create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters, cluster_details)
+
+        else:
+            logging.debug("plotting standard graph")
+            create_plot(reduced_vectors, labels, vector_names)
+
+
 
     # Write DOT diagram out to cluster.dot, designed for input into Gephi (https://gephi.org/)
     with open("cluster.dot", "w") as f:
