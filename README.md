@@ -2,10 +2,7 @@
 
 ## Implementing Deep Learning techniques to construct a Red Teaming solution
 
-### Tasks
 
-Items in __bold__ are currently being worked on.
-Items ~~ruled~~ are completed.
 
 #### Clustering Model
 
@@ -29,6 +26,10 @@ centroids covariance matrix for nessus output:
  [ 0.00459265  0.08221746]]
 ```
 
+### Tasks
+
+Items in __bold__ are currently being worked on.
+Items ~~ruled~~ are completed.
 #### todo
 
 * ~~Network capturer~~
