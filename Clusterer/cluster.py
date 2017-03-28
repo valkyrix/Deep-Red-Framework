@@ -298,15 +298,17 @@ if __name__ == "__main__":
 
 
     # Vectorize our input
-    logging.info("Vectorizing")
+    logging.info("Vectorizing Stage")
     vector_names, vectors, vectorizer = vectorize(args.path, args.nessus)
     logging.debug("Loaded {0} vectors with {1} features".format(len(vector_names), vectors.shape[1]))
     logging.info("Vectorizing complete")
 
-    logging.info("Reducing vector dimensions with PCA")
     #normalise vectors first before passing them through PCA. PCA uses 2 dimensions
+    logging.info("Normalising the vectors")
     normalized_vectors = normalize(vectors)
+    logging.info("Reducing vectors to two dimensions with PCA")
     reduced_vectors = pca(normalized_vectors)
+    logging.debug("reduced to {0} vectors with {1} dimensions".format((reduced_vectors.shape[0]), reduced_vectors.shape[1]))
 
     # Cluster the vectors
     logging.info("Clustering")
@@ -350,7 +352,7 @@ if __name__ == "__main__":
             y = centroidskmeans[:,1]
             X = np.vstack((x, y))
             cov = np.cov(X)
-            logging.debug("centroids covariance matrix:\n {0}".format(cov))
+            print ("Centroids Covariance Matrix:\n {0}".format(cov))
 
 
             create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details)
