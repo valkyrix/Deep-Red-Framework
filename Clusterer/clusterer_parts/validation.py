@@ -2,7 +2,7 @@ from sklearn.metrics import silhouette_samples, silhouette_score
 from scipy.spatial.distance import pdist
 import numpy as np
 
-def validate_clusters(vectors, labels, ignore_single_point_clusters=True):
+def validate_clusters(vectors, labels, ignore_single_point_clusters=False):
     """
 
     :param vectors:

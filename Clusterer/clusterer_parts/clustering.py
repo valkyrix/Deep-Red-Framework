@@ -19,7 +19,7 @@ def get_centroids(vectors, n_clusters):
         # We can choose any of the following 2 methods:
         # n_clusters = elbow_method(vectors, 20);
         k, gapdf = optimalK(vectors, nrefs=3, maxClusters=n_clusters)
-        logging.debug("gap statistics recommends number of clusters: {0}\n {1}".format(k, gapdf))
+        logging.debug("gap statistics recommends number of clusters: {0}\n{1}".format(k, gapdf))
         if (k > n_clusters):
             n_clusters = k
         else:
@@ -37,7 +37,7 @@ def cluster_with_kmeans(vectors, n_clusters):
         #todo fix
         #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
         k, gapdf = optimalK(vectors, nrefs=3, maxClusters=n_clusters)
-        logging.debug("gap statistics recommends number of clusters: {0}\n {1}".format(k, gapdf))
+        logging.debug("gap statistics recommends number of clusters: {0}\n{1}".format(k, gapdf))
         if (k > n_clusters):
             n_clusters = k
         else:

@@ -1,0 +1,96 @@
+03-30 04:15 23856 cluster <module> INFO     :Vectorizing Stage
+03-30 04:15 23856 cluster <module> DEBUG    :Loaded 42 vectors with 203 features
+03-30 04:15 23856 cluster <module> INFO     :Vectorizing complete
+no of IP's taken from NMAP: 47
+03-30 04:15 23856 cluster <module> INFO     :Normalising the vectors
+03-30 04:15 23856 cluster <module> INFO     :Reducing vectors to two dimensions with PCA
+03-30 04:15 23856 cluster <module> DEBUG    :reduced to 42 vectors with 2 dimensions
+03-30 04:15 23856 cluster <module> INFO     :Clustering
+03-30 04:15 23856 cluster cluster DEBUG    :Starting prospective KMeans clusterings
+03-30 04:15 23856 cluster cluster DEBUG    :Trying kmeans(n_clusters=2)
+03-30 04:15 23856 clustering cluster_with_kmeans DEBUG    :gap statistics recommends number of clusters: 1
+   clusterCount       gap
+0           1.0 -0.772175
+03-30 04:15 23856 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+03-30 04:15 23856 cluster cluster DEBUG    :Trying kmeans(n_clusters=3)
+03-30 04:15 23856 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+03-30 04:15 23856 cluster cluster DEBUG    :Trying kmeans(n_clusters=4)
+03-30 04:15 23856 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+03-30 04:15 23856 cluster cluster DEBUG    :Trying kmeans(n_clusters=5)
+03-30 04:15 23856 cluster cluster DEBUG    :(0.4115836798930463, -0.24834519060140123, 32.10158901520707, array([0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0,
+       1, 0, 0, 0, 3, 2, 0, 2, 3, 0, 0, 1, 0, 1, 4, 1, 0, 0, 0]), 5, 0, 3, 90, 'kmeans(n_clusters=5)')
+03-30 04:15 23856 cluster cluster DEBUG    :Trying kmeans(n_clusters=6)
+03-30 04:15 23856 cluster cluster DEBUG    :(0.4115836798930463, -0.24834519060140123, 32.10158901520707, array([0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0,
+       1, 0, 0, 0, 3, 2, 0, 2, 3, 0, 0, 1, 0, 1, 4, 1, 0, 0, 0]), 5, 0, 3, 90, 'kmeans(n_clusters=5)')
+03-30 04:15 23856 cluster cluster INFO     :Best clustering method: kmeans(n_clusters=5) (adjusted silhouette == 0.411583679893)
+03-30 04:15 23856 cluster <module> INFO     :Clustering Complete
+Note: shared features does not retain keys from XML and therefore wont always be human readable.
+
+Cluster ID: 0
+Silhouette Score: 0.528486221388
+IPs: 10.0.0.24, 10.0.0.26, 10.0.0.27, 10.0.0.30, 10.0.0.33, 10.0.0.36, 10.0.0.39, 10.0.0.41, 10.0.0.42, 10.0.0.43, 10.0.0.46, 10.0.0.47, 10.0.0.48, 10.0.0.50, 10.0.0.51, 10.0.0.53, 10.0.0.54, 10.0.0.55, 10.0.0.56, 10.0.0.58, 10.0.0.64, 10.0.0.65, 10.0.0.66, 10.0.0.70, 10.0.0.76, 10.0.0.79, 10.0.0.83, 10.0.0.84
+	Shared Features:
+	tcp22opensshprotocol 2.0
+	tcp135openmsrpcMicrosoft Windows RPC
+	tcp139opennetbios-ssn
+	tcp443openhttpVMware VirtualCenter Web service
+	tcp443openhttpssl-certlocalityNamePalo Alto
+	tcp443openhttpssl-certorganizationalUnitNameVMware
+	tcp443openhttpssl-certcommonNameVMware
+	tcp443openhttpssl-certemailAddressnone@vmware.com
+	tcp443openhttpssl-certcountryNameUS
+	tcp443openhttpssl-certtypersa
+	tcp443openhttpssl-certbits2048
+	tcp443openhttpssl-certnotAfter2017-08-03T11:59:23+00:00
+	tcp443openhttpssl-certnotBefore2016-08-03T11:59:23+00:00
+	tcp443openhttpssl-certmd5ad6e5f01314d1518b4051099cd81a1f0
+	tcp443openhttpssl-certsha183a0d223f33891ba5192d94c26c44e05cfe72a51
+	tcp443openhttpssl-certpem-----BEGIN CERTIFICATE-----\\nMIIEEjCCAvqgAwIBAgIJAP9VV+H4OSLcMA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNV\\nBAYTAlVTMRIwEAYDVQQHDAlQYWxvIEFsdG8xDzANBgNVBAsMBlZNd2FyZTEPMA0G\\nA1UEAwwGVk13YXJlMR4wHAYJKoZIhvcNAQkBFg9ub25lQHZtd2FyZS5jb20wHhcN\\nMTYwODAzMTI1OTIzWhcNMTcwODAzMTI1OTIzWjBjMQswCQYDVQQGEwJVUzESMBAG\\nA1UEBwwJUGFsbyBBbHRvMQ8wDQYDVQQLDAZWTXdhcmUxDzANBgNVBAMMBlZNd2Fy\\nZTEeMBwGCSqGSIb3DQEJARYPbm9uZUB2bXdhcmUuY29tMIIBIjANBgkqhkiG9w0B\\nAQEFAAOCAQ8AMIIBCgKCAQEA3vrMZLOJa1om9Y9alWzb0OYCkFldhC5FyhiomMI/\\nu5aRkcO96mztm8p9aar91WCKKinMqP4HvtDkNmKislkJa51syQhO0PxMM+GKgquW\\n8k2XQUPu+XIfUTwvi5SPrSmcobfHGL6/FijsZ0ArmGoBwCHUh7uL0Kjvgws9iX3u\\nNy2pfUziX4SG2f/LN7mWwrU+OinxPEzjindjdxlCkH2RthHXGc5Kd56WVBz/eGux\\nhmgod9ufeytvuBFZgTiIyfYcDj7OtqQvRFIRmZ/Tsz3ZXvxw3ti6gKp/+d2bPYxM\\nlILcfhoWuW9zmaYwPncILgB/Crn6r2SOXN5ETWTb240UVwIDAQABo4HIMIHFMB0G\\nA1UdDgQWBBSSITCFXwNSUY2/7i81nYCSfRyfYTCBlQYDVR0jBIGNMIGKgBSSITCF\\nXwNSUY2/7i81nYCSfRyfYaFnpGUwYzELMAkGA1UEBhMCVVMxEjAQBgNVBAcMCVBh\\nbG8gQWx0bzEPMA0GA1UECwwGVk13YXJlMQ8wDQYDVQQDDAZWTXdhcmUxHjAcBgkq\\nhkiG9w0BCQEWD25vbmVAdm13YXJlLmNvbYIJAP9VV+H4OSLcMAwGA1UdEwQFMAMB\\nAf8wDQYJKoZIhvcNAQELBQADggEBAAGKflHmWZ2zUhU6NB2vISaY5Yp8fbsEAfYq\\nG02SMWbO+bm3nA6Cw1+5JE+lQlA0oUOmLmgLMcJyFqBbhkU6FdrN1KpyDMHVEOZg\\neprBgeU5hCq6w3/F6xOjOibGgv/tlqzvIw6ueU+0OaJKyUMb+vhABLKppsGG73qN\\nz0dXq6mR2DOMmG89xycZma0YSu5mT6nzmcodn9bR7R1Mr1QSg8jsvldSsh3mg8+8\\nBPi4C4m4q7582rxAbLZ59d9Qe4nP+NjSX1mVW7g86DuMgkqdDqiYMXAS6HS7B/NY\\nrinUJ5Bi6kjSPsXjrtqKMNHehYGCtpFZGjIApv6MadWcE2G63jA=\\n-----END CERTIFICATE-----\\n
+	tcp445opennetbios-ssn
+
+Cluster ID: 1
+Silhouette Score: 1.0
+IPs: 10.0.0.28, 10.0.0.34, 10.0.0.35, 10.0.0.40, 10.0.0.69, 10.0.0.74, 10.0.0.78, 10.0.0.80, 10.0.0.85
+	Shared Features:
+	tcp22opensshOpenSSH7.2protocol 2.0
+	
+Cluster ID: 2
+Silhouette Score: -0.222222631321
+IPs: 10.0.0.1, 10.0.0.7
+	Shared Features:
+	tcp443open
+	tcp80openhttp
+	
+Cluster ID: 3
+Silhouette Score: -0.248345190601
+IPs: 10.0.0.3, 10.0.0.5
+	Shared Features:
+	tcp139opennetbios-ssn
+	tcp445opennetbios-ssn
+	
+Cluster ID: 4
+Silhouette Score: 1.0
+IPs: 10.0.0.185
+	Shared Features:
+	tcp22opensshprotocol 2.0SF-Port22-TCP:V=6.47%I=7%D=3/21%Time=58D136BB%P=i686-pc-windows-windows%r(NULL,29,"SSH-2\\\\.0-OpenSSH_7\\\\.2p2\\\\x20Ubuntu-4ubuntu2\\\\.1\\\\r\\\\n");
+	
+03-30 04:15 23856 cluster <module> DEBUG    :Getting centroids using reduced vectors:
+03-30 04:15 23856 cluster <module> DEBUG    :nclusters: 5
+03-30 04:15 23856 cluster <module> DEBUG    :attempting to plot the following centroids:
+ [[ 0.93722406  0.14279432]
+ [-0.34575755  0.05203286]
+ [ 0.31235087 -0.80310291]
+ [ 0.06086076 -0.45066068]
+ [ 0.49977173 -0.23454181]]
+03-30 04:15 23856 cluster <module> INFO     :Centroids Covariance Matrix:
+ [[ 0.23001336  0.02479788]
+ [ 0.02479788  0.14788991]]
+03-30 04:15 23856 cluster <module> INFO     :distance matrix between centroids using metric: euclidean :
+--------  --------  --------  --------  --------
+0         1.28619   1.13366   1.0584    0.577708
+1.28619   0         1.07906   0.64656   0.892774
+1.13366   1.07906   0         0.43297   0.598655
+1.0584    0.64656   0.43297   0         0.489234
+0.577708  0.892774  0.598655  0.489234  0
+--------  --------  --------  --------  --------
+03-30 04:15 23856 display create_plot_centroids DEBUG    :ploting graph with centroids.

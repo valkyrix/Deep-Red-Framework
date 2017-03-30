@@ -6,13 +6,13 @@ from clusterer_parts.analysis import get_common_features_from_cluster, get_commo
 from clusterer_parts.clustering import cluster_with_dbscan, cluster_with_kmeans, precompute_distances, \
     cluster_with_agglomerative, cluster_interactive, get_centroids
 from clusterer_parts.display import print_cluster_details, generate_dot_graph_for_gephi, create_plot, \
-    create_plot_centroids
+    create_plot_centroids, create_plot_only_centroids
 from clusterer_parts.optimizing import sort_items_by_multiple_keys
 from clusterer_parts.reduction import pca
 from clusterer_parts.validation import validate_clusters, get_average_distance_per_cluster
 from clusterer_parts.vectorize import vectorize
 import numpy as np
-
+from tabulate import tabulate
 
 def cluster(
         vector_names,
@@ -49,7 +49,7 @@ def cluster(
 
             centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
             logging.debug("centroids for kmeans: {0}".format(centroidskmeans))
-            return cluster_with_kmeans(normalized_vectors, n_clusters=n_clusters)
+            return cluster_with_kmeans(reduced_vectors, n_clusters=n_clusters)
 
         elif cluster_method == "dbscan":
             return cluster_with_dbscan(normalized_vectors, epsilon=epsilon, min_samples=min_samples, metric=metric)
@@ -73,9 +73,9 @@ def cluster(
         results = []
         smallest_cluster_count = vectors.shape[0]
         for cluster_method in [
-            "kmeans",
-            "agglomerative",
-            "dbscan",
+            "kmeans"#,
+            #"agglomerative",
+            #"dbscan",
         ]:
             if cluster_method == "kmeans":
                 logging.debug("Starting prospective KMeans clusterings")
@@ -95,22 +95,22 @@ def cluster(
                         continue
                     if len(set(labels)) > smallest_cluster_count:
                         move_to_next_method = True
-                        logging.debug("len(set(labels)): {0} > smallest_cluster_count: {1}".format(len(set(labels)), smallest_cluster_count))
+                        #logging.debug("len(set(labels)): {0} > smallest_cluster_count: {1}".format(len(set(labels)), smallest_cluster_count))
                         break
                     if len(set(labels)) < smallest_cluster_count:
                         smallest_cluster_count = len(set(labels))
 
-                    logging.debug(repr((
-                            overall_score,
-                            min(per_cluster_score.values()),
-                            mean_distance,
-                            labels,
-                            len(set(labels)),
-                            tsp,
-                            msp,
-                            msn,
-                            "kmeans(n_clusters={0})".format(n_clusters)
-                        )))
+                    # logging.debug(repr((
+                    #         overall_score,
+                    #         min(per_cluster_score.values()),
+                    #         mean_distance,
+                    #         labels,
+                    #         len(set(labels)),
+                    #         tsp,
+                    #         msp,
+                    #         msn,
+                    #         "kmeans(n_clusters={0})".format(n_clusters)
+                    #     )))
                     results.append(
                         (
                             overall_score,
@@ -247,9 +247,9 @@ def cluster(
                 #6: 1
             }
         )
-        logging.debug(sorted_results)
+        #logging.debug(sorted_results)
         best_result = results[sorted_results[0][0]]
-        logging.debug(best_result)
+        #logging.debug(best_result)
 
         best_method = best_result[-1]
         best_silhouette = best_result[0]
@@ -281,6 +281,7 @@ if __name__ == "__main__":
     parser.add_argument('-n', '--n_clusters', type=int, default=2, help='Number of kmeans clusters to aim for')
     parser.add_argument('-e', '--epsilon', type=float, default=0.5, help='DBSCAN Epsilon')
     parser.add_argument('-m', '--min_samples', type=int, default=5, help='DBSCAN Minimum Samples')
+    parser.add_argument('-cent', '--centroids', default=False, required=False, action='store_true', help='plot only centroids graph, requires the use of "-p"')
 
     parser.add_argument('-p', '--plot', default=False, required=False, action='store_true',
                         help='Plot clusters on 2D plane')
@@ -320,7 +321,7 @@ if __name__ == "__main__":
     # Analysis relevant to the person reading results
     universal_positive_features, universal_negative_features, shared_features = get_common_features_from_cluster(vectors, labels, vectorizer)
 
-    logging.debug("Shared features: {0}".format(shared_features))
+    #logging.debug("Shared features: {0}".format(shared_features))
 
     # Reduce results and relevant information to per cluster data
     cluster_details = {}
@@ -331,7 +332,7 @@ if __name__ == "__main__":
             #"shared_negative_features": shared_features[cluster_id]['negative'],
             "ips": [vector_names[x] for x in xrange(len(vector_names)) if labels[x] == cluster_id]
         }
-
+    print "Note: shared features does not retain keys from XML and therefore wont always be human readable."
     print_cluster_details(cluster_details, shared_features)
 
     if args.plot:
@@ -352,10 +353,17 @@ if __name__ == "__main__":
             y = centroidskmeans[:,1]
             X = np.vstack((x, y))
             cov = np.cov(X)
-            print ("Centroids Covariance Matrix:\n {0}".format(cov))
+            logging.info("Centroids Covariance Matrix:\n {0}".format(cov))
 
+            #print similarity distance between centroids
+            matrix =  precompute_distances(centroidskmeans, metric=args.metric)
+            matrixTable = tabulate(matrix)
+            logging.info("distance matrix between centroids using metric: {0} :\n{1}".format(args.metric, matrixTable))
 
-            create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details)
+            if args.centroids:
+                create_plot_only_centroids(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters)
+            else:
+                create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details)
 
         #manually selected kmeans though arguments
         elif args.method == "kmeans" and args.strategy!="automatic":
@@ -367,10 +375,17 @@ if __name__ == "__main__":
             y = centroidskmeans[:,1]
             X = np.vstack((x, y))
             cov = np.cov(X)
-            print ("Centroids Covariance Matrix:\n {0}".format(cov))
+            logging.info("Centroids Covariance Matrix:\n {0}".format(cov))
 
-            create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters, cluster_details)
+            #print similarity distance between centroids
+            matrix =  precompute_distances(centroidskmeans, metric=args.metric)
+            matrixTable = tabulate(matrix)
+            logging.info("distance matrix between centroids using metric: {0} :\n{1}".format(args.metric, matrixTable))
 
+            if args.centroids:
+                create_plot_only_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters)
+            else:
+                create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters, cluster_details)
         else:
             logging.debug("plotting standard graph")
             create_plot(reduced_vectors, labels, vector_names)

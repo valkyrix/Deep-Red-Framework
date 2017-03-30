@@ -115,7 +115,7 @@ class NMAPXMLParser:
                                                  script_id, key])
                                         ip_addresses[ip_address].append(s)
 
-        print ip_addresses
+        print "no of IP's taken from NMAP: " + str(len(ip_addresses.viewkeys()))
         return ip_addresses
 
 

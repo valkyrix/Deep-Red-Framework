@@ -124,7 +124,7 @@ class NessusXMLParser:
                 #         "cvss_vector"] and vulnerabilities[vulner_id]["exploit_available"] == "true":
                 #         print(vulner_id + " " + vulnerabilities[vulner_id]["plugin_name"])
 
-        print "IP's taken from nessus: " + str(ip_addresses.viewkeys())
+        print "no of IP's taken from nessus: " + str(len(ip_addresses.viewkeys()))
         logging.info("Done Nessus parsing")
         return ip_addresses
 

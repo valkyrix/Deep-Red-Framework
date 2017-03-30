@@ -26,11 +26,11 @@ digraph nmapcluster {
 24 [label="0 - 10.0.0.55" cluster_id="0" size="64"];
 25 [label="0 - 10.0.0.54" cluster_id="0" size="64"];
 26 [label="0 - 10.0.0.56" cluster_id="0" size="64"];
-27 [label="2 - 10.0.0.5" cluster_id="2" size="64"];
-28 [label="3 - 10.0.0.7" cluster_id="3" size="64"];
+27 [label="3 - 10.0.0.5" cluster_id="3" size="64"];
+28 [label="2 - 10.0.0.7" cluster_id="2" size="64"];
 29 [label="0 - 10.0.0.70" cluster_id="0" size="64"];
-30 [label="3 - 10.0.0.1" cluster_id="3" size="64"];
-31 [label="2 - 10.0.0.3" cluster_id="2" size="64"];
+30 [label="2 - 10.0.0.1" cluster_id="2" size="64"];
+31 [label="3 - 10.0.0.3" cluster_id="3" size="64"];
 32 [label="0 - 10.0.0.76" cluster_id="0" size="64"];
 33 [label="0 - 10.0.0.84" cluster_id="0" size="64"];
 34 [label="1 - 10.0.0.85" cluster_id="1" size="64"];
