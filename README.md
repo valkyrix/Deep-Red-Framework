@@ -13,6 +13,7 @@ More information can be found within the hacklab analyses folder.
 twin mode: requires both datasets as input. This will take clusters with IP count < 3 and combine the vector features of both datasets to create a new clustering of 'vulnerable' IP's. In other words - Small clusterings (IP count less than 3) reclustered with combined datasets.
 
 <img src="/hacklab analyses/twin.png">
+
 ```syntax
 command: cluster.py -s automatic -vv -p -t -N -tp "../hacklab analyses/hacklab_new.xml" "../hacklab analyses/hacklab_new.nessus"
 ```
