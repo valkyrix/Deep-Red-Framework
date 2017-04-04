@@ -1,5 +1,5 @@
-from clusterer_parts.parsing import parsers
-from clusterer_parts.parse_nessus import Nparsers
+from parsing import parsers
+from parse_nessus import Nparsers
 
 import numpy as np
 

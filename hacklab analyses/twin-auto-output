@@ -1,0 +1,345 @@
+"D:\Program Files\Anaconda2\python.exe" "D:\Program Files (x86)\JetBrains\PyCharm Community Edition\helpers\pydev\pydev_run_in_console.py" 60959 60960 "D:/Dropbox/Dropbox/University/Notes/Honours Project/locker/workdir/Clusterer/cluster.py" -s automatic -vv -p -t -N -tp "../hacklab analyses/hacklab_new.xml" "../hacklab analyses/hacklab_new.nessus"
+Python 2.7.13 |Anaconda 4.3.1 (64-bit)| (default, Dec 19 2016, 13:29:36) [MSC v.1500 64 bit (AMD64)]
+Type "copyright", "credits" or "license" for more information.
+
+IPython 5.1.0 -- An enhanced Interactive Python.
+?         -> Introduction and overview of IPython's features.
+%quickref -> Quick reference.
+help      -> Python's own help system.
+object?   -> Details about 'object', use 'object??' for extra details.
+Running D:/Dropbox/Dropbox/University/Notes/Honours Project/locker/workdir/Clusterer/cluster.py
+PyDev console: using IPython 5.1.0
+04-04 01:22 24060 cluster <module> DEBUG    :twin flag enabled
+04-04 01:22 24060 cluster <module> DEBUG    :tp: ../hacklab analyses/hacklab_new.xml , path: ['../hacklab analyses/hacklab_new.nessus']
+04-04 01:22 24060 cluster <module> INFO     :Vectorizing Stage for Nessus
+04-04 01:22 24060 parse_nessus parse_input INFO     :Parsing Nessus XML * BETA *
+04-04 01:22 24060 parse_nessus parse_input INFO     :Done Nessus parsing
+no of IP's taken from nessus: 47
+04-04 01:22 24060 cluster <module> DEBUG    :Loaded 47 vectors with 292 features
+04-04 01:22 24060 cluster <module> INFO     :Vectorizing complete
+
+04-04 01:22 24060 cluster <module> INFO     :Vectorizing Stage for nmap
+no of IP's taken from NMAP: 47
+04-04 01:22 24060 cluster <module> DEBUG    :Loaded 42 vectors with 203 features
+04-04 01:22 24060 cluster <module> INFO     :Vectorizing complete
+
+04-04 01:22 24060 cluster <module> INFO     :Normalising the nessus vectors
+04-04 01:22 24060 cluster <module> INFO     :Reducing vectors to two dimensions with PCA
+04-04 01:22 24060 cluster <module> DEBUG    :reduced to 47 vectors with 2 dimensions
+04-04 01:22 24060 cluster <module> INFO     :Normalising complete
+
+04-04 01:22 24060 cluster <module> INFO     :Normalising the nmap vectors
+04-04 01:22 24060 cluster <module> INFO     :Reducing vectors to two dimensions with PCA
+04-04 01:22 24060 cluster <module> DEBUG    :reduced to 42 vectors with 2 dimensions
+04-04 01:22 24060 cluster <module> INFO     :Normalising complete
+
+04-04 01:22 24060 cluster <module> INFO     :Clustering Nessus
+04-04 01:22 24060 cluster cluster DEBUG    :Starting prospective KMeans clusterings
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=2)
+04-04 01:22 24060 clustering cluster_with_kmeans DEBUG    :gap statistics recommends number of clusters: 39
+
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=3)
+04-04 01:22 24060 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=4)
+04-04 01:22 24060 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=5)
+04-04 01:22 24060 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=6)
+04-04 01:22 24060 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=7)
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=8)
+04-04 01:22 24060 cluster cluster INFO     :Best clustering method: kmeans(n_clusters=7) (adjusted silhouette == 0.408249368504)
+04-04 01:22 24060 cluster <module> INFO     :Clustering Complete
+
+
+04-04 01:22 24060 cluster <module> INFO     :Clustering Nmap
+04-04 01:22 24060 cluster cluster DEBUG    :Starting prospective KMeans clusterings
+04-04 01:22 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=2)
+04-04 01:23 24060 clustering cluster_with_kmeans DEBUG    :gap statistics recommends number of clusters: 24
+
+04-04 01:23 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=3)
+04-04 01:23 24060 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+04-04 01:23 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=4)
+04-04 01:23 24060 cluster cluster DEBUG    :Not all clusters are informative (a cluster has 0 shared features) 
+04-04 01:23 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=5)
+04-04 01:23 24060 cluster cluster DEBUG    :Trying kmeans(n_clusters=6)
+04-04 01:23 24060 cluster cluster INFO     :Best clustering method: kmeans(n_clusters=5) (adjusted silhouette == 0.411583679893)
+04-04 01:23 24060 cluster <module> INFO     :Clustering Complete
+
+
+Note: shared features does not retain keys from XML and therefore wont always be human readable.
+Printing Nessus cluster details
+
+Cluster ID: 0
+Silhouette Score: 0.220046730181
+IPs: 10.0.0.24, 10.0.0.26, 10.0.0.27, 10.0.0.30, 10.0.0.33, 10.0.0.36, 10.0.0.39, 10.0.0.40, 10.0.0.41, 10.0.0.42, 10.0.0.43, 10.0.0.46, 10.0.0.47, 10.0.0.48, 10.0.0.50, 10.0.0.51, 10.0.0.53, 10.0.0.54, 10.0.0.55, 10.0.0.56, 10.0.0.58, 10.0.0.64, 10.0.0.65, 10.0.0.66, 10.0.0.70, 10.0.0.76, 10.0.0.79, 10.0.0.83, 10.0.0.84
+
+    Shared Features:
+    cpe:/o:microsoft:windows_7:::professional
+    cpe:/a:openbsd:openssh:7.1 -> OpenBSD OpenSSH 7.1
+    SSH-2.0-OpenSSH_7.1p1 Microsoft_Win32_port_with_VS
+    general-purpose
+    Microsoft Windows 7 Professional
+    windows
+    445
+
+ 
+ 
+Cluster ID: 1
+Silhouette Score: 0.18063333287
+IPs: 10.0.0.32, 10.0.0.37, 10.0.0.77, 10.0.0.81
+
+    Shared Features:
+    1
+
+ 
+ 
+Cluster ID: 2
+Silhouette Score: 0.234851036884
+IPs: 10.0.0.28, 10.0.0.34, 10.0.0.35, 10.0.0.69, 10.0.0.74, 10.0.0.78, 10.0.0.80, 10.0.0.85
+
+    Shared Features:
+    general-purpose
+    cpe:/o:linux:linux_kernel:3.10
+    cpe:/o:linux:linux_kernel:3.13
+    cpe:/o:linux:linux_kernel:4.2
+    cpe:/o:linux:linux_kernel:4.8
+    cpe:/a:openbsd:openssh:7.2
+    SSH-2.0-OpenSSH_7.2
+    Linux Kernel 3.10\\nLinux Kernel 3.13\\nLinux Kernel 4.2\\nLinux Kernel 4.8
+    1
+    linux
+
+ 
+ 
+Cluster ID: 3
+Silhouette Score: 0.228689064888
+IPs: 10.0.0.185, 10.0.0.82
+
+    Shared Features:
+    general-purpose
+    cpe:/a:openbsd:openssh:7.2
+    cpe:/o:linux:linux_kernel
+    1
+    linux
+    cpe:/o:canonical:ubuntu_linux:16.04
+    SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.1
+    Linux Kernel 4.4 on Ubuntu 16.04 (xenial)
+
+ 
+ 
+Cluster ID: 4
+Silhouette Score: -0.00647458529864
+IPs: 10.0.0.1, 10.0.0.7
+
+    Shared Features:
+    443
+    3
+
+ 
+ 
+Cluster ID: 5
+Silhouette Score: 1.0
+IPs: 10.0.0.5
+
+    Shared Features:
+    cpe:/o:microsoft:windows_7:::professional
+    general-purpose
+    Microsoft Windows 7 Professional
+    windows
+    445
+    1490105876
+    Hacklab2
+    Tue Mar 21 14:17:56 2017
+    Tue Mar 21 14:15:50 2017
+    HACKLAB2
+    10.0.0.5
+    9
+    00:25:b3:28:d9:14
+    49158
+    5355
+
+ 
+ 
+Cluster ID: 6
+Silhouette Score: 1.0
+IPs: 10.0.0.3
+
+    Shared Features:
+    general-purpose
+    7
+    443
+    445
+    cpe:/a:openbsd:openssh:7.2
+    cpe:/o:linux:linux_kernel
+    linux
+    Tue Mar 21 14:15:50 2017
+    67
+    cpe:/o:canonical:ubuntu_linux:16.04
+    cpe:/a:samba:samba:4.3.11
+    cpe:/a:apache:http_server:2.4.18
+    10.0.0.3
+    HACKLAB1
+    Apache Multiviews Arbitrary Directory Listing: Upgrade to Apache version 1.3.22 or later. Alternatively, as a workaround, disable Multiviews.
+    1490105952
+    SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.1
+    Linux Kernel 4.4 on Ubuntu 16.04 (xenial)
+    hacklab1
+    Tue Mar 21 14:19:12 2017
+    00:25:b3:1f:07:ae
+    80
+
+ 
+ 
+cluster ID : amount of IP's
+0 : 29
+1 : 4
+2 : 8
+3 : 2
+4 : 2
+5 : 1
+6 : 1
+
+
+
+Printing Nmap cluster details
+
+Cluster ID: 0
+Silhouette Score: 0.528486221388
+IPs: 10.0.0.24, 10.0.0.26, 10.0.0.27, 10.0.0.30, 10.0.0.33, 10.0.0.36, 10.0.0.39, 10.0.0.41, 10.0.0.42, 10.0.0.43, 10.0.0.46, 10.0.0.47, 10.0.0.48, 10.0.0.50, 10.0.0.51, 10.0.0.53, 10.0.0.54, 10.0.0.55, 10.0.0.56, 10.0.0.58, 10.0.0.64, 10.0.0.65, 10.0.0.66, 10.0.0.70, 10.0.0.76, 10.0.0.79, 10.0.0.83, 10.0.0.84
+
+    Shared Features:
+    tcp22opensshprotocol 2.0
+    tcp135openmsrpcMicrosoft Windows RPC
+    tcp139opennetbios-ssn
+    tcp443openhttpVMware VirtualCenter Web service
+    tcp443openhttpssl-certlocalityNamePalo Alto
+    tcp443openhttpssl-certorganizationalUnitNameVMware
+    tcp443openhttpssl-certcommonNameVMware
+    tcp443openhttpssl-certemailAddressnone@vmware.com
+    tcp443openhttpssl-certcountryNameUS
+    tcp443openhttpssl-certtypersa
+    tcp443openhttpssl-certbits2048
+    tcp443openhttpssl-certnotAfter2017-08-03T11:59:23+00:00
+    tcp443openhttpssl-certnotBefore2016-08-03T11:59:23+00:00
+    tcp443openhttpssl-certmd5ad6e5f01314d1518b4051099cd81a1f0
+    tcp443openhttpssl-certsha183a0d223f33891ba5192d94c26c44e05cfe72a51
+    tcp443openhttpssl-certpem-----BEGIN CERTIFICATE-----\\nMIIEEjCCAvqgAwIBAgIJAP9VV+H4OSLcMA0GCSqGSIb3DQEBCwUAMGMxCzAJBgNV\\nBAYTAlVTMRIwEAYDVQQHDAlQYWxvIEFsdG8xDzANBgNVBAsMBlZNd2FyZTEPMA0G\\nA1UEAwwGVk13YXJlMR4wHAYJKoZIhvcNAQkBFg9ub25lQHZtd2FyZS5jb20wHhcN\\nMTYwODAzMTI1OTIzWhcNMTcwODAzMTI1OTIzWjBjMQswCQYDVQQGEwJVUzESMBAG\\nA1UEBwwJUGFsbyBBbHRvMQ8wDQYDVQQLDAZWTXdhcmUxDzANBgNVBAMMBlZNd2Fy\\nZTEeMBwGCSqGSIb3DQEJARYPbm9uZUB2bXdhcmUuY29tMIIBIjANBgkqhkiG9w0B\\nAQEFAAOCAQ8AMIIBCgKCAQEA3vrMZLOJa1om9Y9alWzb0OYCkFldhC5FyhiomMI/\\nu5aRkcO96mztm8p9aar91WCKKinMqP4HvtDkNmKislkJa51syQhO0PxMM+GKgquW\\n8k2XQUPu+XIfUTwvi5SPrSmcobfHGL6/FijsZ0ArmGoBwCHUh7uL0Kjvgws9iX3u\\nNy2pfUziX4SG2f/LN7mWwrU+OinxPEzjindjdxlCkH2RthHXGc5Kd56WVBz/eGux\\nhmgod9ufeytvuBFZgTiIyfYcDj7OtqQvRFIRmZ/Tsz3ZXvxw3ti6gKp/+d2bPYxM\\nlILcfhoWuW9zmaYwPncILgB/Crn6r2SOXN5ETWTb240UVwIDAQABo4HIMIHFMB0G\\nA1UdDgQWBBSSITCFXwNSUY2/7i81nYCSfRyfYTCBlQYDVR0jBIGNMIGKgBSSITCF\\nXwNSUY2/7i81nYCSfRyfYaFnpGUwYzELMAkGA1UEBhMCVVMxEjAQBgNVBAcMCVBh\\nbG8gQWx0bzEPMA0GA1UECwwGVk13YXJlMQ8wDQYDVQQDDAZWTXdhcmUxHjAcBgkq\\nhkiG9w0BCQEWD25vbmVAdm13YXJlLmNvbYIJAP9VV+H4OSLcMAwGA1UdEwQFMAMB\\nAf8wDQYJKoZIhvcNAQELBQADggEBAAGKflHmWZ2zUhU6NB2vISaY5Yp8fbsEAfYq\\nG02SMWbO+bm3nA6Cw1+5JE+lQlA0oUOmLmgLMcJyFqBbhkU6FdrN1KpyDMHVEOZg\\neprBgeU5hCq6w3/F6xOjOibGgv/tlqzvIw6ueU+0OaJKyUMb+vhABLKppsGG73qN\\nz0dXq6mR2DOMmG89xycZma0YSu5mT6nzmcodn9bR7R1Mr1QSg8jsvldSsh3mg8+8\\nBPi4C4m4q7582rxAbLZ59d9Qe4nP+NjSX1mVW7g86DuMgkqdDqiYMXAS6HS7B/NY\\nrinUJ5Bi6kjSPsXjrtqKMNHehYGCtpFZGjIApv6MadWcE2G63jA=\\n-----END CERTIFICATE-----\\n
+    tcp445opennetbios-ssn
+
+ 
+ 
+Cluster ID: 1
+Silhouette Score: 1.0
+IPs: 10.0.0.28, 10.0.0.34, 10.0.0.35, 10.0.0.40, 10.0.0.69, 10.0.0.74, 10.0.0.78, 10.0.0.80, 10.0.0.85
+
+    Shared Features:
+    tcp22opensshOpenSSH7.2protocol 2.0
+
+ 
+ 
+Cluster ID: 2
+Silhouette Score: -0.222222631321
+IPs: 10.0.0.1, 10.0.0.7
+
+    Shared Features:
+    tcp443open
+    tcp80openhttp
+
+ 
+ 
+Cluster ID: 3
+Silhouette Score: -0.248345190601
+IPs: 10.0.0.3, 10.0.0.5
+
+    Shared Features:
+    tcp139opennetbios-ssn
+    tcp445opennetbios-ssn
+
+ 
+ 
+Cluster ID: 4
+Silhouette Score: 1.0
+IPs: 10.0.0.185
+
+    Shared Features:
+    tcp22opensshprotocol 2.0SF-Port22-TCP:V=6.47%I=7%D=3/21%Time=58D136BB%P=i686-pc-windows-windows%r(NULL,29,"SSH-2\\\\.0-OpenSSH_7\\\\.2p2\\\\x20Ubuntu-4ubuntu2\\\\.1\\\\r\\\\n");
+
+ 
+ 
+cluster ID : amount of IP's
+0 : 28
+1 : 9
+2 : 2
+3 : 2
+4 : 1
+04-04 01:23 24060 cluster <module> DEBUG    :Getting centroids using reduced vectors for Nmap:
+04-04 01:23 24060 cluster <module> DEBUG    :nclusters: 5
+04-04 01:23 24060 cluster <module> DEBUG    :attempting to plot the following centroids:
+ [[-0.34575755  0.05203286]
+ [ 0.93722406  0.14279432]
+ [ 0.06086076 -0.45066068]
+ [ 0.31235087 -0.80310291]
+ [ 0.49977173 -0.23454181]]
+
+
+04-04 01:23 24060 cluster <module> DEBUG    :Getting centroids using reduced vectors for Nessus:
+04-04 01:23 24060 cluster <module> DEBUG    :nclusters: kmeans(n_clusters=5)
+04-04 01:23 24060 cluster <module> DEBUG    :nclusters: 7
+04-04 01:23 24060 cluster <module> DEBUG    :attempting to plot the following centroids:
+ [[-0.32465071  0.04241239]
+ [ 0.73854713  0.28508362]
+ [ 0.42526042 -0.51413803]
+ [ 0.28150282 -0.11457564]
+ [ 0.55611277 -0.12418121]
+ [-0.06618649 -0.0772538 ]
+ [ 0.23895499 -0.50694214]]
+
+
+04-04 01:23 24060 cluster <module> INFO     :Nmap Centroids Covariance Matrix:
+ [[ 0.23001336  0.02479788]
+ [ 0.02479788  0.14788991]]
+04-04 01:23 24060 cluster <module> INFO     :Nessus Centroids Covariance Matrix:
+ [[ 0.13216597  0.00459265]
+ [ 0.00459265  0.08221746]]
+04-04 01:23 24060 cluster <module> INFO     :distance matrix between centroids using metric for Nmap: euclidean :
+--------  --------  --------  --------  --------
+0         1.28619   0.64656   1.07906   0.892774
+1.28619   0         1.0584    1.13366   0.577708
+0.64656   1.0584    0         0.43297   0.489234
+1.07906   1.13366   0.43297   0         0.598655
+0.892774  0.577708  0.489234  0.598655  0
+--------  --------  --------  --------  --------
+04-04 01:23 24060 cluster <module> INFO     :distance matrix between centroids using metric for Nessus: euclidean :
+--------  --------  --------  --------  --------  --------  --------
+0         1.09054   0.933871  0.626153  0.89638   0.284822  0.787046
+1.09054   0         0.858431  0.607138  0.448085  0.882544  0.936428
+0.933871  0.858431  0         0.424637  0.411325  0.657562  0.186444
+0.626153  0.607138  0.424637  0         0.274778  0.349687  0.394667
+0.89638   0.448085  0.411325  0.274778  0         0.624066  0.497087
+0.284822  0.882544  0.657562  0.349687  0.624066  0         0.527014
+0.787046  0.936428  0.186444  0.394667  0.497087  0.527014  0
+--------  --------  --------  --------  --------  --------  --------
+04-04 01:23 24060 cluster <module> INFO     :IP's from clusters with less than 3 IP's:
+ ['10.0.0.1' '10.0.0.185' '10.0.0.3' '10.0.0.5' '10.0.0.7' '10.0.0.82']
+04-04 01:23 24060 cluster <module> DEBUG    :Loaded 6 vectors with 495 features
+04-04 01:23 24060 cluster <module> INFO     :Normalizing input and reducing vectors to two dimensions with PCA
+04-04 01:23 24060 cluster <module> INFO     :Resulting single IP vectors:
+ [[-0.57810661  0.35576052]
+ [ 0.23495851 -0.64514061]
+ [ 0.0701816  -0.41400474]
+ [ 0.49713564  0.35728938]
+ [-0.57362822 -0.09504716]
+ [ 0.34945907  0.4411426 ]]
+04-04 01:23 24060 cluster <module> INFO     :distance matrix between centroids of small combined clusters: euclidean :
+--------  --------  --------  --------  --------  --------
+0         1.28953   1.00639   1.07524   0.45083   0.931487
+1.28953   0         0.283858  1.03615   0.977965  1.0923
+1.00639   0.283858  0         0.881581  0.718488  0.899596
+1.07524   1.03615   0.881581  0         1.16239   0.169823
+0.45083   0.977965  0.718488  1.16239   0         1.06752
+0.931487  1.0923    0.899596  0.169823  1.06752   0
+--------  --------  --------  --------  --------  --------
+04-04 01:23 24060 clustering cluster_single_kmeans DEBUG    :gap statistics recommends number of clusters: 3
+
+04-04 01:23 24060 display twin DEBUG    :twin cluster plot.

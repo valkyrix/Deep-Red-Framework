@@ -88,7 +88,7 @@ def elbow_method(X, k_max):
     return num_cluster;
 
 
-def optimalK(data, nrefs=3, maxClusters=20):
+def optimalK(data, nrefs, maxClusters):
     """
     Calculates KMeans optimal K using Gap Statistic from Tibshirani, Walther, Hastie
     Params:

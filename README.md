@@ -10,6 +10,12 @@
 Using the university's hacklab nmap and nessus scans as a dataset the following results were acheived. 
 More information can be found within the hacklab analyses folder.
 
+twin mode: requires both datasets as input. This will take clusters with IP count < 3 and combine the vector features of both datasets to create a new clustering of 'vulnerable' IP's. In other words - Small clusterings (IP count less than 3) reclustered with combined datasets.
+
+<img src="/hacklab analyses/twin.png">
+```command: cluster.py -s automatic -vv -p -t -N -tp "../hacklab analyses/hacklab_new.xml" "../hacklab analyses/hacklab_new.nessus"```
+full raw output which includes all relevant information can be found here:  [twin-auto-output.txt](/hacklab%20analyses/twin-auto-output.txt) 
+
 clustering model on automatic mode with centroids using nmap xml output (left) and nessus scan output (right)
 the vectors have been normalised before PCA(2d).
 
@@ -44,7 +50,9 @@ Using a nessus file from my home network scan.
 192.168.0.4 and 192.168.0.7 are both recent windows machines whilst 192.168.0.1 is the home router and 192.168.0.8 is an android device.
 
 * ~~calculate covariance matrix of centroids~~ only works for kmeans due to agglo and dbscan python implementations not returning centroids
-* __Compare the two clusters and generate a new cluster based off of them__
+* ~~Compare the two clusters and generate a new cluster based off of them~~ takes all ips in clusters less than 3 ip's in size and combines each ips data from the 2 data sets and clusters based off of gap_statistic k-means
+
+#### Stretch Goals (after thesis completion)
 * automate the entire process not just clustering (scanning and retreival)
 * possible integration with exploitation model
 

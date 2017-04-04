@@ -18,8 +18,8 @@ def get_centroids(vectors, n_clusters):
         # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
         # We can choose any of the following 2 methods:
         # n_clusters = elbow_method(vectors, 20);
-        k, gapdf = optimalK(vectors, nrefs=3, maxClusters=n_clusters)
-        logging.debug("gap statistics recommends number of clusters: {0}\n{1}".format(k, gapdf))
+        k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
+        logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
         if (k > n_clusters):
             n_clusters = k
         else:
@@ -27,6 +27,21 @@ def get_centroids(vectors, n_clusters):
 
     return find_centers_only(vectors, n_clusters)
 
+def cluster_single_kmeans(vectors, n_clusters):
+    if n_clusters == 2:
+        # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
+        # We can choose any of the following 2 methods:
+        #k = elbow_method(vectors, vectors.shape[0]);
+        #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
+        k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
+        logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
+        if (k > n_clusters):
+            n_clusters = k
+        else:
+            n_clusters = 2
+
+    kmeans = KMeans(n_clusters=n_clusters, random_state=0).fit(vectors)
+    return kmeans
 
 
 def cluster_with_kmeans(vectors, n_clusters):
@@ -34,10 +49,9 @@ def cluster_with_kmeans(vectors, n_clusters):
         # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
         # We can choose any of the following 2 methods:
         #n_clusters = elbow_method(vectors, 20);
-        #todo fix
         #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
-        k, gapdf = optimalK(vectors, nrefs=3, maxClusters=n_clusters)
-        logging.debug("gap statistics recommends number of clusters: {0}\n{1}".format(k, gapdf))
+        k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
+        logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
         if (k > n_clusters):
             n_clusters = k
         else:
