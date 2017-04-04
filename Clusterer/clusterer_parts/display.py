@@ -189,7 +189,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     logging.debug("twin cluster plot.")
     fig =plt.figure(figsize=(12, 12))
     fig.canvas.set_window_title('Clustering Tool')
-    gs = gridspec.GridSpec(3, 2)
+    gs = gridspec.GridSpec(4, 2)
     colors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(labels))))
     Ncolors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(Nlabels))))
     fcolors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(clusterz.labels_))))
@@ -198,7 +198,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     Nsort_cent = np.zeros((Nn_clusters, 2))
     sort_cent = np.zeros((n_clusters, 2))
 
-    global NclusterX
+    global NclusterX, clusterX
 
     # ip's for nmap
     for index in range(len(labels)):
@@ -319,20 +319,24 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     for index in range(len(clusterz.cluster_centers_[:,0])):
         plt.scatter((clusterz.cluster_centers_[index, 0]), (clusterz.cluster_centers_[index, 1]), marker='+', s=300, linewidths=1, \
                     c="black", label=index, zorder=4)
-
+    plt.figtext(.1, 0.2, "IP information placeholder", rotation='horizontal')
     plt.title("Small clusterings (IP count less than 3) reclustered with combined datasets. ")
-    # plt.legend(loc='best')
+
+    plt.tight_layout() #tighten everything up a bit
     plt.show()
 
 def create_plot_centroids(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_details):
 
         logging.debug("ploting graph with centroids.")
-        plt.figure(figsize=(10,5))
+        fig =plt.figure(figsize=(10,5))
+
+        fig.canvas.set_window_title('Clustering Tool')
         colors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(labels))))
         # colors2 = plt.get_cmap('jet')(np.linspace(0, 1.0, n_clusters))
 
         #sort_cent will be a sorted centroid list
         global sort_cent
+        global clusterX
         sort_cent = np.zeros((n_clusters, 2))
 
         # ip's
@@ -348,15 +352,15 @@ def create_plot_centroids(reduced_vectors, labels, vector_names, centroids, n_cl
         for index2 in range(n_clusters):
 
             clusterID=99
-            pt =(centroids[index2, 0], centroids[index2, 1])
+            pt = (centroids[index2, 0], centroids[index2, 1])
             # find reduced vector X and Y of nearest IP
-            nearest = find_nearest_vector(reduced_vectors,pt)
-            #use nearest reduced vector to find nearest IP
+            nearest = find_nearest_vector(reduced_vectors, pt)
+            # use nearest reduced vector to find nearest IP
             for index3 in range(len(labels)):
                 if nearest[0] == reduced_vectors[index3, 0] and nearest[1] == reduced_vectors[index3, 1]:
-                    #found nearest IP to cluster
+                    # found nearest IP to cluster
                     ip = vector_names[index3]
-                    #logging.debug("nearest IP to cluster {0} is {1}. nearest vector X: {2}  Y: {3}".format(index2,ip, nearest[0], nearest[1]))
+                    # logging.debug("nearest IP to cluster {0} is {1}. nearest vector X: {2}  Y: {3}".format(index2,ip, nearest[0], nearest[1]))
                     break
                 continue
             # find cluster_id of the nearest IP
@@ -366,13 +370,7 @@ def create_plot_centroids(reduced_vectors, labels, vector_names, centroids, n_cl
                 IPlist = clusterX.item((index4, 2))
                 if ip in IPlist:
                     # set clusterID to the one from the nearest IP
-                    clusterID = clusterX.item((index4,0))
-
-                    #logging.debug("setting clusterno to: {0} from IP: {1}".format(clusterID, ip))
-                    #logging.debug("IPlist from {0} : {1}".format(index4, IPlist))
-
-            # plt.scatter((centroids[index2, 0]), (centroids[index2, 1]), marker='x', s=150, linewidths=2, \
-            #             c=colors2[index2], cmap=plt.matplotlib.cm.jet)
+                    clusterID = clusterX.item((index4, 0))
 
             #plot graph points for centroids
             plt.subplot(121)
@@ -387,30 +385,36 @@ def create_plot_centroids(reduced_vectors, labels, vector_names, centroids, n_cl
                         c="black", label=index2, zorder=3)
             sort_cent[index4,0] = centroids[index2, 0]
             sort_cent[index4,1] = centroids[index2, 1]
+
             plt.annotate(clusterID, xy=(centroids[index2, 0], centroids[index2, 1]), color="b")
 
         print
         #plt.legend(loc='best')
         plt.xlabel("X")
         plt.ylabel("Y")
+
+        plt.tight_layout()  # tighten everything up a bit
         plt.show()
 
 
 def create_plot(reduced_vectors, labels, vector_names):
 
         logging.debug("ploting graph without centroids.")
-        plt.figure()
+        fig=plt.figure()
+        fig.canvas.set_window_title('Clustering Tool')
         colors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(labels))))
         for index in range(len(labels)):
             plt.scatter(reduced_vectors[index, 0], reduced_vectors[index, 1], c=colors[labels[index]], label=labels[index])
             plt.annotate(vector_names[index], xy=(reduced_vectors[index, 0], reduced_vectors[index, 1]))
         #plt.legend(loc='best')
+        plt.tight_layout() #tighten everything up a bit
         plt.show()
 
 
 def create_plot_only_centroids(reduced_vectors, labels, vector_names, centroids, n_clusters, ):
     logging.debug("ploting graph with only centroids.")
-    plt.figure()
+    fig=plt.figure()
+    fig.canvas.set_window_title('Clustering Tool')
 
     # centroids
     for index2 in range(n_clusters):
@@ -447,5 +451,6 @@ def create_plot_only_centroids(reduced_vectors, labels, vector_names, centroids,
     plt.title("Clustering of IP's with Centroids after Vectorisation.")
     plt.xlabel("X")
     plt.ylabel("Y")
+    plt.tight_layout() #tighten everything up a bit
     plt.show()
 

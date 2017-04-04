@@ -3,7 +3,7 @@ from sklearn.cluster import KMeans, DBSCAN, AgglomerativeClustering
 from sklearn.metrics.pairwise import pairwise_distances
 from optimal_k_k_means import gap_statistic, elbow_method, find_centers, find_centers_only, optimalK
 from Interactive_Clustering import *
-
+k=0 #initiate k
 
 def precompute_distances(vectors, metric="euclidean"):
     return pairwise_distances(vectors, n_jobs=-1, metric=metric)
@@ -13,14 +13,22 @@ def cluster_interactive(vectors, vectorizer, raw_vectors, vector_names):
     Icluster = interactive_Clustering()
     return Icluster.fit_predict(vectors, vectorizer, raw_vectors, vector_names)
 
+def get_k():
+    global k
+    return k
+
 def get_centroids(vectors, n_clusters):
     if n_clusters == 2:
         # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
         # We can choose any of the following 2 methods:
         # n_clusters = elbow_method(vectors, 20);
-        k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
-        logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
+        # logging.debug("Calculating gap statistic value\n")
+        # k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
+        # logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
+        k = get_k()
+        logging.debug("K = {0}\n".format(k))
         if (k > n_clusters):
+            logging.debug("No K value specified, using Gap Statistic\n")
             n_clusters = k
         else:
             n_clusters = 2
@@ -33,9 +41,12 @@ def cluster_single_kmeans(vectors, n_clusters):
         # We can choose any of the following 2 methods:
         #k = elbow_method(vectors, vectors.shape[0]);
         #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
+        logging.info("Calculating gap statistic value, this can take a while...\n")
+        global k
         k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
-        logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
+        logging.info("gap statistics recommends number of clusters: {0}\n".format(k))
         if (k > n_clusters):
+            logging.debug("No K value specified, using Gap Statistic\n")
             n_clusters = k
         else:
             n_clusters = 2
@@ -50,9 +61,12 @@ def cluster_with_kmeans(vectors, n_clusters):
         # We can choose any of the following 2 methods:
         #n_clusters = elbow_method(vectors, 20);
         #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
+        logging.info("Calculating gap statistic value, this can take a while...\n")
+        global k
         k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
-        logging.debug("gap statistics recommends number of clusters: {0}\n".format(k))
+        logging.info("gap statistics recommends number of clusters: {0}\n".format(k))
         if (k > n_clusters):
+            logging.debug("No K value specified, using Gap Statistic\n")
             n_clusters = k
         else:
             n_clusters = 2

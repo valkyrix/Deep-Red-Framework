@@ -4,7 +4,7 @@ from sklearn.preprocessing import normalize
 
 from clusterer_parts.analysis import get_common_features_from_cluster, get_common_feature_stats
 from clusterer_parts.clustering import cluster_with_dbscan, cluster_with_kmeans, precompute_distances, \
-    cluster_with_agglomerative, cluster_interactive, get_centroids, cluster_single_kmeans
+    cluster_with_agglomerative, cluster_interactive, get_centroids, cluster_single_kmeans, get_k
 from clusterer_parts.display import print_cluster_details, generate_dot_graph_for_gephi, create_plot, \
     create_plot_centroids, create_plot_only_centroids, twin, remove_large_clusters
 from clusterer_parts.optimizing import sort_items_by_multiple_keys
@@ -50,10 +50,10 @@ def cluster(
 
 
     if strategy == "manual":
+        no_clusters = ""
         if cluster_method == "kmeans":
-
-            centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
-            logging.debug("centroids for kmeans: {0}".format(centroidskmeans))
+            #centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
+            #logging.debug("centroids for kmeans: {0}".format(centroidskmeans))
             return cluster_with_kmeans(reduced_vectors, n_clusters=n_clusters)
 
         elif cluster_method == "dbscan":
@@ -360,7 +360,7 @@ if __name__ == "__main__":
 
         if args.plot:
             # only kmeans centroids for now
-            if no_clusters.startswith("kmeans"):
+            if no_clusters.startswith("kmeans") :
                 logging.debug("Getting centroids using reduced vectors:")
                 # global centroidskmeans
                 # take just cluster number from result string
@@ -392,7 +392,11 @@ if __name__ == "__main__":
 
             # manually selected kmeans though arguments
             elif args.method == "kmeans" and args.strategy != "automatic":
-                centroidskmeans = get_centroids(reduced_vectors, args.n_clusters)
+                if get_k()>0:
+                    centroidskmeans = get_centroids(reduced_vectors, get_k())
+                else:
+                    centroidskmeans = get_centroids(reduced_vectors, args.n_clusters)
+
                 logging.debug("attempting to plot the following centroids: \n" + str(centroidskmeans))
 
                 # covariance
@@ -409,10 +413,17 @@ if __name__ == "__main__":
                     "distance matrix between centroids using metric: {0} :\n{1}".format(args.metric, matrixTable))
 
                 if args.centroids:
-                    create_plot_only_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters)
+                    if get_k() > 0:
+                        create_plot_only_centroids(reduced_vectors, labels, vector_names, centroidskmeans, get_k())
+                    else:
+                        create_plot_only_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters)
                 else:
-                    create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters,
-                                          cluster_details)
+                    if get_k() > 0:
+                        create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, get_k(),
+                                              cluster_details)
+                    else:
+                        create_plot_centroids(reduced_vectors, labels, vector_names, centroidskmeans, args.n_clusters,
+                                              cluster_details)
             else:
                 logging.debug("plotting standard graph")
                 create_plot(reduced_vectors, labels, vector_names)
