@@ -2,6 +2,7 @@ import logging
 
 from sklearn.preprocessing import normalize
 
+from clusterer_parts.optimal_k_k_means import optimalK
 from clusterer_parts.analysis import get_common_features_from_cluster, get_common_feature_stats
 from clusterer_parts.clustering import cluster_with_dbscan, cluster_with_kmeans, precompute_distances, \
     cluster_with_agglomerative, cluster_interactive, get_centroids, cluster_single_kmeans, get_k
@@ -43,6 +44,8 @@ def cluster(
      The multiple clustering strategies and parameters are used in an attempt to get the best clusters
      
      finds the least amount of clusters with atleast one shared feature
+     
+     only uses gap statistic for small IP clusters
     """
 
     global centroidskmeans, centroidagglo, centroiddbs, no_clusters, Nno_clusters, Ncentroidskmeans
@@ -54,13 +57,14 @@ def cluster(
         if cluster_method == "kmeans":
             #centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
             #logging.debug("centroids for kmeans: {0}".format(centroidskmeans))
-            return cluster_with_kmeans(reduced_vectors, n_clusters=n_clusters)
+            k, gapdf = optimalK(vectors, nrefs=3, maxClusters=reduced_vectors.shape[0])
+            return cluster_with_kmeans(reduced_vectors, n_clusters=k)
 
         elif cluster_method == "dbscan":
-            return cluster_with_dbscan(normalized_vectors, epsilon=epsilon, min_samples=min_samples, metric=metric)
+            return cluster_with_dbscan(reduced_vectors, epsilon=epsilon, min_samples=min_samples, metric=metric)
 
         elif cluster_method == "agglomerative":
-            return cluster_with_agglomerative(normalized_vectors, n_clusters=n_clusters, metric=metric)
+            return cluster_with_agglomerative(reduced_vectors, n_clusters=n_clusters, metric=metric)
 
         else:
             # Unknown clustering method
@@ -71,14 +75,14 @@ def cluster(
         To display a information about a vector to a user, you can use the following:
         display_vector_index_details(vector_index, vectors, vector_names, vectorizer)
         """
-        # todo Try with normalized vectors
+
         return cluster_interactive(reduced_vectors, vectorizer, vectors, vector_names)
     elif strategy == "automatic":
-        # todo fix
         results = []
         smallest_cluster_count = vectors.shape[0]
         # centroids works for only kmeans atm
         for cluster_method in [
+            #todo add agglo and dbscan back in after they can return centroids.
             "kmeans"  # ,
             # "agglomerative",
             # "dbscan",
@@ -533,6 +537,7 @@ if __name__ == "__main__":
                 logging.debug("nclusters: " + str(n_clusters))
 
                 centroidskmeans = get_centroids(reduced_vectors, n_clusters)
+                k = get_k()
                 logging.debug("attempting to plot the following centroids:\n " + str(centroidskmeans) + "\n\n")
 
                 # Nessus
@@ -546,6 +551,7 @@ if __name__ == "__main__":
 
                 Ncentroidskmeans = get_centroids(Nreduced_vectors, Nn_clusters)
                 logging.debug("attempting to plot the following centroids:\n " + str(Ncentroidskmeans) + "\n\n")
+                Nk = get_k()
 
                 # covariance for Nmap
                 x = centroidskmeans[:, 0]
@@ -636,6 +642,6 @@ if __name__ == "__main__":
                     "distance matrix between centroids of small combined clusters: {0} :\n{1}".format(args.metric, SmatrixTable))
                 clusterz = cluster_single_kmeans(final, 2)
 
-                twin(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details, Nreduced_vectors, Nlabels, Nvector_names, Ncentroidskmeans, Nn_clusters, Ncluster_details, small_ips, final, clusterz)
+                twin(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details, Nreduced_vectors, Nlabels, Nvector_names, Ncentroidskmeans, Nn_clusters, Ncluster_details, small_ips, final, clusterz, twinpath)
 
     else: print "not yet implemented #todo"

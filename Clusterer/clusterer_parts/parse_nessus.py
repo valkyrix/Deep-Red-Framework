@@ -78,8 +78,7 @@ class NessusXMLParser:
                                     # ip_addresses[ip].append(s)
 
                             for param in host_properties_dict:
-                                # TODO FIX!!! decide host properties to use for the features list of each IP.
-                                # param = tag name
+                                # takes all host properties to be appended to vulnerability features
                                 vulnerabilities[vulner_id][param] = host_properties_dict[param]
 
                                 if (host_properties_dict[param] == "Advanced Scan") or (

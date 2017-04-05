@@ -1,5 +1,8 @@
+import logging
+
 from parsing import parsers
 from parse_nessus import Nparsers
+from single_ip_parsing_nmap import single_ip_parsers
 
 import numpy as np
 
@@ -63,3 +66,11 @@ def vectorize(files_to_vectorize, n):
     vector_names, vectors = vectorizer.output_vectors()
 
     return vector_names, vectors, vectorizer
+
+def parse_single_ips(files_to_vectorize, ips):
+    for file_path in files_to_vectorize:
+        with open(file_path, "r") as f:
+            for parser in single_ip_parsers:
+                #logging.debug("vectorisor selecting single ips")
+                results = parser.parse_input(f.read(), ips)
+                return results

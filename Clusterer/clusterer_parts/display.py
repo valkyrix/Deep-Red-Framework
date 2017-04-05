@@ -1,13 +1,13 @@
 import logging
 
 from matplotlib import gridspec
+from tabulate import tabulate
 
+from vectorize import parse_single_ips
 from analysis import reduce_shared_features, get_common_features_from_cluster
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import spatial
-from tabulate import tabulate
-
 first_pass = 0
 clusterX = dict()
 NclusterX = dict()
@@ -141,8 +141,6 @@ def find_nearest_vector(array, value):
         return nearest_vector
 
 def remove_large_clusters():
-    #todo
-    #remove large clusters and combine then data to be clustered again
 
     #originals needed for graph plotting therefore cant be modified here
     nessusArray = clusterX
@@ -182,7 +180,7 @@ def remove_large_clusters():
     combined_unique = np.unique(combined)
     return combined_unique
 
-def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_details, Nreduced_vectors, Nlabels, Nvector_names, Ncentroids, Nn_clusters, Ncluster_details, small_ips, final, clusterz):
+def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_details, Nreduced_vectors, Nlabels, Nvector_names, Ncentroids, Nn_clusters, Ncluster_details, small_ips, final, clusterz, twinpath):
     #variables beginning with N are the nessus options
     #therefore variable order is nmap then nessus
 
@@ -319,7 +317,18 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     for index in range(len(clusterz.cluster_centers_[:,0])):
         plt.scatter((clusterz.cluster_centers_[index, 0]), (clusterz.cluster_centers_[index, 1]), marker='+', s=300, linewidths=1, \
                     c="black", label=index, zorder=4)
-    plt.figtext(.1, 0.2, "IP information placeholder", rotation='horizontal')
+
+    #add single IP information
+    info = parse_single_ips(twinpath ,small_ips)
+    #logging.debug("retreiving single IPs info: {0}".format(info))
+
+    #parse ip information dictionary for display
+    printinfo ="Recommended attack vectors: \n"
+    for k, v in info.iteritems():
+        value = "".join(v)
+        printinfo += "{0} : {1} \n".format(k,value)
+
+    plt.figtext(0.1, 0,printinfo, rotation='horizontal')
     plt.title("Small clusterings (IP count less than 3) reclustered with combined datasets. ")
 
     plt.tight_layout() #tighten everything up a bit
