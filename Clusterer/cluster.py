@@ -642,6 +642,12 @@ if __name__ == "__main__":
                     "distance matrix between centroids of small combined clusters: {0} :\n{1}".format(args.metric, SmatrixTable))
                 clusterz = cluster_single_kmeans(final, 2)
 
+                logging.info("Writing recommended attack IP's to targets.txt for exploitation\n {0}")
+                f = open('targets.txt', 'w')
+                for index in range(len(small_ips)):
+                    f.write('{0}\n'.format(small_ips[index]))  # python will convert \n to os.linesep
+                f.close()  # you can omit in most cases as the destructor will call it
+
                 twin(reduced_vectors, labels, vector_names, centroidskmeans, n_clusters, cluster_details, Nreduced_vectors, Nlabels, Nvector_names, Ncentroidskmeans, Nn_clusters, Ncluster_details, small_ips, final, clusterz, twinpath)
 
     else: print "not yet implemented #todo"

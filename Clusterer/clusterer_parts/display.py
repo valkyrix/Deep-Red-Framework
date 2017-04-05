@@ -322,6 +322,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     info = parse_single_ips(twinpath ,small_ips)
     #logging.debug("retreiving single IPs info: {0}".format(info))
 
+    logging.debug(info)
     #parse ip information dictionary for display
     printinfo ="Recommended attack vectors: \n"
     for k, v in info.iteritems():

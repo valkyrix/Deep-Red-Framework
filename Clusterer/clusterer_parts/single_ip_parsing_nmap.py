@@ -48,6 +48,7 @@ class singleNMAPXMLParser():
                 if ip_address not in ips:
                     continue
                 else:
+                    logging.debug("found ip {0}".format(ip_address))
                     info[ip_address] = []
                 #if ip is in the given ip list run rest of code
                 for os in os:
