@@ -14,8 +14,9 @@ twin mode: requires both datasets as input. This will take clusters with IP coun
 
 <img src="/hacklab analyses/twin.png">
 
+command:
 ```syntax
-command: cluster.py -s automatic -vv -p -t -N -tp "../hacklab analyses/hacklab_new.xml" "../hacklab analyses/hacklab_new.nessus"
+cluster.py -s automatic -vv -p -t -N -tp "../hacklab analyses/hacklab_new.xml" "../hacklab analyses/hacklab_new.nessus"
 ```
 full raw output which includes all relevant information can be found here:  [twin-auto-output.txt](/hacklab%20analyses/twin-auto-output.txt) 
 
