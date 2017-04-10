@@ -1,11 +1,11 @@
 ### Unable to decide between the following titles:
 
-Implementing Machine Learning techniques to construct a Red Teaming solution
-Constructing a Vulnerability Clusterer using applied Machine Learning techniques
-Constructing a Vulnerability Clusterer with applied Machine Learning 
-Vulnerability IP clustering with applied Machine Learning
-Differential IP clustering with applied Machine Learning
-Differential IP clustering for Vulnerability Detection using applied Machine Learning
+* Implementing Machine Learning techniques to construct a Red Teaming solution
+* Constructing a Vulnerability Clusterer using applied Machine Learning techniques
+* Constructing a Vulnerability Clusterer with applied Machine Learning 
+* Vulnerability IP clustering with applied Machine Learning
+* Differential IP clustering with applied Machine Learning
+* Differential IP clustering for Vulnerability Detection using applied Machine Learning
 
 the last of which describes the project best but is very long.
 ## [insert title here]
