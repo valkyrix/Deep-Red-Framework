@@ -1,9 +1,9 @@
-### Dissertation Status:
-currently finishing introduction and starting on methodology.
+### Dissertation Status *updated daily*:
+just finished introduction at about 3.2k words
+no literature review
+moving onto methodology
 
-managing about 2000 words a day.
-
-started too late was too focused on the programming.
+started too late was too focused on the programming, hope to finish on time.
 
 #### Unable to decide between the following titles:
 
