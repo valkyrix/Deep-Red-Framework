@@ -1,4 +1,4 @@
-###Dissertation status:
+### Dissertation Status:
 currently finishing introduction and starting on methodology
 managing about 2000 words a day
 started too late was too focused on the programming
