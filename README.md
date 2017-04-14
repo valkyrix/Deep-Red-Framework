@@ -1,7 +1,9 @@
 ### Dissertation Status:
-currently finishing introduction and starting on methodology
-managing about 2000 words a day
-started too late was too focused on the programming
+currently finishing introduction and starting on methodology.
+
+managing about 2000 words a day.
+
+started too late was too focused on the programming.
 
 #### Unable to decide between the following titles:
 
