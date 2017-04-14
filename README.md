@@ -1,4 +1,9 @@
-### Unable to decide between the following titles:
+###Dissertation status:
+currently finishing introduction and starting on methodology
+managing about 2000 words a day
+started too late was too focused on the programming
+
+#### Unable to decide between the following titles:
 
 * Implementing Machine Learning techniques to construct a Red Teaming solution
 * Constructing a Vulnerability Clusterer using applied Machine Learning techniques
