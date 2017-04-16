@@ -1,9 +1,8 @@
 ### Dissertation Status *updated daily*:
 * created app infrastructure diagram names flow.pdf
-* no literature review
-* structuring and writing methodology
-
-started too late was too focused on the programming, hope to finish on time.
+* no literature review. will do at end if required.
+* Writing methodology
+* included TODO list at end of methodology tex file
 
 #### Unable to decide between the following titles:
 
