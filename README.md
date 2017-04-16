@@ -1,7 +1,7 @@
 ### Dissertation Status *updated daily*:
-just finished introduction at about 3.2k words
+created app infrastructure diagram names flow.pdf
 no literature review
-moving onto methodology
+structuring and writing methodology
 
 started too late was too focused on the programming, hope to finish on time.
 
