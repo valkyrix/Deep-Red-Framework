@@ -110,7 +110,7 @@ def cluster(
                         break
                     if len(set(labels)) < smallest_cluster_count:
                         smallest_cluster_count = len(set(labels))
-
+                    #too verbose
                     # logging.debug(repr((
                     #         overall_score,
                     #         min(per_cluster_score.values()),
@@ -237,10 +237,7 @@ def cluster(
                     )
                     epsilon += step_size
 
-        # Pick best result
-        """
-        We want to maximize the silhouette score while minimizing the number of labels
-        """
+        # Choose best clustering result based on the following attributes
         sorted_results = sort_items_by_multiple_keys(
             results,
             {
@@ -584,19 +581,6 @@ if __name__ == "__main__":
                 small_ips = remove_large_clusters()
 
                 logging.info("IP's from clusters with less than 3 IP's:\n {0}".format((small_ips)))
-
-                # nesmap = np.zeros((len(small_ips),4))
-                #
-                # for index in range(len(small_ips)):
-                #     for index2 in range(len(reduced_vectors[:,0])):
-                #         if small_ips[index] == vector_names[index2]:
-                #             #nesmap[index,0] = small_ips[index]
-                #             nesmap[index,0] = reduced_vectors[index2, 0]
-                #             nesmap[index,1] = reduced_vectors[index2, 1]
-                #     for index3 in range(len(Nreduced_vectors[:,0])):
-                #         if small_ips[index] == Nvector_names[index3]:
-                #             nesmap[index,2] = Nreduced_vectors[index3, 0]
-                #             nesmap[index,3] = Nreduced_vectors[index3, 1]
 
 
                 #creates large array with 2nd dimension as large enough to hold both feature vectors

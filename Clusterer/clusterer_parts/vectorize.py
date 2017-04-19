@@ -1,9 +1,7 @@
 import logging
-
 from parsing import parsers
 from parse_nessus import Nparsers
 from single_ip_parsing_nmap import single_ip_parsers
-
 import numpy as np
 
 
@@ -28,7 +26,7 @@ class Vectorizer:
         self.pseudo_vectors[ip].append(s_id)
 
     def parse_input(self, input_string, n):
-
+    ##n boolean value refers to nessus input only
         if (n==True):
             for parser in Nparsers:
                 if parser.can_parse_input(input_string):

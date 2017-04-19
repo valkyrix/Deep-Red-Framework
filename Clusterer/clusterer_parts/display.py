@@ -327,9 +327,11 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     printinfo ="Recommended attack vectors: \n"
     for k, v in info.iteritems():
         value = "".join(v)
+        if value == "":
+            value  = "OS detection failed, Didn't receive UDP response"
         printinfo += "{0} : {1} \n".format(k,value)
 
-    plt.figtext(0.1, 0,printinfo, rotation='horizontal')
+    plt.figtext(0, 0,printinfo, rotation='horizontal')
     plt.title("Small clusterings (IP count less than 3) reclustered with combined datasets. ")
 
     plt.tight_layout() #tighten everything up a bit

@@ -1,8 +1,9 @@
 ### Dissertation Status *updated daily*:
-* created app infrastructure diagram names flow.pdf
-* no literature review. will do at end if required.
-* Writing methodology
+* 2k words into methodology, added module analyses and lots of figures.
+* added several appendices such as a few raw class files and examples
+* *still* Writing methodology
 * included TODO list at end of methodology tex file
+* no literature review. will do at end *if* required.
 
 #### Unable to decide between the following titles:
 
