@@ -4,7 +4,6 @@
 \label{chap:brief}
 %Brief
 \paragraph{}This chapter contains an in-depth analysis of the design and implementation stages carried out during this project. Initially, the design and goals of the application will be enumerated. Subsequently an analysis of the application’s infrastructure will be presented followed by an in-depth detail of the modules and submodules within the application’s programming. A test case scenario will be defined and executed to provide a proof of concept. The efficiency and accuracy among other factors based on the test scenario will be analysed during the discussion chapter of this thesis. 
-
 %Section
 \section{Design}
 \label{sec:design}
@@ -23,14 +22,13 @@ The application was designed with the following requirements in mind:
 
 \paragraph{}\textbf{Highly versatile with working conditions and configurability.} The programming of the application to be highly documented allowing a tester to fix and modify the application code to suit the operation’s needs. By using a primarily interpreted language as appose to compiled one would allow for this, as well as making the application portable without extra code. For these purposes, the Python programming language was chosen. With the majority of modern tools and scripts used by penetration testers haven been written in Python due to its versatility, reliability and portability, it further enforces this choice.
 
-
 \subsection{Application Brief}
+\label{brief}
+\paragraph{}The application requires several parameters to run and has three different global modes; manual, assisted and automatic. These modes can either be run with Nmap, Nessus or both inputs with the majority of the use case scenarios requiring both. The application will then parse these inputs into labels and features, process the data in several ways and cluster the information based on feature similarities (explained further in section \ref{infra4}). The text output is then displayed which includes the full details of each cluster within the clustering and several statistics such as adjusted silhouette values (more information found in section \ref{infra5} and \ref{infra6}). When using Dual input mode (both Nessus and Nmap files) the application will combine the data from each and subtract the large similarity clusters. By doing this, the application will determine the most unique hosts within the topology and display them in a new clustering. These most unique hosts, based on probability, will be the most vulnerable on the network and should be prioritised by a tester during the manual security assessment, because it is highly unlikely that the large clusters removed would contain addresses which are solely vulnerable to the same exploit. This is due to the clustering model prioritising the vulnerabilities that each scanner detects, then appending them to the pre-existing host set, thus rendering that host more unique with a greater feature difference than the other hosts without this vulnerability. The application then renders a graphing interface to display the information as such in described in \ref{display}.
 
-\paragraph{}The application requires several parameters to run and has three different global modes; manual, assisted and automatic. These modes can either be run with Nmap, Nessus or both inputs with the majority of the use case scenarios requiring both. The application will then parse these inputs, process the data in several ways and cluster the information based on feature similarities. Output includes the full details of each cluster within the clustering. If using both inputs the application will combine the data from each and subtract large similarity clusters. By doing this, the application will determine the most unique hosts within the topology and display them in a new clustering. The unique hosts will, based on probability, be the most vulnerable on the network and should be prioritised by a tester during the manual assessment. This is due to the model prioritising the vulnerabilities each scanner detects then appends them to the pre-existing host set, thus rendering that host more unique than the others.
+\paragraph{}An example output of the application when using \textbf{dual input automatic mode} can be found in text form using maximum verbose level at Appendix \ref{exampleoutput} and a Figure of the graphing interface GUI at Appendix \ref{example_dual}. The data-set used for these examples were Nessus and Nmap scan XML outputs generated from a fictional network. Due to the sensitive nature of the data included within these scans such as SSH keys and vulnerability codes, there are no publicly available data-sets.\linebreak
 
-\paragraph{}An example output of the application when using \textbf{twin input automatic mode} can be found in text form using maximum verbose level at Appendix \ref{exampleoutput} and a Figure of the graphing interface GUI at Appendix \ref{example_twin}. The data-set used for these examples were Nessus and Nmap scan XML outputs generated from a fictional network. Due to the sensitive nature of the data included within these scans such as SSH keys and vulnerability codes, there are no publicly available data-sets.\linebreak
-
-The difference between modes and parameters will be explained within the next section \textit{infrastructure analyses.}
+The difference between modes and parameters will be explained further in the next section, the \textit{infrastructure analysis.}
 
 %Section
 \section{Infrastructure}
@@ -38,7 +36,7 @@ The difference between modes and parameters will be explained within the next se
 
 \begin{figure}[!h]
 \centering
-\includegraphics[width=4.5in]{./Figures/flow.pdf}
+\includegraphics[width=5.5in]{./Figures/flow.pdf}
 \caption{Application infrastructure data flow diagram}
 \label{flow}
 \end{figure}
@@ -62,9 +60,10 @@ Pip install -r requirements.txt
 \caption{Network scan data and input parameter modules from infrastructure diagram at Figure \ref{flow}}
 \label{infra1}
 \end{figure}
+
 The modules shown in Figure \ref{infra1} are those used to store the network scan data and process the applications input parameters. The Network Scan Data module refers to the XML output of an Nmap scan, Nessus proprietary export file or both. These must be in their respectable formats in order for the parser to recognise them. The files must also be referenced in their correct positional arguments when executing the application such as mentioned in the application usage in Appendix \ref{usage}.
 
-\paragraph{}The  manual input parameters module on Figure \ref{infra1} refers to the parameters that the application requires to select the correct run configuration. This is required because the application has no execution graphical user interface (GUI), the lack of which was decided for several reasons. Such as allowing for scripting, verbose output and terminal pipe operation commands. This type of interface is generally preferred by professionals due to the speed and reliability it provides over a standard GUI. The graphing stage of the application does however, provide a GUI to allow for manipulation of the graphs in multiple ways. The application usage found in Appendix \ref{usage} includes a full description of the possible parameters. The parameters are passed into the data processing section of the application explained in the next session. The three possible run modes are explained in a later section \ref{modes}.
+\paragraph{}The Parameters manual input module on Figure \ref{infra1} refers to the parameters that the application requires to select the correct run configuration. This is required because the application has no execution graphical user interface (GUI), the lack of which was decided for several reasons. Such as allowing for scripting, verbose output and terminal pipe operation commands. This type of interface is generally preferred by professionals due to the speed and reliability it provides over a standard GUI. The graphing stage of the application does however, provide a GUI to allow for manipulation of the graphs in multiple ways. The application usage found in Appendix \ref{usage} includes a full description of the possible parameters. The parameters are passed into the data processing section of the application explained in the next session. The three possible run modes are explained in a later section \ref{modes}.
 
 \subsection{Data Processing}
 \label{infra2}
@@ -75,8 +74,7 @@ The modules shown in Figure \ref{infra1} are those used to store the network sca
 \caption{The data processing section from the infrastructure diagram at Figure \ref{flow} with the irrelevant modules blurred out}
 \label{infra2}
 \end{figure}
-
-Figure \ref{infra2} displays the data processing section of the application, an analysis of this section is provided in the following paragraphs. \paragraph{}Depending on the files specified within  the input parameters, the application will either feed the Nessus, Nmap or both XML files into the parser classes. These parser classes will take the data from each file and transform it into IP addresses and features which are then passed individually into vectorizers. Vectorization is required for the features to be understood by the clustering algorithm. Vectorization refers to the general process of turning a collection of text (in this case machine attributes) into numerical feature vectors. It is important to note that data from each scanner file is kept separate until the final process. The vectorization class is short and concise due to it having only two purposes, to call the parsers and vectorise the returned results. More information on the vectorization of each file as well as the raw python class code can be found in Appendix \ref{vectorize.py}.
+The data processing modules from the infrastructure diagram have been highlighted in Figure \ref{infra2} and will be described in the following paragraphs. \paragraph{}Depending on the files specified within  the input parameters, the application will either feed the Nessus, Nmap or both XML files into the parser classes. These parser classes will take the data from each file and transform it into IP addresses and features which are then passed individually into vectorizers. Vectorization is required for the features to be understood by the clustering algorithm. Vectorization refers to the general process of turning a collection of text (in this case machine attributes) into numerical feature vectors. It is important to note that data from each scanner file is kept separate until the final process. The vectorization class is short and concise due to it having only two purposes, to call the parsers and vectorise the returned results. More information on the vectorization of each file as well as the raw python class code can be found in Appendix \ref{vectorize.py}.
 
 \paragraph{}Once the data has been vectorised it must be normalised in order to avoid large value bias when using dimensionality reduction algorithms such as PCA. Data normalization scales the values to within the same range whilst keeping the data variance and eliminating the bias problem. This is programmed immediately after vectorisation in the applications initialisation class found in its raw code form at Appendix \ref{cluster.py}.
 
@@ -92,7 +90,15 @@ Figure \ref{infra2} displays the data processing section of the application, an 
 \label{CMFV}
 \end{figure}
 
-\paragraph{}The conditional process of merging the feature vectors, referred to by the symbol in Figure \ref{CMFV}, is executed at this stage, condition dependant on whether dual input mode has been selected when initialising the applications parameters. However, this path must then pause until the main cluster subclass (as represented by the symbol in Figure \ref{clustersub}.) has completed in order to use its clustering outputs. Once this has occurred, each clustering will be duplicated and the large clusters with greater than three IP addresses will be removed from the clustering. This value can be changed based on the network size however the value of three was found to be optimal for networks of size 10 to 1000 from the algorithm tuning stage. The result of each is combined then re-clustered and the remaining IP’s passed through a simpler file parser (compared to that of the ones previously used) to retrieve the information in an un-vectorised text format. This is done to display individual machine information for the end user within the graphing interface. The main cluster subclass mentioned previously is explained in the following section.
+\paragraph{}The conditional process of merging the feature vectors, referred to by the symbol in Figure \ref{CMFV}, is executed at this stage, condition dependant on whether dual input mode has been selected when initialising the applications parameters. However, this path must then pause until the main cluster subclass (as represented by the symbol in Figure \ref{clustersub}.) has completed in order to use its clustering outputs. Once this has occurred, each clustering will be duplicated and the large clusters with greater than three IP addresses will be removed from the clustering. This value can be changed based on the network size however the value of three was found to be optimal for networks of size 10 to 1000 from the algorithm tuning stage (this number can be configured for the user’s needs by modifying a single variable ‘maxaddresses’ within the display class highlighted in Figure \ref{ipno} below). The result of each is combined then re-clustered and the remaining IP’s passed through a simpler file parser (compared to that of the ones previously used) to retrieve the information in an un-vectorised text format. This is done to display individual machine information for the end user within the graphing interface. The clustering of these small cluster IP addresses uses the gap statistic (or Elbow method if preferred by user) algorithm to define the numbers of clustered required as appose to user input as these IP’s depend on the cluster subclass’ algorithm calculated clustering. The main cluster subclass mentioned is explained in the following section \ref{infra4}. Gap statistic and Elbow method formulas can be found in the mathematical model at section \ref{models}.
+
+\begin{figure}[!h]
+\centering
+\includegraphics{./Figures/ipno.png}
+\caption{Location of the variable which defines the number of maximum IP addresses a cluster is allowed to have for the vulnerability analysis process. The variable is defined within the 'display.py' class's 'remove large clusters' function on line 149}
+\label{ipno}
+\end{figure}
+
 
 \subsection{Clustering Algorithm}
 \label{infra4}
@@ -104,8 +110,18 @@ Figure \ref{infra2} displays the data processing section of the application, an 
 \label{clustersub}
 \end{figure}
 
-\paragraph{}The Clusterer subclass represented in the infrastructure diagram by the symbol in Figure \ref{clustersub} above is where the majority of the calculations are done within the application. This includes the three different modes; manual, assisted and automatic. The raw python code for this module can be found in Appendix \ref{cluster_subclass}. *INCOMPLETE*
+\paragraph{}The Clusterer subclass represented in the infrastructure diagram by the module in Figure \ref{clustersub}, is where the majority of the calculations are done within the application. This includes the three different modes; manual, assisted and automatic. The raw python code for this module can be found in Appendix \ref{cluster_subclass}. Each mode can be used with a variety of clustering algorithms such as K-means, DBscan and agglomerative clustering. When using dual input mode these functions will execute twice Nessus starting first. A brief summary of each mode is given in the following paragraphs whilst an in-depth algorithm review can be found in section \ref{models}:
 
+    \textbf{Manual:}
+     The user supplies all required information to do the clustering. This includes the clustering algorithm and its hyper parameters. If no cluster count ‘K’ is provided and K-means was selected, the gap statistic method will be used to calculate the optimal cluster count. An implementation of the elbow method is also included in the application and can be used instead if the gap statistic if the user desires.
+
+    \textbf{Assisted:}
+     The user assists the algorithm by suggesting that some samples should or should not be clustered together. This is a much slower process than the other modes but provides the user with complete control over the clustering decisions. The user must specify the clustering algorithm to use from the selection mentioned above when using this mode.
+
+    \textbf{Automatic:}
+     Multiple clustering strategies and parameters are used in an attempt to get the best clustering. Unfortunately, this function can only use the K-means clustering algorithm whilst running in dual input mode, due to limitations of the ‘sklearn’ library’s centroid functions and the time constraints limiting this development as future work. This function goes through each possible iteration of each clustering algorithm up to a maximum cluster value equalling the number of labels in the given dataset. For e.g. in a dataset with ten IP addresses, the maximum allowed clusters is also then. There are multiple selections the user can decide on in terms of which clustering the application will select. This is calculated via a sorting function in the clustering subclass where the user can select between the average silhouette* value, the minimum silhouette* value, the average distance between IP addresses (Euclidian distance by default), the number of clusters in the clustering or the minimum number of common shared features a cluster has in its clustering. These options can also be joined together to make multiple filters. By default, the application uses both the minimum common features and number of overall clusters as filters allowing it to find the clustering with the least number of clusters requiring at least one shared feature. This option is changed near the end of the cluster subclass, changed by uncommenting one line per filter. Each clustering iteration in this loop will calculate the shared positive, negative features, the individual silhouette values and the mean distance to give an overall/per cluster score. Once the iterations are complete for each clustering algorithm the scores and details are used to select one of the clustering’s based on the filters and then it is displayed. When using dual input mode, the vulnerability detection on the small clusters explained above in section \ref{CMFV} is continued, due to it requiring these clusters as input. An example of the full text output and graphing interface for the application’s automatic mode can be found at Appendix \ref{fictional}.\linebreak
+\paragraph{}* The silhouette value is used to validate the consistency of clusters in a clustering by indicating whether there are too many or too few clusters. It provides a value of negative one to positive one indicating how well each IP fits in the cluster.  A high value close to one indicates a good clustering by showing that the IP address is very similar to the other IP addresses in its cluster, whilst being very different to the IP addresses of the neighbouring clusters. Therefore, having a low or negative silhouette value indicates the wrong number of clusters used. The silhouette value has been calculated using the Euclidian distance (described in section \ref{KNN}) within the validation class.
+     
 \subsection{Covariance and Distance Matrices}
 \label{infra5}
 
@@ -116,9 +132,9 @@ Figure \ref{infra2} displays the data processing section of the application, an 
 \label{cov}
 \end{figure}
 
-\paragraph{}Covariance and distance matrices are calculated just before displaying the graphing interface. The function symbol is shown in Figure \ref{cov} above. The output from these functions can be found at the end of the text output, an example is shown in Appendix \ref{exampleoutput}. This is shown for the simple purpose of giving a technical user the knowledge of the used data-set. Specifically, the covariance matrix shows how related the centroids for each clustering are to each other. Whilst the Distance matrix shows the distance between each clustering centroid. These calculations are done for each clustering in the current mode (e.g. three times if using twin mode) however, they only shown in verbose level one and above.
+\paragraph{}Covariance and distance matrices are calculated just before displaying the graphing interface. The function symbol is shown in Figure \ref{cov} above. The output from these functions can be found at the end of the text output, an example is shown in Appendix \ref{exampleoutput}. This is shown for the purpose of giving a technical user greater knowledge of the data-set used which can be interpreted and reported to the client in a security assessment. Specifically, the covariance matrix shows how related the centroids for each clustering are to each other, in other words, their similarity. Covariance will highlight any linear relationships that might be apparent within the dataset with the values ranging from negative one to positive one, high values indicating a positive linear relationship. The Distance matrix shows the literal Euclidian distance between each clustering centroid but by design that also correlates to showing a numericized value defining how different the clusters are from each other. These calculations are done for each clustering result in the current mode (For e.g. three times if using dual mode), however, they are only shown in verbose level one and above modes.
 
-\subsection{Display Modules}
+\subsection{Display and Output Modules}
 \label{infra6}
 
 \begin{figure}[!h]
@@ -128,21 +144,26 @@ Figure \ref{infra2} displays the data processing section of the application, an 
 \label{display}
 \end{figure}
 
+The application will display the main output at the end of its execution as shown in the infrastructure diagram with the symbol from Figure \ref{display}. The application will show a running output as the calculations and cluster iterations are performed, providing that the verbosity level is set to one or higher. The verbosity parameter will only effect the text output and not the graphing interface of the application which will remain identical, an example of full text output using dual mode can be found at \ref{outputexample}. Without verbose output selected the text output will only show the cluster details (for both formats if using dual mode). In order for the application to display the graphing interface on clustering class completion the application must be run with the parameter ‘-p’ as mentioned in the usage descriptor found in \ref{usage}. The graphs displayed within the graphing GUI are fully manipulatable with zoom, pan and save as functions, however, the graphing interface will differ depending on which mode the application is using. \linebreak
+\paragraph{}The \textbf{dual mode} graphing interface will display five graphs and a small text segment underneath the bottom graph. The five segments are arranged in a grid of 4 with a large graph beneath the grid spanning both columns as the 5th. The first row of two graphs displays the Nmap output with the right graph solely displaying the centroids and the left displaying the entire Nmap clustering with IP addresses. The second row displays the Nessus graphs in the same configuration as Nmap above. The 3rd row graph displays the IP addresses from the clusters with less than 3 IP addresses (this value is the default and can be changed by following the instruction described in section \ref{CMFV} and Figure \ref{ipno}). The reason for why this is done has been explained within the application brief at section \ref{brief} and the method used explained within section \ref{CMFV}. The text segment beneath the 3rd row graph displays the detected operating system information and the probability of that detection being true. This is shown for each IP address in the small cluster IP addresses graph just above the text segment. An example of the dual mode graphing interface can be found in Figure \ref{example_dual} and Figure \ref{dual}.\linebreak
+\paragraph{}\textbf{Standard mode} graphing interfaces are similar to each other as they contain the same two graph split with just different information. The graphs are similar to that of dual mode without the small combined cluster graph of which the left graph includes the full clustering with IP addresses and the right graph solely contains the centroids of those clusters. Two examples of this mode can be found in the Appendix as Figure \ref{split_nessus} for Nessus clustering and Figure \ref{split_nmap} for Nmap clustering, along with the commands used to achieve them. 
 
-The application will display the main output at the end of its execution as shown in the infrastructure diagram with the symbol from Figure \ref{display}. The application will show a running output as the calculations are performed providing that the verbosity level is set to one or higher. The verbosity parameter will only effect the text output and not the graphing interface of the application. Without verbose output selected the text output will only show the cluster details (for both formats if using twin mode)  *INCOMPLETE*
+\section{Mathematical Model and Algorithms}
+\label{models}
+\textbf{\textit{TODO}}
+Usage examples
 
-Modes and parameters. Usage examples.
-
-
-\newpage
-TODO notes
-\begin{itemize}
-\item complete cluster sub class description and display description such as Gap statistic- http://web.stanford.edu/~hastie/Papers/gap.pdf and The elbow method
-\item Modes and parameters. Usage examples. - describe them in depth
-\item mathematical model
-\item POC testing, what was done. Validate results
-\end{itemize}
-
+Create a Mathematical Model with the following:
+Parse,
+Normalise
+Pca
+Cluster
+Silhouette value
+centroids
+Gap statistic and elbow method
+Merge small clusterings then remove large ones
+Gap statistic and elbow method again
+Covariance and distance matrix
 
 
 %Section

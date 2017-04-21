@@ -1,9 +1,16 @@
 ### Dissertation Status *updated daily*:
-* 2k words into methodology, added module analyses and lots of figures.
-* added several appendices such as a few raw class files and examples
-* *still* Writing methodology
+* Methodology almost finished. Still needs POC testing and Mathematical model
 * included TODO list at end of methodology tex file
 * no literature review. will do at end *if* required.
+
+### Sections TODO
+* Methodology - Mathematical Model and Algorithms
+* Methodology - POC testing & Results
+* Conclusions
+* Discussions and future work
+* Abstract
+* Lit review
+
 
 #### Unable to decide between the following titles:
 

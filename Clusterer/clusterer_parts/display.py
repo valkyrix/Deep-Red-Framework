@@ -146,21 +146,21 @@ def remove_large_clusters():
     nessusArray = clusterX
     nmapArray = NclusterX
     combined = np.array([])
-
+	maxaddresses = 3
     #use biggest array by amount of clusters
     #loop through largest cluster array, index is each cluster
     iterations=0
     for index in range(len(nessusArray[:, 0])):
         iplistnessus = nessusArray[(index-iterations), 2]
             #delete largest clusters, clusters with more than 5 ips
-        if len(iplistnessus)>3:
+        if len(iplistnessus)> maxaddresses:
             nessusArray = np.delete(nessusArray,(index-iterations), 0)
             iterations +=1
     iterations=0
     for index in range(len(nmapArray[:, 0])):
         iplistnmap = nmapArray[(index-iterations), 2]
             #delete largest clusters, clusters with more than 5 ips
-        if len(iplistnmap)>3:
+        if len(iplistnmap)> maxaddresses:
             nmapArray = np.delete(nmapArray,(index-iterations), 0)
             iterations +=1
 

@@ -245,14 +245,14 @@ def cluster(
                 # 1: True,  # Min Silhouette
                 # 2: False,  # Average distance
                 4: False,  # Number of clusters
-                # 6: True,   # Min common features per cluster
+                #6: True,   # Min common features per cluster
             },
             {
                 # 0: 1,
                 # 1: 1,
                 # 2: 1,
                 4: 1,
-                # 6: 1
+                #6: 1
             }
         )
         # logging.debug(sorted_results)
