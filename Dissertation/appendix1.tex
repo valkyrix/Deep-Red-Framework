@@ -789,3 +789,55 @@ def cluster(
         # Unknown strategy
         raise NotImplementedError()
 \end{lstlisting}
+
+\section{Gap Statistic Implementation}
+\label{gapstatistic}
+
+\paragraph{}The following segment of codeis the defined function 'optimalK' which calculates the optimal value for K in K-means via the Gap Statistic method. This implementation is within the optimal\_k\_k\_means.py class and is thoroughly commentated.  The parameters and returned value are explained at the top of the function.
+
+\begin{lstlisting}[language=python]
+
+def optimalK(data, nrefs, maxClusters):
+    """
+    Calculates KMeans optimal K using Gap Statistic from http://web.stanford.edu/~hastie/Papers/gap.pdf
+    Params:
+        data: ndarry of shape (n_samples, n_features)
+        nrefs: number of sample reference datasets to create
+        maxClusters: Maximum number of clusters to test for
+    Returns: (gaps, optimalK)
+    """
+    gaps = np.zeros((len(range(1, maxClusters)),))
+    resultsdf = pd.DataFrame({'clusterCount': [], 'gap': []})
+    for gap_index, k in enumerate(range(1, maxClusters)):
+
+        # Holder for reference dispersion results
+        refDisps = np.zeros(nrefs)
+
+        # For n references, generate random sample and perform kmeans getting resulting dispersion of each loop
+        for i in range(nrefs):
+            # Create new random reference set
+            randomReference = np.random.random_sample(size=data.shape)
+
+            # Fit to it
+            km = KMeans(k)
+            km.fit(randomReference)
+
+            refDisp = km.inertia_
+            refDisps[i] = refDisp
+
+        # Fit cluster to original data and create dispersion
+        km = KMeans(k)
+        km.fit(data)
+
+        origDisp = km.inertia_
+
+        # Calculate gap statistic
+        gap = np.log(np.mean(refDisps)) - np.log(origDisp)
+
+        # Assign this loop's gap statistic to gaps
+        gaps[gap_index] = gap
+
+        resultsdf = resultsdf.append({'clusterCount': k, 'gap': gap}, ignore_index=True)
+
+    return (gaps.argmax() + 1, resultsdf)  # Plus 1 because index of 0 means 1 cluster is optimal, index 2 = 3 clusters are optimal
+\end{lstlisting}
