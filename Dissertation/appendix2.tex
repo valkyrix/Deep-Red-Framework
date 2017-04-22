@@ -52,14 +52,14 @@ cluster.py -s automatic -vv -p -t -N -tp ../cw.xml ../cw.nessus
 \end{figure}
 
 
-\section{Hacklab Analysis}
+\section{Hacklab Analysis Results}
 \label{hacklab}
 
 \paragraph{}The following results contain outputs of the application created in this thesis when using the University Hacklab network as a dataset for scanning. The scans was obtained after permission was given on the 21st of March 2017. The IP addresses included within the scope is the entire /24 subnet with a mask of 255.255.255.0.
 
 The nmap command used to obtain the scan was as follows:
 \begin{lstlisting}[language=bash]
-nmap -A -vvvv -oX test2.xml 10.0.0.0/24
+nmap -A -O -oX hacklab.xml 10.0.0.0/24
 \end{lstlisting}
 The nessus configuration used was the default policy on an advanced scan. The target IP address configuration of 10.0.0.0/24 was used.
 

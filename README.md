@@ -1,13 +1,12 @@
 ### Dissertation Status *updated daily*:
 * Mathematical Model and algorithms section finished
-* no literature review. will do at end *if* required.
+* Testing finished
 
 ### Sections TODO
-* Methodology - POC testing & Results
-* Conclusions
-* Discussions and future work
-* Abstract
-* Lit review*
+* lit review est 1k words
+* Conclusions est 1k words
+* Discussions of results and future work. rest 2k words
+* Abstract est 500 words
 
 
 #### Unable to decide between the following titles:

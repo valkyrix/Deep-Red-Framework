@@ -206,16 +206,67 @@ The Covariance and distance matrices displayed prior to graphing output are calc
 Covariance for a given centroid vector dimensions \textit{x} and \textit{y} is calculated using the formula: $cov\left( {x,y} \right) = \frac{{(\mathop \sum \nolimits_{i = 1}^n \left( {{x_i} - \bar x} \right)\left( {{y_i} - \bar y} \right))\;}}{{n - 1}}$ . This is calculated for each centroid in the chosen clustering and displayed in a matrix.
 The distance matrix displays the Euclidian distance between the x and y values for each centroid in the clustering.
 
-\section{Testing}
+\section{Application Testing}
 \label{testing}
+\paragraph{}Unfortunately due to the sensitive nature of the data required by the application, there are no datasets to be found publicly available online. Therefore, in order to design a proof of concept test procedure a dataset must be created using a significant network size to simulate the proportions of a real organizational network. The size requirements of this dataset limit the use of virtualized machine networks due the raw processing power required for a network of that size, hence, the permission was granted to allow for the scanning of a private network laboratory in the University of Abertay. The laboratory consisted of approximately 50 online devices at the time of scanning. The raw scan output files for Nmap and Nessus can be found within the thesis’ artefacts, hacklab analysis folder with the file names hacklab\_new.xml and hacklab\_new.nessus respectfully.
 
-\paragraph{}
+\paragraph{}The creation of this dataset required installing the Nmap and Nessus scanner tools on a separate device plugged into the network for this sole purpose. The device used to enter the network and execute the scans was a Dell latitude E6410 laptop running the latest rolling release kernel of Arch Linux. This setup was used specifically to replicate a similar scenario to that of what an industry professional might encounter. The latest stable releases of the required software were used. At the time of writing this thesis (April 2017) those reference numbers were as follows: 
+\begin{itemize}
+\item Nmap 7.40
+\item Nessus 6.10.5 
+\item Python 2.7.13
+\item Python Libraries
+\begin{itemize}
+\item backports-abc==0.4
+\item bokeh==0.12.1
+\item certifi==2016.8.8
+\item cycler==0.10.0
+\item futures==3.0.5
+\item Jinja2==2.8
+\item MarkupSafe==0.23
+\item matplotlib==1.5.1
+\item numpy==1.11.1
+\item pyparsing==2.1.8
+\item python-dateutil==2.5.3
+\item pytz==2016.6.1
+\item PyYAML==3.11
+\item requests==2.11.0
+\item scikit-learn==0.17.1
+\item scipy==0.18.0
+\item singledispatch==3.4.0.3
+\item six==1.10.0
+\item tornado==4.4.1
+\item tabulate==0.7.7
+\end{itemize}
+\end{itemize}
 
-Proof of concept testing, what was done. Validate results
+The Nmap scan was created using the following command: 
+\begin{lstlisting}[language=python]
+nmap -A -O -oX hacklab.xml 10.0.0.0/24
+\end{lstlisting}
+The -Ox flag in this command exports the scan as an XML which is the only export format the clustering application currently supports.\linebreak
+The Nessus scan was created by using the default scan policy in the advanced scan mode with the same scope as nmap, 10.0.0.0/24. This was then exported as the latest version of the proprietary Nessus XML format from the scan overview page.
+
+\paragraph{}Once both scans have completed the next step is to remove the testing device used from the XML files manually due to each scanner retrieving greatly differing results from the testing machine compared to other machines on the network. This step is crucial and ignoring it will manipulate the final result of the clustering algorithm rendering it inaccurate. The artefact files have had this step done prior to submission.
+
+The scan files have then been passed through the clustering application using the following commands for each input type in automatic mode:\linebreak
+
+\textbf{Nmap}
+\begin{lstlisting}[language=bash]
+cluster.py -s automatic -vv -p "../hacklab analyses/hacklab_new.xml"
+\end{lstlisting}
+
+\textbf{Nessus}
+\begin{lstlisting}[language=bash]
+cluster.py -s automatic -vv -p -N "../hacklab analyses/hacklab_new.nessus"
+\end{lstlisting}
 
 
-%Section
-\section{Proof of Concept Testing}
-\label{poc}
+\textbf{Dual Input}
+\begin{lstlisting}[language=bash]
+cluster.py -s automatic -vv -p -t -N -tp "../hacklab analyses/hacklab_new.xml" "../hacklab analyses/hacklab_new.nessus"
+\end{lstlisting}
+
+\paragraph{}More information and the results for this proof of concept test can be found in Appendix section \ref{hacklab}. These results will be validated within the thesis conclusions.
 
 
