@@ -1,11 +1,9 @@
 ### Dissertation Status *updated daily*:
-* Mathematical Model and algorithms section finished
-* Testing finished
+* added short lit review @ 800 words
 
 ### Sections TODO
-* lit review est 1k words
+* Discussions of results and future work. est 2k words
 * Conclusions est 1k words
-* Discussions of results and future work. rest 2k words
 * Abstract est 500 words
 
 

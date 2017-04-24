@@ -1,8 +1,13 @@
 \documentclass[12pt]{dissertation} 
 
-%load any additional packages
+%packages
 \usepackage{amssymb}
+\usepackage{amsmath}
 \usepackage{natbib}
+%code packages
+\usepackage{listings, lstautogobble}
+\usepackage{color}
+
 \title{Differential IP Clustering for Vulnerability Detection using applied Machine Learning} 
 \author{Sebastian Bocquier}             %your name
 \college{Division of Computing and Mathematics}  %your college
@@ -13,13 +18,9 @@
 
 
 %code block stuff
-\usepackage{listings, lstautogobble}
-\usepackage{color}
-
 \definecolor{dkgreen}{rgb}{0,0.6,0}
 \definecolor{gray}{rgb}{0.5,0.5,0.5}
 \definecolor{mauve}{rgb}{0.58,0,0.82}
-
 \lstset{frame=tb,
   language=Java,
   aboveskip=3mm,
@@ -37,8 +38,6 @@
   tabsize=3,
   autogobble=true
 }
-
-%end the preamble and start the document
 \begin{document}
 
 %this baselineskip gives sufficient line spacing for an examiner to easily
@@ -50,31 +49,31 @@
 \setcounter{tocdepth}{3}
 
 
-\maketitle                  % create a title page from the preamble info
-\include{dedication}        % include a dedication.tex file
-\include{acknowledgements}   % include an acknowledgements.tex file
-\include{abstract}          % include the abstract
+\maketitle
+\include{dedication}
+\include{acknowledgements}
+\include{abstract}
 
 \begin{romanpages}          % start roman page numbering
 \tableofcontents            % generate and include a table of contents
 \listoffigures              % generate and include a list of figures
 \end{romanpages}            % end roman page numbering
 
-%now include the files of latex for each of the chapters etc
+%Chapters
 \include{Introduction}
 \include{litreview}
 \include{Methodology}
 \include{discussions}
 \include{conclusion}
 
-%now enable appendix numbering format and include any appendices
+%Appendices
 \appendix
 \include{appendix1}
 \include{appendix2}
 
 
 %uncomment next line to change bibliography name to references
-%\renewcommand{\bibname}{References}
+\renewcommand{\bibname}{References}
 \bibliography{ref}        %use a bibtex bibliography file refs.bib
 \bibliographystyle{agsm}  %use the plain bibliography style
 

@@ -107,16 +107,17 @@ Similar models have been used for AI’s mentioned in Figure ~\ref{fig:aitimelin
 \paragraph{}As mentioned above, due to the amount of machine learning algorithms available and project time constraints, only a few of the most common algorithms will be described below.
 \subsection{Linear Regression} 
 \paragraph{}Linear regression predicts real values based off continuous data of two variables. It does this by using a best fit or regression line over the existing data extending in predictions. If the data does not indicate any positive or negative trends then using linear regression will likely not be a very useful model. The trend or direction of data can be calculated using correlation coefficient as follows, where $\left( {{x_2},{y_1}} \right),\left( {{x_n},{y_n}} \right)$ is the observed data.
-
-$r = \frac{1}{{n - 1}}\Sigma \left( {\frac{{x - \bar x}}{{{s_x}}}} \right)\left( {\frac{{y - \bar y}}{{{s_y}}}} \right)$
-
+\begin{align*}
+r = \frac{1}{{n - 1}}\Sigma \left( {\frac{{x - \bar x}}{{{s_x}}}} \right)\left( {\frac{{y - \bar y}}{{{s_y}}}} \right)
+\end{align*}
 A value that is close to 1 would indicate positive correlation where -1 would indicate negative correlation. A normalised covariance calculation may also be used instead.
 \subsection{K-Nearest Neighbours}
 \label{KNN}
-\paragraph{}K-nearest neighbours (or KNN) is a widely used computationally expensive supervised learning model for data classification but can also be used for regression problems. The value ‘k’ refers to the distance is which to weigh the number of class nodes inside. Several distance functions can be used such as Euclidean, Manhattan and Minkowski with the most common being Euclidean. Euclidian distance is the straight-line distance between the two nodes. On a two-dimensional plane it is measured using the following formula where the coordinates are ${\bf{p}}{\rm{\;}} = {\rm{\;}}\left( {p1,{\rm{\;}}p2} \right){\rm{\;and\;}}{\bf{q}}{\rm{\;}} = {\rm{\;}}\left( {q1,{\rm{\;}}q2} \right)$.
-
-$d\left( {p,1} \right) = \sqrt {{{\left( {{q_1} - {p_1}} \right)}^2} + {{\left( {{q_2} - {p_2}} \right)}^2}} \;\;$
-
+\paragraph{}K-nearest neighbours (or KNN) is a widely used computationally expensive supervised learning model for data classification but can also be used for regression problems. The value ‘k’ refers to the distance is which to weigh the number of class nodes inside. Several distance functions can be used such as Euclidean, Manhattan and Minkowski with the most common being Euclidean. Euclidian distance is the straight-line distance between the two nodes. On a two-dimensional plane it is measured using the following formula where the coordinates are 
+${\bf{p}}{\rm{\;}} = {\rm{\;}}\left( {p1,{\rm{\;}}p2} \right){\rm{\;and\;}}{\bf{q}}{\rm{\;}} = {\rm{\;}}\left( {q1,{\rm{\;}}q2} \right)$.
+\begin{align*}
+d\left( {p,1} \right) = \sqrt {{{\left( {{q_1} - {p_1}} \right)}^2} + {{\left( {{q_2} - {p_2}} \right)}^2}} \;\;
+\end{align*}
 For e.g. if k = 1 then the current node will be assigned to the same class as its nearest node, where as if k = 5 then the class with the largest number of nodes in a distance of 5 will be selected to represent the current node. KNN is not resistant to bias in data-sets and thus data must be normalised before inputted into the model. KNN models are not to be confused with K-means clustering models as they share a very loose relationship being that KNN can be used to add data into pre-existing K-means clusters known as a nearest centroid classifier.
 \subsection{K-means Clustering} 
 \paragraph{}K-means Clustering is an unsupervised model in which the number of clusters is specified in advance. ‘K’ being the number of clusters the model will output for the given data. The value for K can be assigned manually or the optimal value can be calculated by using either the elbow method or the gap statistic, the latter of which is used and explained in the methodology section of this thesis with a practical use of K-means. The K-means algorithm itself is also known as Lloyd's algorithm and uses iterative refinement to determine the best clustering.
