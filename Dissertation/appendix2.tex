@@ -85,7 +85,7 @@ cluster.py -s automatic -vv -p -N "../hacklab analyses/hacklab_new.nessus"
 \label{split_nessus}
 \end{figure}
 
-\paragraph{}The Figure \ref{split_nmap} below shows output to that similar of the Figure \ref{split_nessus} above however this used the Nmap dataset as appose to the Nessus one used in that figure. The command used to acheive this result is as follows:
+\paragraph{}The Figure \ref{split_nmap} shows output to that similar of the Figure \ref{split_nessus} above however this used the Nmap dataset as appose to the Nessus one used in that figure. The command used to acheive this result is as follows:
 \begin{lstlisting}[language=bash]
 cluster.py -s automatic -vv -p "../hacklab analyses/hacklab_new.xml"
 \end{lstlisting}
@@ -96,7 +96,7 @@ cluster.py -s automatic -vv -p "../hacklab analyses/hacklab_new.xml"
 \label{split_nmap}
 \end{figure}
 
-\paragraph{} Figure \ref{dual} below shows the graphing interface opened after the completion of the clustering algorithm. This was acheived using dual mode and the command use can be found above in \ref{hacklabtext}.
+\paragraph{} Figure \ref{dual} shows the graphing interface opened after the completion of the clustering algorithm. This was acheived using dual mode and the command use can be found above in \ref{hacklabtext}.
 \begin{figure}[!h]
 \centering
 \includegraphics[width=5.5in]{./Figures/dual.png}
@@ -104,5 +104,18 @@ cluster.py -s automatic -vv -p "../hacklab analyses/hacklab_new.xml"
 \label{dual}
 \end{figure}
 
+\paragraph{}Figures \ref{hacklab_nessus1} and \ref{hacklab_nessus2} below show both halfs of the Nessus GUI interface overview. The same Nessus output file from the scan above in \ref{split_nessus} was used. The original representation was split into two Figues due to the size otherwise being too large for this document.
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6.5in]{./Figures/hacklab_nessus1.png}
+\caption{Nessus interface overview of Abertay University Hacklab network using default policy (First Half).}
+\label{hacklab_nessus1}
+\end{figure}
+\begin{figure}[!h]
+\centering
+\includegraphics[width=6.5in]{./Figures/hacklab_nessus2.png}
+\caption{Nessus interface overview of Abertay University Hacklab network using default policy (Second Half).}
+\label{hacklab_nessus2}
+\end{figure}
 
 

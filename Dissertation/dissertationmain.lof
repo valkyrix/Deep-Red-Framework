@@ -1,0 +1,23 @@
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Timeline of artificial intelligence for games}}{2}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Illustration of machine learning types}}{6}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Application infrastructure data flow diagram}}{17}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Network scan data and input parameter modules from infrastructure diagram at Figure 3.1\hbox {}}}{17}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces The data processing section from the infrastructure diagram at Figure 3.1\hbox {} with the irrelevant modules blurred out}}{19}
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Conditional merge vectors process module from the infrastructure diagram at Figure 3.1\hbox {}}}{20}
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Location of the variable which defines the number of maximum IP addresses a cluster is allowed to have for the vulnerability analysis process. The variable is defined within the display.py class’s remove large clusters function on line 149}}{21}
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Representation of clusterer subclass from infrastructure diagram Figure 3.1\hbox {} spotlighted}}{21}
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Representation of covariance and distance matrices function from infrastructure diagram Figure 3.1\hbox {} spotlighted}}{23}
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Representation of the display modules from infrastructure diagram Figure 3.1\hbox {} with irrelevant modules blurred out}}{24}
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces The detected different and vulnerable IP addresses from the Hacklab Analysis testing section in 3.4\hbox {}}}{33}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Short excerpt from graphing output of Abertay University’s Hacklab network analysis}}{34}
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {B.1}{\ignorespaces Example of graphing interface GUI from a fictional network to be used in conjunction with text output at B.1.1\hbox {}}}{63}
+\contentsline {figure}{\numberline {B.2}{\ignorespaces Example graphing interface output using the the Abertay University Hacklab Nessus scan as a dataset.}}{70}
+\contentsline {figure}{\numberline {B.3}{\ignorespaces Example graphing interface output using the the Abertay University Hacklab Nmap scan as a dataset.}}{70}
+\contentsline {figure}{\numberline {B.4}{\ignorespaces Example graphing interface output using both scans of Abertay University Hacklab and running the application in dual mode. }}{71}

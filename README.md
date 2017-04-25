@@ -1,8 +1,7 @@
 ### Dissertation Status *updated daily*:
-* added short lit review @ 800 words
+* Lit review might be too short @ 700 words
 
 ### Sections TODO
-* Discussions of results and future work. est 2k words
 * Conclusions est 1k words
 * Abstract est 500 words
 

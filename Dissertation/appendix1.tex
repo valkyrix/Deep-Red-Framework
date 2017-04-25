@@ -60,7 +60,7 @@ optional arguments:
   -v, --verbosity       increase output verbosity
 \end{lstlisting}
 
-\section{Initialization Class}
+\section{Initialization Class - cluster.py}
 \label{cluster.py}
 %primary class used to launch the application with the majority consisting of calls to other classes and methods
 \paragraph{}The following contains the raw code for the primary initializer class of file  'cluster.py' in the application parent folder. It is used to start the application using parameters from the usage, in Appendix \ref{usage}.  The code has been thuroughly commented with the intention of being modified by a potential tester for individual operational requirements. This is further enforced by the application being entirely modular with each module able to be modified without harming the others. The cluster subclass has been removed from this code and placed in \ref{cluster_subclass} in order to promote the legibility of this appendix thus must not be executed direction without concatination with the afore mentioned subclass first.
@@ -442,7 +442,7 @@ if __name__ == "__main__":
 \end{lstlisting}
 
 
-\section{vectorization class - vectorize.py}
+\section{Vectorization Class - vectorize.py}
 \label{vectorize.py}
 %raw vectorization class from clusterer_parts
 \paragraph{}The following contains the raw code for the vectorize.py class. This class is called by the main cluster.py class at appendix \ref{cluster.py} in order to extract the information from the scan files as well as vectorize that information to be returned to the primary class.
