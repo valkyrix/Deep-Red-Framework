@@ -180,7 +180,7 @@
 
 \newenvironment{abstractlong} {\begin{alwayssingle} \thispagestyle{empty}
   \begin{center}
-  \vspace*{1.5cm}
+  \vspace*{0.5cm}
   {\Large \bfseries  Abstract}
   \end{center}
   \vspace{0.5cm}}

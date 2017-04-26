@@ -1,9 +1,5 @@
 ### Dissertation Status *updated daily*:
-* Lit review might be too short @ 700 words
-
-### Sections TODO
-* Conclusions est 1k words
-* Abstract est 500 words
+* completed thesis, lit review might be too short @ 700 words
 
 
 #### Unable to decide between the following titles:

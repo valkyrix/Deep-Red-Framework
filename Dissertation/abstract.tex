@@ -1,4 +1,10 @@
-\begin{abstract}
-plenty of waffle, plenty of waffle, plenty of waffle, plenty of waffle,
-plenty of waffle, plenty of waffle, plenty of waffle, plenty of waffle.
-\end{abstract}
+% !TEX root=dissertationmain.tex
+\begin{abstractlong}
+The field of computing and networking security has had much research and innovation in applied machine learning within software tools. However, this focus has primarily been on blue team, leaving the red team behind and lacking in innovation. The nature of red teaming requires advanced tools to counter the increasing complexity of those used by blue team. Therefore, if a balance in research and innovation is not retained, red teaming will risk becoming obsolete. Related literature has been reviewed to provide a basis of understanding in the subject area.
+
+The purpose of this thesis is to create a proof of concept tool which will aid in red teaming activities using machine learning techniques, as well as create grounds for further research into the field. The application created is able to determine the highest probable, vulnerable hosts in a network, as well as return full clusterings of the network for each form of input. The application has several different modes which require at least one file input from common network scanning tools in order to function. The application determines these vulnerable hosts by using several different clustering and statistical calculations with a small bias towards vulnerability data. The results are displayed in text form with varying levels of verbosity. There is an optional GUI to display the results in greater detail, which includes manipulatable clustering graphs and host information. The application is highly configurable, portable and versatile, allowing it to be used on any size or type of network topology. 
+
+The application was tested on a network dataset consisting of approximately fifty hosts and was found to have successfully determined the vulnerable hosts and achieved the initial design goals it was set. The application was critically reviewed in depth, and was found that it had an issue in determining vulnerable hosts on a network, in which the majority of hosts are vulnerable. In this scenario, the application will disregard the vulnerabilities of those hosts as it deems them to be insufficiently different. Unfortunately, due to the sensitive nature of the datasets required and project time constraints, only one network dataset was used. This issue is due to the application's core design; several solutions, as well as improvements of varying complexity are provided as future development recommendations. 
+
+The positive results of the thesis show that red teaming is able to benefit from applied machine learning techniques and that more research needs to be conducted in this field.
+\end{abstractlong}
