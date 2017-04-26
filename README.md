@@ -1,5 +1,5 @@
 ### Dissertation Status *updated daily*:
-* completed thesis, lit review might be too short @ 700 words
+* completed thesis, lit review might be too short @ 700 words :(
 
 
 #### Unable to decide between the following titles:

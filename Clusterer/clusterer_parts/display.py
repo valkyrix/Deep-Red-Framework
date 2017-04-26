@@ -146,7 +146,7 @@ def remove_large_clusters():
     nessusArray = clusterX
     nmapArray = NclusterX
     combined = np.array([])
-	maxaddresses = 3
+    maxaddresses = 3
     #use biggest array by amount of clusters
     #loop through largest cluster array, index is each cluster
     iterations=0
