@@ -17,6 +17,10 @@ def get_k():
     global k
     return k
 
+def set_k(k2):
+    global k
+    k = k2
+
 def get_centroids(vectors, n_clusters):
     if n_clusters == 2:
         # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
@@ -41,6 +45,8 @@ def cluster_single_kmeans(vectors, n_clusters):
         # We can choose any of the following 2 methods:
         #k = elbow_method(vectors, vectors.shape[0]);
         #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
+
+
         logging.info("Calculating gap statistic value, this can take a while...\n")
         global k
         k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
@@ -56,20 +62,22 @@ def cluster_single_kmeans(vectors, n_clusters):
 
 
 def cluster_with_kmeans(vectors, n_clusters):
-    # if n_clusters == 2:
+    if n_clusters == 2:
         # Meaning that user didn't set the cluster number, thus we have to find the optimal number of clusters
         # We can choose any of the following 2 methods:
-        #n_clusters = elbow_method(vectors, 20);
+        #k = elbow_method(vectors, vectors.shape[0]);
         #n_clusters = gap_statistic(vectors, 20)  # 20 is the max amount of allowed clusters
-        # logging.info("Calculating gap statistic value, this can take a while...\n")
-        # global k
-        # k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
-        # logging.info("gap statistics recommends number of clusters: {0}\n".format(k))
-        # if (k > n_clusters):
-        #     logging.debug("No K value specified, using Gap Statistic\n")
-        #     n_clusters = k
-        # else:
-        #     n_clusters = 2
+
+
+        logging.info("Calculating gap statistic value, this can take a while...\n")
+        global k
+        k, gapdf = optimalK(vectors, nrefs=10, maxClusters=vectors.shape[0])
+        logging.info("gap statistics recommends number of clusters: {0}\n".format(k))
+        if (k > n_clusters):
+            logging.debug("No K value specified, using Gap Statistic (for this iteration only)\n")
+            n_clusters = k
+        else:
+            n_clusters = 2
 
     kmeans = KMeans(n_clusters=n_clusters, n_jobs=-1)
     return kmeans.fit_predict(vectors)

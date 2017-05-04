@@ -8,9 +8,88 @@ from analysis import reduce_shared_features, get_common_features_from_cluster
 import matplotlib.pyplot as plt
 import numpy as np
 from scipy import spatial
+from itertools import cycle
+
+from sklearn import svm, datasets
+from sklearn.metrics import roc_curve, auc
+from sklearn.cross_validation import train_test_split
+from sklearn.preprocessing import label_binarize
+from sklearn.multiclass import OneVsRestClassifier
+
 first_pass = 0
 clusterX = dict()
 NclusterX = dict()
+
+def roc(vectors, labels):
+    # Import some data to play with
+    iris = datasets.load_iris()
+    X = vectors
+    y = labels
+
+    # Binarize the output
+    y = label_binarize(y, classes=[0, 1, 2])
+    n_classes = y.shape[1]
+
+    # Add noisy features to make the problem harder
+    # random_state = np.random.RandomState(0)
+    # n_samples, n_features = X.shape
+    # X = np.c_[X, random_state.randn(n_samples, 200 * n_features)]
+    random_state = 0
+
+    # shuffle and split training and test sets
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=.5,
+                                                        random_state=0)
+
+    # Learn to predict each class against the other
+    classifier = OneVsRestClassifier(svm.SVC(kernel='linear', probability=True,
+                                             random_state=random_state))
+    y_score = classifier.fit(X_train, y_train).decision_function(X_test)
+
+    # Compute ROC curve and ROC area for each class
+    fpr = dict()
+    tpr = dict()
+    roc_auc = dict()
+    for i in range(n_classes):
+        fpr[i], tpr[i], _ = roc_curve(y_test[:, i], y_score[:, i])
+        roc_auc[i] = auc(fpr[i], tpr[i])
+
+    # Compute micro-average ROC curve and ROC area
+    fpr["micro"], tpr["micro"], _ = roc_curve(y_test.ravel(), y_score.ravel())
+    roc_auc["micro"] = auc(fpr["micro"], tpr["micro"])
+
+    # Plot of a ROC curve for a specific class
+    # plt.figure()
+    # plt.plot(fpr[2], tpr[2], label='ROC curve (area = %0.2f)' % roc_auc[2])
+    # plt.plot([0, 1], [0, 1], 'k--')
+    # plt.xlim([0.0, 1.0])
+    # plt.ylim([0.0, 1.05])
+    # plt.xlabel('False Positive Rate')
+    # plt.ylabel('True Positive Rate')
+    # plt.title('Receiver operating characteristic example')
+    # plt.legend(loc="lower right")
+    # plt.show()
+
+    # Plot ROC curve
+    fig =plt.figure()
+    fig.canvas.set_window_title('Multi-class ROC curve *Beta')
+    plt.plot(fpr["micro"], tpr["micro"],
+             label='micro-average ROC curve (area = {0:0.2f})'
+                   ''.format(roc_auc["micro"]))
+    for i in range(n_classes):
+        plt.plot(fpr[i], tpr[i], label='ROC curve of class {0} (area = {1:0.2f})'
+                                       ''.format(i, roc_auc[i]))
+
+    plt.plot([0, 1], [0, 1], 'k--')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Some extension of Receiver operating characteristic to multi-class')
+    plt.legend(loc="lower right")
+    plt.show()
+
+    return 0
+
 def display_vector_index_details(vector_index, vectors, vector_names, vectorizer):
     # borrow the feature -> string method from get_common_features_from_cluster
     output = ""
@@ -185,7 +264,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     #therefore variable order is nmap then nessus
 
     logging.debug("twin cluster plot.")
-    fig =plt.figure(figsize=(12, 12))
+    fig =plt.figure(figsize=(12, 12), facecolor='white')
     fig.canvas.set_window_title('Clustering Tool')
     gs = gridspec.GridSpec(4, 2)
     colors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(labels))))
@@ -193,8 +272,8 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     fcolors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(clusterz.labels_))))
     # sort_cent will be a sorted centroid list
     global sort_cent, Nsort_cent
-    Nsort_cent = np.zeros((Nn_clusters, 2))
-    sort_cent = np.zeros((n_clusters, 2))
+    Nsort_cent = np.zeros((len(Ncentroids[:, 0]), 2))
+    sort_cent = np.zeros((len(centroids[:, 0]), 2))
 
     global NclusterX, clusterX
 
@@ -208,7 +287,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
         plt.annotate(vector_names[index], xy=(reduced_vectors[index, 0], reduced_vectors[index, 1]), color="0.5")
 
     # centroids for nmap
-    for index2 in range(n_clusters):
+    for index2 in range(len(centroids[:, 0])):
 
         clusterID = 99
         pt = (centroids[index2, 0], centroids[index2, 1])
@@ -223,7 +302,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
                 break
             continue
         # find cluster_id of the nearest IP
-        for index4 in range(n_clusters):
+        for index4 in range(len(centroids[:, 0])):
             # if first IP of cluster is inside this clusters ip list
 
             IPlist = NclusterX.item((index4, 2))
@@ -262,7 +341,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
         plt.annotate(Nvector_names[index], xy=(Nreduced_vectors[index, 0], Nreduced_vectors[index, 1]), color="0.5")
 
     # centroids for Nessus
-    for index2 in range(Nn_clusters):
+    for index2 in range(len(Ncentroids[:, 0])):
         clusterID = 99
         pt = (Ncentroids[index2, 0], Ncentroids[index2, 1])
         # find reduced vector X and Y of nearest IP
@@ -276,7 +355,7 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
                 break
             continue
         # find cluster_id of the nearest IP
-        for index4 in range(Nn_clusters):
+        for index4 in range(len(Ncentroids[:, 0])):
             # if first IP of cluster is inside this clusters ip list
 
             global clusterX
@@ -322,7 +401,9 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     info = parse_single_ips(twinpath ,small_ips)
     #logging.debug("retreiving single IPs info: {0}".format(info))
 
-    logging.debug(info)
+    #shows info retrieved from nmap xml
+    #logging.debug(info)
+
     #parse ip information dictionary for display
     printinfo ="Recommended attack vectors: \n"
     for k, v in info.iteritems():
@@ -337,10 +418,14 @@ def twin(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_d
     plt.tight_layout() #tighten everything up a bit
     plt.show()
 
+    #ROC curve for multiclass
+    #TODO implement a multiclass ROC curve for kmeans clustering as discussed in http://www.fjt.info.gifu-u.ac.jp/publication/537.pdf
+    #roc(reduced_vectors, labels)
+
 def create_plot_centroids(reduced_vectors, labels, vector_names, centroids, n_clusters, cluster_details):
 
         logging.debug("ploting graph with centroids.")
-        fig =plt.figure(figsize=(10,5))
+        fig =plt.figure(figsize=(10,5), facecolor='white')
 
         fig.canvas.set_window_title('Clustering Tool')
         colors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(labels))))
@@ -412,7 +497,7 @@ def create_plot_centroids(reduced_vectors, labels, vector_names, centroids, n_cl
 def create_plot(reduced_vectors, labels, vector_names):
 
         logging.debug("ploting graph without centroids.")
-        fig=plt.figure()
+        fig=plt.figure(facecolor='white')
         fig.canvas.set_window_title('Clustering Tool')
         colors = plt.get_cmap('jet')(np.linspace(0, 1.0, len(set(labels))))
         for index in range(len(labels)):
@@ -425,7 +510,7 @@ def create_plot(reduced_vectors, labels, vector_names):
 
 def create_plot_only_centroids(reduced_vectors, labels, vector_names, centroids, n_clusters, ):
     logging.debug("ploting graph with only centroids.")
-    fig=plt.figure()
+    fig=plt.figure(facecolor='white')
     fig.canvas.set_window_title('Clustering Tool')
 
     # centroids

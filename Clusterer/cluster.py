@@ -5,7 +5,7 @@ from sklearn.preprocessing import normalize
 from clusterer_parts.optimal_k_k_means import optimalK
 from clusterer_parts.analysis import get_common_features_from_cluster, get_common_feature_stats
 from clusterer_parts.clustering import cluster_with_dbscan, cluster_with_kmeans, precompute_distances, \
-    cluster_with_agglomerative, cluster_interactive, get_centroids, cluster_single_kmeans, get_k
+    cluster_with_agglomerative, cluster_interactive, get_centroids, cluster_single_kmeans, get_k, set_k
 from clusterer_parts.display import print_cluster_details, generate_dot_graph_for_gephi, create_plot, \
     create_plot_centroids, create_plot_only_centroids, twin, remove_large_clusters
 from clusterer_parts.optimizing import sort_items_by_multiple_keys
@@ -55,10 +55,16 @@ def cluster(
     if strategy == "manual":
         no_clusters = ""
         if cluster_method == "kmeans":
-            #centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
-            #logging.debug("centroids for kmeans: {0}".format(centroidskmeans))
-            k, gapdf = optimalK(vectors, nrefs=3, maxClusters=reduced_vectors.shape[0])
-            return cluster_with_kmeans(reduced_vectors, n_clusters=k)
+            # logging.debug("Gap statistic recommends: {0}".format(k))
+            #TODO if no cluster number is specified they might get different values for gap statistic and will crash
+            if(n_clusters!=2):
+                centroidskmeans = get_centroids(reduced_vectors, n_clusters=n_clusters)
+                return cluster_with_kmeans(reduced_vectors, n_clusters=n_clusters)
+            else:
+                k, gapdf = optimalK(vectors, nrefs=3, maxClusters=reduced_vectors.shape[0])
+                set_k(k)
+                centroidskmeans = get_centroids(reduced_vectors, k)
+                return cluster_with_kmeans(reduced_vectors, k)
 
         elif cluster_method == "dbscan":
             return cluster_with_dbscan(reduced_vectors, epsilon=epsilon, min_samples=min_samples, metric=metric)
@@ -360,6 +366,7 @@ if __name__ == "__main__":
         print_cluster_details(cluster_details, shared_features)
 
         if args.plot:
+            global centroidskmeans
             # only kmeans centroids for now
             if no_clusters.startswith("kmeans") :
                 logging.debug("Getting centroids using reduced vectors:")

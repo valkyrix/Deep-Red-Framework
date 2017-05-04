@@ -1,20 +1,11 @@
-### Dissertation Status *updated daily*:
-* completed thesis, lit review might be too short @ 700 words :(
+### changelog 6:39am 4th May 17
+* changed background colour of GUI to white, its more pleasing to the eyes.
+* implemented fix for bug when user runs manual mode without specifying cluster amount on kmeans. It crashes 1/5 times but works otherwise. I assume this is due to the problem of time stepping and can probably be fixed by sleeping threads at a certain point, or by the gap statistic returning very large cluster numbers.
+* fixed manual mode in general, works as intended now.
+* improved general efficiency
+* ~~BUG: when using automatic mode and gap statistic is selected by the algorithm, the centroids will not be displayed correctly on the basic clusterings although the combined clustering will function as intended.~~ FIXED
 
-
-#### Unable to decide between the following titles:
-
-* Implementing Machine Learning techniques to construct a Red Teaming solution
-* Constructing a Vulnerability Clusterer using applied Machine Learning techniques
-* Constructing a Vulnerability Clusterer with applied Machine Learning 
-* Vulnerability IP clustering with applied Machine Learning
-* Differential IP clustering with applied Machine Learning
-* Differential IP clustering for Vulnerability Detection using applied Machine Learning
-
-the last of which describes the project best but is very long.
-## [insert title here]
-
-
+## Differential IP clustering for Vulnerability Detection using applied Machine Learning
 
 #### Clustering Model
 
@@ -46,6 +37,38 @@ centroids covariance matrix for nmap output:
 centroids covariance matrix for nessus output:
  [[ 0.13216597  0.00459265]
  [ 0.00459265  0.08221746]]
+```
+### Usage
+
+```syntax
+usage: cluster.py [-h] [-s {manual,automatic,assisted}]
+                  [-c {kmeans,dbscan,agglomerative}]
+                  [--metric {euclidean,cosine,jaccard}] [-N] [-n N_CLUSTERS]
+                  [-e EPSILON] [-m MIN_SAMPLES] [-cent] [-t] [-tp twinpath]
+                  [-p] [-v]
+                  path [path ...]
+Cluster NMap/Nessus Output
+positional arguments:
+  path                  Paths to files or directories to scan
+optional arguments:
+  -h, --help            show this help message and exit
+  -s {manual,automatic,assisted}, --strategy {manual,automatic,assisted}
+  -c {kmeans,dbscan,agglomerative}, --method {kmeans,dbscan,agglomerative}
+  --metric {euclidean,cosine,jaccard}
+  -N, --nessus          use .nessus file input
+  -n N_CLUSTERS, --n_clusters N_CLUSTERS
+                        Number of kmeans clusters to aim for
+  -e EPSILON, --epsilon EPSILON
+                        DBSCAN Epsilon
+  -m MIN_SAMPLES, --min_samples MIN_SAMPLES
+                        DBSCAN Minimum Samples
+  -cent, --centroids    plot only centroids graph, requires the use of "-p"
+  -t, --twin            use both input formats to calculate vulnerable single
+                        clusters, use with -tp and -N
+  -tp twinpath, --twinpath twinpath
+                        path to nmap xml if using twin clustering
+  -p, --plot            Plot clusters on 2D plane
+  -v, --verbosity       increase output verbosity
 ```
 
 ### Tasks
