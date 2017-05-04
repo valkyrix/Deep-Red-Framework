@@ -82,6 +82,7 @@ Items ~~ruled~~ are completed.
 * ~~Consider labels~~
 * ~~Create a nessus xml file parser~~ code is messy but it works and is easily editable to incorporate any aspect of nessus file as features
 * ~~Nessus cluster~~ only usable nessus file i have at the moment is my home network which is small and not very clusterable however it seems to work relatively well.
+* add multiple multiclass ROC curves for each clustering in main figure interface.
 
 Using a nessus file from my home network scan.
 <img src="https://s13.postimg.org/xtrm6cehz/nessus_home_agglo_3c.png" width="500">
