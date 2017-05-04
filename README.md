@@ -1,4 +1,4 @@
-### changelog 6:39am 4th May 17
+### Changelog 6:39am 4th May 17
 * changed background colour of GUI to white, its more pleasing to the eyes.
 * implemented fix for bug when user runs manual mode without specifying cluster amount on kmeans. It crashes 1/5 times but works otherwise. I assume this is due to the problem of time stepping and can probably be fixed by sleeping threads at a certain point, or by the gap statistic returning very large cluster numbers.
 * fixed manual mode in general, works as intended now.
